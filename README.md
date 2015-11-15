@@ -44,6 +44,9 @@ to stop progress indicator
 RappleActivityIndicatorView.stopAnimating()
 ```
 
+###Demo
+![demo](Example/Demo/demo.gif)
+
 ## Author
 
 Rajeev Prasad, rjeprasad@gmail.com
