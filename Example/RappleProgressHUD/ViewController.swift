@@ -7,20 +7,23 @@
 //
 
 import UIKit
+import RappleProgressHUD
 
 class ViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     @IBAction func startProgress(sender : AnyObject?) {
-        
+        RappleActivityIndicatorView.startAnimatingWithLabel("Loading...");
+        // to stop programetically call
+        // RappleActivityIndicatorView.stopAnimating()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-
+    
 }
 
