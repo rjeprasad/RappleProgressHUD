@@ -5,10 +5,6 @@
 [![License](https://img.shields.io/cocoapods/l/RappleProgressHUD.svg?style=flat)](http://cocoapods.org/pods/RappleProgressHUD)
 [![Platform](https://img.shields.io/cocoapods/p/RappleProgressHUD.svg?style=flat)](http://cocoapods.org/pods/RappleProgressHUD)
 
-## Usage
-
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
-
 ## Installation
 
 RappleProgressHUD is available through [CocoaPods](http://cocoapods.org). To install
@@ -45,7 +41,11 @@ RappleActivityIndicatorView.stopAnimating()
 ```
 
 ###Demo
-![demo](Example/Demo/demo.gif)
+![demo](Example/Demo/Demo.gif)
+
+## Example Project
+
+To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## Author
 
