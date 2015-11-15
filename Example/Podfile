@@ -1,0 +1,12 @@
+source 'https://github.com/CocoaPods/Specs.git'
+use_frameworks!
+
+target 'RappleProgressHUD_Example', :exclusive => true do
+  pod "RappleProgressHUD", :path => "../"
+end
+
+target 'RappleProgressHUD_Tests', :exclusive => true do
+  pod "RappleProgressHUD", :path => "../"
+
+  
+end
