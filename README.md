@@ -20,6 +20,30 @@ it, simply add the following line to your Podfile:
 pod "RappleProgressHUD"
 ```
 
+##Usage
+import progress library
+
+```ruby
+import RappleProgressHUD
+```
+
+to start progress indicator
+
+```ruby
+RappleActivityIndicatorView.startAnimating()
+```
+
+or
+
+```ruby
+RappleActivityIndicatorView.startAnimatingWithLabel("Loading...");
+```
+
+to stop progress indicator
+```ruby
+RappleActivityIndicatorView.stopAnimating()
+```
+
 ## Author
 
 Rajeev Prasad, rjeprasad@gmail.com

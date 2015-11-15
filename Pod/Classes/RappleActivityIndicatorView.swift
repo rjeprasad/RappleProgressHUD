@@ -8,7 +8,7 @@
 
 import UIKit
 
-/*!
+/**
 RappleActivityIndicatorView - Custom Activity Indicator with swift 2.0
 */
 public class RappleActivityIndicatorView: NSObject {
@@ -18,12 +18,9 @@ public class RappleActivityIndicatorView: NSObject {
     var backgroundView : UIView!
     var text : String?
     
-    override init() {
-        super.init()
-        
-        
-    }
-    
+    /**
+     Start Rapple progress indicator without any text message
+     */
     public class func startAnimating() {
         
         let keyWindow = UIApplication.sharedApplication().keyWindow
@@ -41,11 +38,17 @@ public class RappleActivityIndicatorView: NSObject {
         }
     }
     
+    /**
+     Start Rapple progress indicator with text message
+     */
     public class func startAnimatingWithLabel(label : String) {
         RappleActivityIndicatorView.sharedInstance.text = label
         RappleActivityIndicatorView.startAnimating()
     }
     
+    /**
+     Start Rapple progress indicator
+     */
     public class func stopAnimating() {
         let keyWindow = UIApplication.sharedApplication().keyWindow
         keyWindow?.userInteractionEnabled = true
@@ -116,8 +119,6 @@ public class RappleActivityIndicatorView: NSObject {
         shapeLayer.strokeColor = UIColor(white: 1.0, alpha: 0.8).CGColor
         shapeLayer.lineWidth = 5.0
         self.backgroundView.layer.addSublayer(shapeLayer)
-        
-        
         
         let strokeEnd = CABasicAnimation(keyPath: "strokeEnd")
         strokeEnd.fromValue = 0.0
