@@ -1,0 +1,25 @@
+{
+  "name": "RappleProgressHUD",
+  "version": "0.1.0",
+  "summary": "A short description of RappleProgressHUD.",
+  "description": "",
+  "homepage": "https://github.com/<GITHUB_USERNAME>/RappleProgressHUD",
+  "license": "MIT",
+  "authors": {
+    "Rajeev Prasad": "rjeprasad@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/<GITHUB_USERNAME>/RappleProgressHUD.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "source_files": "Pod/Classes/**/*",
+  "resource_bundles": {
+    "RappleProgressHUD": [
+      "Pod/Assets/*.png"
+    ]
+  }
+}

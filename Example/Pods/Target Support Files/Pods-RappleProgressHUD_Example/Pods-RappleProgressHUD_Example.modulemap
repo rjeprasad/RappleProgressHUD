@@ -1,0 +1,6 @@
+framework module Pods_RappleProgressHUD_Example {
+  umbrella header "Pods-RappleProgressHUD_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,6 @@
+framework module RappleProgressHUD {
+  umbrella header "RappleProgressHUD-umbrella.h"
+
+  export *
+  module * { export * }
+}
