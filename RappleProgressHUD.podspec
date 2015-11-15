@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "RappleProgressHUD"
-  s.version          = "1.0.1"
+  s.version          = "1.0.2"
   s.summary          = "Prexible Activity Indicator / Progress indicator in swift."
 
   s.description      = <<-DESC
