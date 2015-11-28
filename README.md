@@ -12,7 +12,7 @@ RappleProgressHUD is available through [CocoaPods](http://cocoapods.org). To ins
 ## Usage
 
 ```ruby
-pod "RappleProgressHUD"
+pod "RappleProgressHUD" 
 ```
 
 ##Usage
