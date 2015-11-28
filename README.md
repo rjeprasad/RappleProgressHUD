@@ -54,7 +54,7 @@ RappleActivityIndicatorView.stopAnimating()
 ```
 
 ###Demo
-![demo](Example/Demo/Demo.gif)
+![demo](Example/Demo/Progress.gif)
 
 ## Example Project
 
