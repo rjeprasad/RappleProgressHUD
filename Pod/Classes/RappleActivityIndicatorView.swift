@@ -11,12 +11,27 @@ import UIKit
 /**
 RappleActivityIndicatorView - Custom Activity Indicator with swift 2.0
 */
+
+let RappleTintColorKey = "TintColorKet"
+let RappleBGColorKey = "BGColorKey"
+let RappleIndicatorStyleKey = "IndicatorStyleKey"
+
+let RappleStyleApple = "Apple"
+let RappleStyleCircle = "Circle"
+
+let RappleClassicAttribute : [String:AnyObject] = [RappleTintColorKey:UIColor.whiteColor(), RappleIndicatorStyleKey:RappleStyleApple, RappleBGColorKey:UIColor(white: 1.0, alpha: 0.0)]
+
+let RappleModernAttribute : [String:AnyObject] = [RappleTintColorKey:UIColor.whiteColor(), RappleIndicatorStyleKey:RappleStyleCircle, RappleBGColorKey:UIColor(white: 0.0, alpha: 0.5)]
+
 public class RappleActivityIndicatorView: NSObject {
     
     static let sharedInstance = RappleActivityIndicatorView()
     
-    var backgroundView : UIView!
+    var backgroundView : UIView?
     var text : String?
+    
+    var attributes : [String:AnyObject] = [RappleTintColorKey:UIColor.whiteColor(), RappleIndicatorStyleKey:RappleStyleCircle, RappleBGColorKey:UIColor(white: 0.0, alpha: 0.5)]
+    
     
     /**
      Start Rapple progress indicator without any text message
@@ -27,15 +42,29 @@ public class RappleActivityIndicatorView: NSObject {
         keyWindow?.endEditing(true)
         keyWindow?.userInteractionEnabled = false
         
-        let view = RappleActivityIndicatorView.sharedInstance
+        let progress = RappleActivityIndicatorView.sharedInstance
         
-        NSNotificationCenter.defaultCenter().addObserver(view, selector: "deviceOrientationDidChange:", name: UIDeviceOrientationDidChangeNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(progress, selector: "deviceOrientationDidChange:", name: UIDeviceOrientationDidChangeNotification, object: nil)
         
-        view.createProgress()
+        progress.createProgress()
         
-        UIView.animateWithDuration(0.8) { () -> Void in
-            view.backgroundView.alpha = 1.0
+        UIView.animateWithDuration(0.5, animations: { () -> Void in
+            
+            progress.backgroundView?.alpha = 1.0
+            
+            }) { (finished) -> Void in
+                progress.createProgressIndicator()
         }
+    }
+    
+    /**
+     Start Rapple progress indicator without any text message
+     @param attribute progress UI attributes
+     
+     */
+    public class func startAnimating(attributes attributes:[String:AnyObject]) {
+        RappleActivityIndicatorView.sharedInstance.attributes = attributes
+        RappleActivityIndicatorView.startAnimating()
     }
     
     /**
@@ -47,40 +76,57 @@ public class RappleActivityIndicatorView: NSObject {
     }
     
     /**
+     Start Rapple progress indicator with text message
+     @param attribute progress UI attributes
+     */
+    public class func startAnimatingWithLabel(label : String, attributes:[String:AnyObject]) {
+        RappleActivityIndicatorView.sharedInstance.attributes = attributes
+        RappleActivityIndicatorView.sharedInstance.text = label
+        RappleActivityIndicatorView.startAnimating()
+    }
+    
+    /**
      Start Rapple progress indicator
      */
     public class func stopAnimating() {
         let keyWindow = UIApplication.sharedApplication().keyWindow
         keyWindow?.userInteractionEnabled = true
         
-        let view = RappleActivityIndicatorView.sharedInstance
-        
-        view.backgroundView.layer.sublayers = nil
+        let progress = RappleActivityIndicatorView.sharedInstance
         
         UIView.animateWithDuration(0.5, animations: { () -> Void in
-            view.backgroundView.alpha = 0.0
+            progress.backgroundView?.alpha = 0.0
             keyWindow?.tintAdjustmentMode = .Automatic
             keyWindow?.tintColorDidChange()
             }) { (finished) -> Void in
-                let views = view.backgroundView.subviews
-                for v in views {
-                    v.removeFromSuperview()
+                
+                if let views = progress.backgroundView?.subviews {
+                    for v in views {
+                        v.removeFromSuperview()
+                    }
                 }
-                view.backgroundView.removeFromSuperview()
+                
+                progress.backgroundView?.removeFromSuperview()
+                
+                progress.backgroundView = nil
         }
         
-        NSNotificationCenter.defaultCenter().removeObserver(view)
+        
+        NSNotificationCenter.defaultCenter().removeObserver(progress)
     }
     
     func deviceOrientationDidChange(notif:NSNotification) {
-        let view = RappleActivityIndicatorView.sharedInstance
-        let views = view.backgroundView.subviews
-        for v in views {
-            v.removeFromSuperview()
+        let progress = RappleActivityIndicatorView.sharedInstance
+        if let views = progress.backgroundView?.subviews {
+            for v in views {
+                v.removeFromSuperview()
+            }
         }
-        view.backgroundView.removeFromSuperview()
+        progress.backgroundView?.removeFromSuperview()
+        progress.backgroundView = nil
         
-        view.createProgress()
+        progress.createProgress()
+        progress.createProgressIndicator()
     }
     
     private func createProgress() {
@@ -91,20 +137,62 @@ public class RappleActivityIndicatorView: NSObject {
         let bgRect = CGRectMake(0, 0, max!, max!)
         
         backgroundView = UIView(frame: bgRect)
-        backgroundView.backgroundColor = UIColor(white: 0.0, alpha: 0.5)
-        backgroundView.alpha = 1.0
-        backgroundView.userInteractionEnabled = false
-        keyWindow?.addSubview(backgroundView)
+        backgroundView?.backgroundColor = attributes[RappleBGColorKey] as? UIColor
+        backgroundView?.alpha = 1.0
+        backgroundView?.userInteractionEnabled = false
+        keyWindow?.addSubview(backgroundView!)
         
-        let label = UILabel(frame: CGRectMake(0, 0, (keyWindow?.bounds.size.width)! - 20, 21))
-        label.center = CGPointMake((keyWindow?.center.x)!, (keyWindow?.center.y)! + 40)
-        label.textColor = UIColor.whiteColor()
-        label.textAlignment = .Center
-        label.text = text
-        backgroundView.addSubview(label)
         
-        dispatch_async(dispatch_get_main_queue()) { () -> Void in
-            self.addAnimatingCircle()
+    }
+    
+    private func createProgressIndicator(){
+        let keyWindow = UIApplication.sharedApplication().keyWindow
+        
+        let style = attributes[RappleIndicatorStyleKey] as? String
+        
+        if style != nil && style == RappleStyleApple {
+            
+            
+            dispatch_async(dispatch_get_main_queue()) { () -> Void in
+                
+                let squre = UIView(frame: CGRectMake(0,0,150,100))
+                squre.backgroundColor = UIColor(white: 0.0, alpha: 0.8)
+                
+                let indicator = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
+                indicator.center = CGPointMake(squre.center.x, squre.center.y-15)
+                squre.addSubview(indicator)
+                indicator.startAnimating()
+                
+                let label = UILabel(frame: CGRectMake(0, 0, (keyWindow?.bounds.size.width)! - 20, 21))
+                label.center = CGPointMake(squre.center.x, squre.center.y + 20)
+                label.textColor = self.attributes[RappleTintColorKey] as? UIColor
+                label.textAlignment = .Center
+                label.font = UIFont.boldSystemFontOfSize(16)
+                label.text = self.text
+                squre.addSubview(label)
+                
+                squre.layer.cornerRadius = 10.0
+                squre.layer.masksToBounds = true
+                squre.center = (keyWindow?.center)!
+                
+                self.backgroundView?.addSubview(squre)
+            }
+            
+        } else {
+            
+            
+            
+            dispatch_async(dispatch_get_main_queue()) { () -> Void in
+                
+                let label = UILabel(frame: CGRectMake(0, 0, (keyWindow?.bounds.size.width)! - 20, 21))
+                label.center = CGPointMake((keyWindow?.center.x)!, (keyWindow?.center.y)! + 40)
+                label.textColor = self.attributes[RappleTintColorKey] as? UIColor
+                label.textAlignment = .Center
+                label.text = self.text
+                self.backgroundView?.addSubview(label)
+                
+                self.addAnimatingCircle()
+            }
         }
     }
     
@@ -118,7 +206,7 @@ public class RappleActivityIndicatorView: NSObject {
         shapeLayer.fillColor = nil
         shapeLayer.strokeColor = UIColor(white: 1.0, alpha: 0.8).CGColor
         shapeLayer.lineWidth = 5.0
-        self.backgroundView.layer.addSublayer(shapeLayer)
+        backgroundView?.layer.addSublayer(shapeLayer)
         
         let strokeEnd = CABasicAnimation(keyPath: "strokeEnd")
         strokeEnd.fromValue = 0.0
