@@ -15,10 +15,18 @@ class ViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    @IBAction func startProgress(sender : AnyObject?) {
-        RappleActivityIndicatorView.startAnimatingWithLabel("Loading...");
-        // to stop programetically call
-        // RappleActivityIndicatorView.stopAnimating()
+    @IBAction func startModernProgress(sender : AnyObject?) {
+        RappleActivityIndicatorView.startAnimatingWithLabel("Loading...", attributes: RappleModernAttributes)
+        NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: "stopAnimation", userInfo: nil, repeats: false)
+    }
+    
+    @IBAction func startAppleProgress(sender : AnyObject?) {
+        RappleActivityIndicatorView.startAnimatingWithLabel("Loading...", attributes: RappleAppleAttributes)
+        NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: "stopAnimation", userInfo: nil, repeats: false)
+    }
+    
+    func stopAnimation(){
+        RappleActivityIndicatorView.stopAnimating()
     }
     
     override func didReceiveMemoryWarning() {
