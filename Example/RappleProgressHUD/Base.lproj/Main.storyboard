@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -18,47 +17,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R3P-i6-zsi">
-                                <rect key="frame" x="183" y="238" width="234" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R3P-i6-zsi">
+                                <rect key="frame" x="183" y="159" width="234" height="30"/>
                                 <state key="normal" title="Rapple Modern Progress Indicator"/>
                                 <connections>
                                     <action selector="startModernProgress:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="dQK-Py-NCs"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Do-57-RWP">
-                                <rect key="frame" x="190" y="299" width="220" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Do-57-RWP">
+                                <rect key="frame" x="190" y="220" width="220" height="30"/>
                                 <state key="normal" title="Rapple Apple Progress Indicator"/>
                                 <connections>
                                     <action selector="startAppleProgress:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="LJW-iJ-Avg"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9QT-pk-Qlv">
-                                <rect key="frame" x="179" y="76" width="401" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Progress Label Text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bc7-Bo-UE7">
-                                <rect key="frame" x="20" y="81" width="151" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Phn-Xq-vLb">
-                                <rect key="frame" x="170" y="124" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="9QT-pk-Qlv" secondAttribute="trailing" id="BYN-r9-xPR"/>
-                            <constraint firstItem="Bc7-Bo-UE7" firstAttribute="centerY" secondItem="9QT-pk-Qlv" secondAttribute="centerY" id="FN3-IH-0Pz"/>
+                            <constraint firstItem="R3P-i6-zsi" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="139" id="97X-Dx-2pH"/>
                             <constraint firstItem="R3P-i6-zsi" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="Kxb-c6-Dd6"/>
-                            <constraint firstItem="9QT-pk-Qlv" firstAttribute="leading" secondItem="Bc7-Bo-UE7" secondAttribute="trailing" constant="8" id="MiI-RL-Pd3"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="Bc7-Bo-UE7" secondAttribute="leading" id="PJZ-cq-Bab"/>
                             <constraint firstItem="5Do-57-RWP" firstAttribute="top" secondItem="R3P-i6-zsi" secondAttribute="bottom" constant="31" id="SD3-lC-pBe"/>
-                            <constraint firstItem="9QT-pk-Qlv" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="56" id="ahZ-aJ-3th"/>
                             <constraint firstItem="5Do-57-RWP" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="ptp-gA-ULq"/>
                         </constraints>
                     </view>
