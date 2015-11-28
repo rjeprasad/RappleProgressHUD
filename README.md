@@ -23,26 +23,28 @@ import progress library
 import RappleProgressHUD
 ```
 
-Start Rapple progress indicator without any text message default RappleModernAttributes
+Start Rapple progress indicator without any text message 
+default attribute RappleModernAttributes
 ```ruby
 RappleActivityIndicatorView.startAnimating()
 ```
 
-Start Rapple progress indicator with text message default RappleModernAttributes
-@param  - label text for progress text label
+Start Rapple progress indicator with text message
+param  - label text for progress text label
+default attribute RappleModernAttributes
 ```ruby
 RappleActivityIndicatorView.startAnimatingWithLabel("Loading...")
 ```
 
 Start Rapple progress indicator with attributes and without any text message
-@param  - attribute progress UI attributes
+param  - attribute progress UI attributes
 ```ruby
 RappleActivityIndicatorView.startAnimating(attributes: RappleModernAttributes)
 ```
 
 Start Rapple progress indicator with text message with attributes
-@param  - label text for progress text label
-@param  - attribute progress UI attributes
+param  - label text for progress text label
+param  - attribute progress UI attributes
 ```ruby
 RappleActivityIndicatorView.startAnimatingWithLabel("Loading...", attributes: RappleModernAttributes)
 ```
