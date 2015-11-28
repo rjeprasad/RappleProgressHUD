@@ -107,7 +107,7 @@ public class RappleActivityIndicatorView: NSObject {
     }
     
     /**
-     Start Rapple progress indicator with attributes and- without any text message
+     Start Rapple progress indicator with attributes and without any text message
      @param     attribute progress UI attributes
      */
     public class func startAnimating(attributes attributes:[String:AnyObject]) {
