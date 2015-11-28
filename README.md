@@ -23,7 +23,7 @@ import RappleProgressHUD
 ```
 
 Start Rapple progress indicator without any text message 
-\ndefault attribute RappleModernAttributes
+</BR>default attribute RappleModernAttributes
 ```ruby
 RappleActivityIndicatorView.startAnimating()
 ```
