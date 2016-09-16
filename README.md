@@ -29,12 +29,12 @@ this is the text value we are gonna display with the animated indicator
 ###2. attributes   
 this is a dictionary with following Keys.
 
-- `RappleTintColorKey`               - Color of the progrss circle and text
-- `RappleScreenBGColorKey`           - Background color (full screen background)
-- `RappleProgressBGColorKey`         - Background color around the progress indicator (Only applicable for Apple Style)
-- `RappleIndicatorStyleKey`          - Style of the ActivityIndicator
-- `RappleProgressBarColorKey`        - Progress bar bg color
-- `RappleProgressBarFillColorKey`    - Progress bar filling color with progression 
+- `RappleTintColorKey`               Color of the progrss circle and text
+- `RappleScreenBGColorKey`           Background color (full screen background)
+- `RappleProgressBGColorKey`         Background color around the progress indicator (Only applicable for Apple Style)
+- `RappleIndicatorStyleKey`          Style of the ActivityIndicator
+- `RappleProgressBarColorKey`        Progress bar bg color
+- `RappleProgressBarFillColorKey`    Progress bar filling color with progression 
 
 In above dictionary we can send 'RappleIndicatorStyleKey' with two styles (see the demo for more details)
 
