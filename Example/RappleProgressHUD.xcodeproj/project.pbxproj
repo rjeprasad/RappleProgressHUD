@@ -7,31 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		067F7E1633521971B5EA011D /* Pods_RappleProgressHUD_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83E0EB34BAFEE23D1D2A8E2D /* Pods_RappleProgressHUD_Tests.framework */; };
-		47D2D258D84B92DFEFBBDDF5 /* Pods_RappleProgressHUD_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04188FB7FF2CC277CA21A6FE /* Pods_RappleProgressHUD_Example.framework */; };
+		2EA578836304BCFBC04D82E9 /* Pods_RappleProgressHUD_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 275DF3BF7CD6DE8537E862D4 /* Pods_RappleProgressHUD_Example.framework */; };
 		5DE7D3CE1C09D74A00DE3177 /* Progress.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5DE7D3CD1C09D74A00DE3177 /* Progress.gif */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
-		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		607FACE61AFB9204008FA782 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 607FACC81AFB9204008FA782 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 607FACCF1AFB9204008FA782;
-			remoteInfo = RappleProgressHUD;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
-		04188FB7FF2CC277CA21A6FE /* Pods_RappleProgressHUD_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RappleProgressHUD_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		275DF3BF7CD6DE8537E862D4 /* Pods_RappleProgressHUD_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RappleProgressHUD_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		45E576E581EDBB1CB2E3FBD3 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		56EA797B0378864C973A4996 /* Pods-RappleProgressHUD_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RappleProgressHUD_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RappleProgressHUD_Example/Pods-RappleProgressHUD_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		5DE7D3CD1C09D74A00DE3177 /* Progress.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Progress.gif; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* RappleProgressHUD_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RappleProgressHUD_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -40,14 +27,12 @@
 		607FACDA1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		607FACE51AFB9204008FA782 /* RappleProgressHUD_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RappleProgressHUD_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		837D71403D38D319742E6C87 /* Pods-RappleProgressHUD_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RappleProgressHUD_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-RappleProgressHUD_Example/Pods-RappleProgressHUD_Example.release.xcconfig"; sourceTree = "<group>"; };
-		83E0EB34BAFEE23D1D2A8E2D /* Pods_RappleProgressHUD_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RappleProgressHUD_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6AC8EED5D6F4D4D5548E873D /* Pods-RappleProgressHUD_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RappleProgressHUD_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RappleProgressHUD_Example/Pods-RappleProgressHUD_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		7EB250235FFCF5D1D8AB4DD5 /* Pods-RappleProgressHUD_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RappleProgressHUD_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RappleProgressHUD_Tests/Pods-RappleProgressHUD_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		9A2B684B79AA43AE47DBD512 /* RappleProgressHUD.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = RappleProgressHUD.podspec; path = ../RappleProgressHUD.podspec; sourceTree = "<group>"; };
-		9A37B9EEE55458C09807644A /* Pods-RappleProgressHUD_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RappleProgressHUD_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RappleProgressHUD_Tests/Pods-RappleProgressHUD_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		FB15D25B15B63FFAA857E1C6 /* Pods-RappleProgressHUD_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RappleProgressHUD_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RappleProgressHUD_Tests/Pods-RappleProgressHUD_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		A1A81A639012EC9E03AC2A27 /* Pods-RappleProgressHUD_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RappleProgressHUD_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-RappleProgressHUD_Example/Pods-RappleProgressHUD_Example.release.xcconfig"; sourceTree = "<group>"; };
+		ADAEB6D5DB2008D95564F657 /* Pods_RappleProgressHUD_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RappleProgressHUD_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEDD4B1035644C8A0343C92A /* Pods-RappleProgressHUD_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RappleProgressHUD_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RappleProgressHUD_Tests/Pods-RappleProgressHUD_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		FF39436A43C678AD79BA7096 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -56,30 +41,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				47D2D258D84B92DFEFBBDDF5 /* Pods_RappleProgressHUD_Example.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		607FACE21AFB9204008FA782 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				067F7E1633521971B5EA011D /* Pods_RappleProgressHUD_Tests.framework in Frameworks */,
+				2EA578836304BCFBC04D82E9 /* Pods_RappleProgressHUD_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		090C61380BF93A91D699C7AD /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				04188FB7FF2CC277CA21A6FE /* Pods_RappleProgressHUD_Example.framework */,
-				83E0EB34BAFEE23D1D2A8E2D /* Pods_RappleProgressHUD_Tests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		5D5B47241BF8B19C00EF7F3C /* Demo */ = {
 			isa = PBXGroup;
 			children = (
@@ -93,10 +61,9 @@
 			children = (
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for RappleProgressHUD */,
-				607FACE81AFB9204008FA782 /* Tests */,
 				607FACD11AFB9204008FA782 /* Products */,
-				8C05929B785ADBD600F9D399 /* Pods */,
-				090C61380BF93A91D699C7AD /* Frameworks */,
+				D401DF2D691375F763623FF6 /* Pods */,
+				FD053EAF7BC8CCD068B855D7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -104,7 +71,6 @@
 			isa = PBXGroup;
 			children = (
 				607FACD01AFB9204008FA782 /* RappleProgressHUD_Example.app */,
-				607FACE51AFB9204008FA782 /* RappleProgressHUD_Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -132,23 +98,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		607FACE81AFB9204008FA782 /* Tests */ = {
-			isa = PBXGroup;
-			children = (
-				607FACEB1AFB9204008FA782 /* Tests.swift */,
-				607FACE91AFB9204008FA782 /* Supporting Files */,
-			);
-			path = Tests;
-			sourceTree = "<group>";
-		};
-		607FACE91AFB9204008FA782 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				607FACEA1AFB9204008FA782 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		607FACF51AFB993E008FA782 /* Podspec Metadata */ = {
 			isa = PBXGroup;
 			children = (
@@ -159,15 +108,24 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
-		8C05929B785ADBD600F9D399 /* Pods */ = {
+		D401DF2D691375F763623FF6 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				56EA797B0378864C973A4996 /* Pods-RappleProgressHUD_Example.debug.xcconfig */,
-				837D71403D38D319742E6C87 /* Pods-RappleProgressHUD_Example.release.xcconfig */,
-				9A37B9EEE55458C09807644A /* Pods-RappleProgressHUD_Tests.debug.xcconfig */,
-				FB15D25B15B63FFAA857E1C6 /* Pods-RappleProgressHUD_Tests.release.xcconfig */,
+				6AC8EED5D6F4D4D5548E873D /* Pods-RappleProgressHUD_Example.debug.xcconfig */,
+				A1A81A639012EC9E03AC2A27 /* Pods-RappleProgressHUD_Example.release.xcconfig */,
+				7EB250235FFCF5D1D8AB4DD5 /* Pods-RappleProgressHUD_Tests.debug.xcconfig */,
+				CEDD4B1035644C8A0343C92A /* Pods-RappleProgressHUD_Tests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		FD053EAF7BC8CCD068B855D7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				275DF3BF7CD6DE8537E862D4 /* Pods_RappleProgressHUD_Example.framework */,
+				ADAEB6D5DB2008D95564F657 /* Pods_RappleProgressHUD_Tests.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,12 +135,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "RappleProgressHUD_Example" */;
 			buildPhases = (
-				BE1963B626E0043925C4B4CA /* Check Pods Manifest.lock */,
+				E246479A6DFEC2FC36329072 /* [CP] Check Pods Manifest.lock */,
 				607FACCC1AFB9204008FA782 /* Sources */,
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
-				CA570A045AAACDC52C601BA9 /* Embed Pods Frameworks */,
-				0339EE0EDE88362964181078 /* Copy Pods Resources */,
+				91DEEFFFF3592A7808093DA6 /* [CP] Embed Pods Frameworks */,
+				9C52B729F5363AFBCDB92482 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -193,27 +151,6 @@
 			productReference = 607FACD01AFB9204008FA782 /* RappleProgressHUD_Example.app */;
 			productType = "com.apple.product-type.application";
 		};
-		607FACE41AFB9204008FA782 /* RappleProgressHUD_Tests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "RappleProgressHUD_Tests" */;
-			buildPhases = (
-				ED7C0BA17ECE06F0A81A3AC0 /* Check Pods Manifest.lock */,
-				607FACE11AFB9204008FA782 /* Sources */,
-				607FACE21AFB9204008FA782 /* Frameworks */,
-				607FACE31AFB9204008FA782 /* Resources */,
-				55AAC64C4AB4C384708392CA /* Embed Pods Frameworks */,
-				3ABC4BFEFA530D97F449BB6E /* Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				607FACE71AFB9204008FA782 /* PBXTargetDependency */,
-			);
-			name = RappleProgressHUD_Tests;
-			productName = Tests;
-			productReference = 607FACE51AFB9204008FA782 /* RappleProgressHUD_Tests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -221,15 +158,14 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0710;
-				LastUpgradeCheck = 0710;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = CocoaPods;
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
-					};
-					607FACE41AFB9204008FA782 = {
-						CreatedOnToolsVersion = 6.3.1;
-						TestTargetID = 607FACCF1AFB9204008FA782;
+						DevelopmentTeam = FHJ5ZKEKWP;
+						LastSwiftMigration = 0800;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -247,7 +183,6 @@
 			projectRoot = "";
 			targets = (
 				607FACCF1AFB9204008FA782 /* RappleProgressHUD_Example */,
-				607FACE41AFB9204008FA782 /* RappleProgressHUD_Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -264,84 +199,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		607FACE31AFB9204008FA782 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0339EE0EDE88362964181078 /* Copy Pods Resources */ = {
+		91DEEFFFF3592A7808093DA6 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RappleProgressHUD_Example/Pods-RappleProgressHUD_Example-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		3ABC4BFEFA530D97F449BB6E /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RappleProgressHUD_Tests/Pods-RappleProgressHUD_Tests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		55AAC64C4AB4C384708392CA /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RappleProgressHUD_Tests/Pods-RappleProgressHUD_Tests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		BE1963B626E0043925C4B4CA /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		CA570A045AAACDC52C601BA9 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -349,14 +217,29 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RappleProgressHUD_Example/Pods-RappleProgressHUD_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		ED7C0BA17ECE06F0A81A3AC0 /* Check Pods Manifest.lock */ = {
+		9C52B729F5363AFBCDB92482 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RappleProgressHUD_Example/Pods-RappleProgressHUD_Example-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E246479A6DFEC2FC36329072 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -376,23 +259,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		607FACE11AFB9204008FA782 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		607FACE71AFB9204008FA782 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 607FACCF1AFB9204008FA782 /* RappleProgressHUD_Example */;
-			targetProxy = 607FACE61AFB9204008FA782 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		607FACD91AFB9204008FA782 /* Main.storyboard */ = {
@@ -427,11 +294,12 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -451,11 +319,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -472,11 +341,12 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -489,74 +359,46 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
 		607FACF01AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 56EA797B0378864C973A4996 /* Pods-RappleProgressHUD_Example.debug.xcconfig */;
+			baseConfigurationReference = 6AC8EED5D6F4D4D5548E873D /* Pods-RappleProgressHUD_Example.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = FHJ5ZKEKWP;
 				INFOPLIST_FILE = RappleProgressHUD/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.iswift.rappleprogresshud;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		607FACF11AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 837D71403D38D319742E6C87 /* Pods-RappleProgressHUD_Example.release.xcconfig */;
+			baseConfigurationReference = A1A81A639012EC9E03AC2A27 /* Pods-RappleProgressHUD_Example.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = FHJ5ZKEKWP;
 				INFOPLIST_FILE = RappleProgressHUD/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.iswift.rappleprogresshud;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		607FACF31AFB9204008FA782 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9A37B9EEE55458C09807644A /* Pods-RappleProgressHUD_Tests.debug.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = Tests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RappleProgressHUD_Example.app/RappleProgressHUD_Example";
-			};
-			name = Debug;
-		};
-		607FACF41AFB9204008FA782 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = FB15D25B15B63FFAA857E1C6 /* Pods-RappleProgressHUD_Tests.release.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = Tests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RappleProgressHUD_Example.app/RappleProgressHUD_Example";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -577,15 +419,6 @@
 			buildConfigurations = (
 				607FACF01AFB9204008FA782 /* Debug */,
 				607FACF11AFB9204008FA782 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "RappleProgressHUD_Tests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				607FACF31AFB9204008FA782 /* Debug */,
-				607FACF41AFB9204008FA782 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

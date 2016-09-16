@@ -1,49 +1,79 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="HPK-Y8-qFa">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="xUZ-cZ-14M">
+            <objects>
+                <navigationController id="HPK-Y8-qFa" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wTv-3x-dnD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="0xo-6H-vMp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XFa-ML-Z4c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-305" y="322"/>
+        </scene>
+        <!--RappleProgressHUD-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="RappleProgressHUD_Example" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="vXZ-lx-hvc" customClass="ViewController" customModule="RappleProgressHUD_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R3P-i6-zsi">
-                                <rect key="frame" x="183" y="159" width="234" height="30"/>
-                                <state key="normal" title="Rapple Modern Progress Indicator"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="hm3-w9-LZ8">
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="2Ko-bW-o8I" style="IBUITableViewCellStyleDefault" id="MOJ-8G-oPu">
+                                        <rect key="frame" x="0.0" y="56" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MOJ-8G-oPu" id="p1P-dq-aek">
+                                            <frame key="frameInset" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2Ko-bW-o8I">
+                                                    <frame key="frameInset" minX="15" width="345" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                                 <connections>
-                                    <action selector="startModernProgress:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="dQK-Py-NCs"/>
+                                    <outlet property="dataSource" destination="vXZ-lx-hvc" id="eiT-DY-sE2"/>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="qDw-U1-TbE"/>
                                 </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Do-57-RWP">
-                                <rect key="frame" x="190" y="220" width="220" height="30"/>
-                                <state key="normal" title="Rapple Apple Progress Indicator"/>
-                                <connections>
-                                    <action selector="startAppleProgress:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="LJW-iJ-Avg"/>
-                                </connections>
-                            </button>
+                            </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="R3P-i6-zsi" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="139" id="97X-Dx-2pH"/>
-                            <constraint firstItem="R3P-i6-zsi" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="Kxb-c6-Dd6"/>
-                            <constraint firstItem="5Do-57-RWP" firstAttribute="top" secondItem="R3P-i6-zsi" secondAttribute="bottom" constant="31" id="SD3-lC-pBe"/>
-                            <constraint firstItem="5Do-57-RWP" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="ptp-gA-ULq"/>
+                            <constraint firstItem="hm3-w9-LZ8" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="8sg-zF-jet"/>
+                            <constraint firstAttribute="trailing" secondItem="hm3-w9-LZ8" secondAttribute="trailing" id="E7I-yh-MrZ"/>
+                            <constraint firstItem="hm3-w9-LZ8" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="Uu1-UD-bfZ"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="hm3-w9-LZ8" secondAttribute="bottom" id="tDW-1x-zlr"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="RappleProgressHUD" id="UTK-ul-knO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="480" y="322"/>
+            <point key="canvasLocation" x="479.19999999999999" y="321.58920539730138"/>
         </scene>
     </scenes>
 </document>
