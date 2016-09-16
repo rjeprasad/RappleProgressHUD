@@ -92,12 +92,12 @@ RappleActivityIndicatorView.stopAnimating()
 ```
 
 Start Rapple progress value indicator
-- progress amount 0<= x <= 1.0
-- texual progress amount value (e.g. "3/8" or "3 of 10") - only limited space avaibale
-textValue nil   -> percentage value (e.g. 78%)
-textValue ""    -> hide texual progress amount
-'RappleStyleApple' will use default apple progress bar
-'RappleStyleCircle' will use curcular progress bar
+- progress amount 0<= progress <= 1.0
+- texual progress amount value (e.g. `"3/8"` or `"3/10"`) : limited space avaibale
+- textValue `nil`   -> percentage value (e.g. 78%)
+- textValue `""`    -> hide texual progress amount
+- `RappleStyleApple` will use default apple progress bar
+- `RappleStyleCircle` will use curcular progress bar
 ```ruby
 RappleActivityIndicatorView.setProgress(0.2, textValue: "1/5")
 ```
