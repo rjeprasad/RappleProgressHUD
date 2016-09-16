@@ -29,37 +29,37 @@ this is the text value we are gonna display with the animated indicator
 ###2. attributes   
 this is a dictionary with following Keys.
 
-- ###RappleTintColorKey               ####Color of the progrss circle and text
-- ###RappleScreenBGColorKey           Background color (full screen background)
-- ###RappleProgressBGColorKey         Background color around the progress indicator (Only applicable for Apple Style)
-- ###RappleIndicatorStyleKey          Style of the ActivityIndicator
-- ###RappleProgressBarColorKey        Progress bar bg color
-- ###RappleProgressBarFillColorKey    Progress bar filling color with progression 
+- `*RappleTintColorKey*`               Color of the progrss circle and text
+- `*RappleScreenBGColorKey*`           Background color (full screen background)
+- `*RappleProgressBGColorKey*`         Background color around the progress indicator (Only applicable for Apple Style)
+- `*RappleIndicatorStyleKey*`          Style of the ActivityIndicator
+- `*RappleProgressBarColorKey*`        Progress bar bg color
+- `*RappleProgressBarFillColorKey*`    Progress bar filling color with progression 
 
 In above dictionary we can send 'RappleIndicatorStyleKey' with two styles (see the demo for more details)
 
-- ###RappleStyleApple              Default Apple ActivityIndicator
-- ###RappleStyleCircle             Custom Circular ActivityIndicator
+- *RappleStyleApple*              Default Apple ActivityIndicator
+- *RappleStyleCircle*             Custom Circular ActivityIndicator
 
 
 RappleActivityIndicatorView has two pre-defines attribute sets for ease of use
 
 ###RappleAppleAttributes
 Predefined attribute dictionary to match default apple look & feel
-- ###RappleTintColorKey               UIColor.whiteColor()
-- ###RappleScreenBGColorKey           UIColor(white: 0.0, alpha: 0.2)
-- ###RappleProgressBGColorKey         UIColor(white: 0.0, alpha: 0.7)
-- ###RappleIndicatorStyleKey          RappleStyleApple
-- ###RappleProgressBarColorKey        lightGray
-- ###RappleProgressBarFillColorKey    white
+- *RappleTintColorKey*               UIColor.whiteColor()
+- *RappleScreenBGColorKey*           UIColor(white: 0.0, alpha: 0.2)
+- *RappleProgressBGColorKey*         UIColor(white: 0.0, alpha: 0.7)
+- *RappleIndicatorStyleKey*          RappleStyleApple
+- *RappleProgressBarColorKey*        lightGray
+- *RappleProgressBarFillColorKey*    white
 
 ###RappleModernAttributes
-- ###RappleTintColorKey               UIColor.whiteColor()
-- ###RappleScreenBGColorKey           UIColor(white: 0.0, alpha: 0.5)
-- ###RappleProgressBGColorKey         N/A
-- ###RappleIndicatorStyleKey          RappleStyleCircle
-- ###RappleProgressBarColorKey        lightGray
-- ###RappleProgressBarFillColorKey    white
+- *RappleTintColorKey*               UIColor.whiteColor()
+- *RappleScreenBGColorKey*           UIColor(white: 0.0, alpha: 0.5)
+- *RappleProgressBGColorKey*         N/A
+- *RappleIndicatorStyleKey*          RappleStyleCircle
+- *RappleProgressBarColorKey*        lightGray
+- *RappleProgressBarFillColorKey*    white
 
 Or we can send any custom made dictionary with these Key values to customize the look and feel
 
@@ -88,7 +88,7 @@ RappleActivityIndicatorView.startAnimatingWithLabel("Processing...", attributes:
 
 Stop Rapple progress indicator
 ```ruby
-public class func stopAnimating()
+RappleActivityIndicatorView.stopAnimating()
 ```
 
 Start Rapple progress value indicator
@@ -99,12 +99,12 @@ textValue ""    -> hide texual progress amount
 'RappleStyleApple' will use default apple progress bar
 'RappleStyleCircle' will use curcular progress bar
 ```ruby
-public class func setProgress(_ progress: CGFloat, textValue: String? = default)
+RappleActivityIndicatorView.setProgress(0.2, textValue: "1/5")
 ```
 
 Check for RappleActivityIndicatorView visiblility
 ```ruby
-public class func isVisible() -> Bool
+RappleActivityIndicatorView.isVisible()
 ```
 
 
