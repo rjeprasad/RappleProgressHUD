@@ -28,11 +28,8 @@
 		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		6AC8EED5D6F4D4D5548E873D /* Pods-RappleProgressHUD_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RappleProgressHUD_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RappleProgressHUD_Example/Pods-RappleProgressHUD_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		7EB250235FFCF5D1D8AB4DD5 /* Pods-RappleProgressHUD_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RappleProgressHUD_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RappleProgressHUD_Tests/Pods-RappleProgressHUD_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		9A2B684B79AA43AE47DBD512 /* RappleProgressHUD.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = RappleProgressHUD.podspec; path = ../RappleProgressHUD.podspec; sourceTree = "<group>"; };
 		A1A81A639012EC9E03AC2A27 /* Pods-RappleProgressHUD_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RappleProgressHUD_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-RappleProgressHUD_Example/Pods-RappleProgressHUD_Example.release.xcconfig"; sourceTree = "<group>"; };
-		ADAEB6D5DB2008D95564F657 /* Pods_RappleProgressHUD_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RappleProgressHUD_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CEDD4B1035644C8A0343C92A /* Pods-RappleProgressHUD_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RappleProgressHUD_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RappleProgressHUD_Tests/Pods-RappleProgressHUD_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		FF39436A43C678AD79BA7096 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -113,8 +110,6 @@
 			children = (
 				6AC8EED5D6F4D4D5548E873D /* Pods-RappleProgressHUD_Example.debug.xcconfig */,
 				A1A81A639012EC9E03AC2A27 /* Pods-RappleProgressHUD_Example.release.xcconfig */,
-				7EB250235FFCF5D1D8AB4DD5 /* Pods-RappleProgressHUD_Tests.debug.xcconfig */,
-				CEDD4B1035644C8A0343C92A /* Pods-RappleProgressHUD_Tests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -123,7 +118,6 @@
 			isa = PBXGroup;
 			children = (
 				275DF3BF7CD6DE8537E862D4 /* Pods_RappleProgressHUD_Example.framework */,
-				ADAEB6D5DB2008D95564F657 /* Pods_RappleProgressHUD_Tests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

@@ -8,13 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		1B70DD2212664588CD51A65668A3F74D /* RappleProgressHUD-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E4B625C93B7DD5BB5F605EE84D39FD63 /* RappleProgressHUD-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		377161855EC1F7CAD1A4CD09AB2CA439 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
-		5DDA9F7AB0E1F29F0C328DB392B0532A /* Pods-RappleProgressHUD_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 232A7B64284DC9792B742F9546D0E4AD /* Pods-RappleProgressHUD_Example-dummy.m */; };
-		6DC2D4ECB31E73C7D4E3D0C0F0E24E8B /* Pods-RappleProgressHUD_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BFAE702E95F6E7242B0507A646EE306 /* Pods-RappleProgressHUD_Tests-dummy.m */; };
+		5DDA9F7AB0E1F29F0C328DB392B0532A /* Pods-RappleProgressHUD_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FB47A580873F0C9C5371C02D323B1400 /* Pods-RappleProgressHUD_Example-dummy.m */; };
 		7D33DCA5AED76F2CDAACF17DA69B21EC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
-		89D574FCB39369D2F4B570FC2B678267 /* Pods-RappleProgressHUD_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3712320A0CB6514CAB61299492922C0B /* Pods-RappleProgressHUD_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		89D574FCB39369D2F4B570FC2B678267 /* Pods-RappleProgressHUD_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 81A7B12A7CE0E87DC8FCA02A128FB9B7 /* Pods-RappleProgressHUD_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9120063335B5C3F8D99BF96763E5BBA3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
-		9DF446061E6136BD10157210E1A6D12F /* Pods-RappleProgressHUD_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0188C0176380E7C4043D0EB6C146BACA /* Pods-RappleProgressHUD_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A9DF63EADFF71AF3A07B7E2FB0DDE698 /* RappleProgressHUD-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E170652217C110982266CEF0D3DB414 /* RappleProgressHUD-dummy.m */; };
 		E7806B029F48173B4EE86D3FB50CDDF9 /* RappleActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9C43787CF684996A8190348EC99DC0 /* RappleActivityIndicatorView.swift */; };
 /* End PBXBuildFile section */
@@ -30,38 +27,27 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0188C0176380E7C4043D0EB6C146BACA /* Pods-RappleProgressHUD_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-RappleProgressHUD_Tests-umbrella.h"; sourceTree = "<group>"; };
-		059244B78A9A5D5CB1CF6EE2FD6F3A08 /* Pods_RappleProgressHUD_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RappleProgressHUD_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		0BFAE702E95F6E7242B0507A646EE306 /* Pods-RappleProgressHUD_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-RappleProgressHUD_Tests-dummy.m"; sourceTree = "<group>"; };
-		1B193E75FE7337D7CAA11C214524D0EF /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1E170652217C110982266CEF0D3DB414 /* RappleProgressHUD-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "RappleProgressHUD-dummy.m"; sourceTree = "<group>"; };
-		232A7B64284DC9792B742F9546D0E4AD /* Pods-RappleProgressHUD_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-RappleProgressHUD_Example-dummy.m"; sourceTree = "<group>"; };
-		291032CA0498350D2EEB271941D5F0A5 /* Pods-RappleProgressHUD_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-RappleProgressHUD_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		324597D00AC5360734485FBB90FF82EC /* Pods-RappleProgressHUD_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RappleProgressHUD_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		33949CCDA8541BEB9E1461F50104536C /* Pods-RappleProgressHUD_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-RappleProgressHUD_Tests-frameworks.sh"; sourceTree = "<group>"; };
-		3542880F4C57C505C1866B422FBF7402 /* Pods-RappleProgressHUD_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-RappleProgressHUD_Example-resources.sh"; sourceTree = "<group>"; };
-		3712320A0CB6514CAB61299492922C0B /* Pods-RappleProgressHUD_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-RappleProgressHUD_Example-umbrella.h"; sourceTree = "<group>"; };
+		35959659EE9A28E1DAADC280DF305F08 /* Pods-RappleProgressHUD_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RappleProgressHUD_Example.release.xcconfig"; sourceTree = "<group>"; };
 		4607F9CA599883B24C1E3D5A38F8B6DC /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5351B39963EC3CA8717250947C3E3449 /* RappleProgressHUD.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RappleProgressHUD.xcconfig; sourceTree = "<group>"; };
-		58E505F0070827A853B73C4AE9F8A14F /* Pods-RappleProgressHUD_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-RappleProgressHUD_Tests-resources.sh"; sourceTree = "<group>"; };
+		5959C1ECF2C49A33330EAE91072FBF52 /* Pods_RappleProgressHUD_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RappleProgressHUD_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		681E3B3E65F78499EDCFAE67D4DCE85E /* RappleProgressHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RappleProgressHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7221B1D73EBFA5CBD354A364B49B7D8A /* RappleProgressHUD-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RappleProgressHUD-prefix.pch"; sourceTree = "<group>"; };
-		7EA1D4AA88F0B32F5E7EC7F5A200196F /* Pods-RappleProgressHUD_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RappleProgressHUD_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		84D4A95F57B78222539CCDA0F9AD97BC /* Pods_RappleProgressHUD_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RappleProgressHUD_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		81A7B12A7CE0E87DC8FCA02A128FB9B7 /* Pods-RappleProgressHUD_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-RappleProgressHUD_Example-umbrella.h"; sourceTree = "<group>"; };
+		8D934729AF8E3D8D6AE9B1851B5F1C13 /* Pods-RappleProgressHUD_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-RappleProgressHUD_Example-resources.sh"; sourceTree = "<group>"; };
+		8E0DB090DB45F76CD91288195DD6CD27 /* Pods-RappleProgressHUD_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RappleProgressHUD_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		92EEA6F2C463699ECA92AB358F749EC7 /* Pods-RappleProgressHUD_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-RappleProgressHUD_Example-frameworks.sh"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		AD3A2C324CD92335B7D7E340CB864049 /* RappleProgressHUD.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = RappleProgressHUD.modulemap; sourceTree = "<group>"; };
-		C1AF4CF91A0F4684D4389007935F371B /* RappleProgressHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RappleProgressHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C31582F2B92DB44C9897D0A3E840B28C /* Pods-RappleProgressHUD_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-RappleProgressHUD_Example-frameworks.sh"; sourceTree = "<group>"; };
+		AF2FA127F06D3310C2AE14C8443C2445 /* Pods-RappleProgressHUD_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-RappleProgressHUD_Example.modulemap"; sourceTree = "<group>"; };
+		B17BADA9C726703D2D8DA80669EC452D /* Pods-RappleProgressHUD_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-RappleProgressHUD_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		CFAFFCFF68DFCFD79B7CB4C430CDBA67 /* Pods-RappleProgressHUD_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RappleProgressHUD_Example.release.xcconfig"; sourceTree = "<group>"; };
-		D7E844B81F54612917FB608FDAE1403A /* Pods-RappleProgressHUD_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-RappleProgressHUD_Tests.modulemap"; sourceTree = "<group>"; };
-		E124BCDCFD12D32685F1251B2A503CEB /* Pods-RappleProgressHUD_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RappleProgressHUD_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		E405C87FA00B44C0060D6C7C71D36C04 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DFF0DFFD63C913709A0E68E86350C837 /* Pods-RappleProgressHUD_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RappleProgressHUD_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		E4B625C93B7DD5BB5F605EE84D39FD63 /* RappleProgressHUD-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RappleProgressHUD-umbrella.h"; sourceTree = "<group>"; };
-		EA9463A27361CC8574DD14C6DC409615 /* Pods-RappleProgressHUD_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RappleProgressHUD_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		F65F471F5F749AEB52926DFAB0AF5148 /* Pods-RappleProgressHUD_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-RappleProgressHUD_Example.modulemap"; sourceTree = "<group>"; };
-		F94609BE810C6EC753E654247F41B7CD /* Pods-RappleProgressHUD_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RappleProgressHUD_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		FA9C43787CF684996A8190348EC99DC0 /* RappleActivityIndicatorView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RappleActivityIndicatorView.swift; sourceTree = "<group>"; };
-		FBC8EA4C7BDDC25CB8978594B1C8CFE5 /* Pods-RappleProgressHUD_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-RappleProgressHUD_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		FB47A580873F0C9C5371C02D323B1400 /* Pods-RappleProgressHUD_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-RappleProgressHUD_Example-dummy.m"; sourceTree = "<group>"; };
+		FE3215D8CD83EB237C5868D693F5E40B /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,14 +56,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D33DCA5AED76F2CDAACF17DA69B21EC /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B29C8923188AE0D6A04B135823B62ACF /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				377161855EC1F7CAD1A4CD09AB2CA439 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,43 +70,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		06228D8BEC4A94748B7A6962BBA1CDCF /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				84D4A95F57B78222539CCDA0F9AD97BC /* Pods_RappleProgressHUD_Example.framework */,
-				059244B78A9A5D5CB1CF6EE2FD6F3A08 /* Pods_RappleProgressHUD_Tests.framework */,
-				C1AF4CF91A0F4684D4389007935F371B /* RappleProgressHUD.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		1A0C949089D2FECF0C19597B9B8B3BE9 /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				20FD42036B0AF5AFFDD3D5C517140A1F /* Pods-RappleProgressHUD_Example */,
-				B45BC29BD637B5D69D0F09F18CE85512 /* Pods-RappleProgressHUD_Tests */,
-			);
-			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		20FD42036B0AF5AFFDD3D5C517140A1F /* Pods-RappleProgressHUD_Example */ = {
-			isa = PBXGroup;
-			children = (
-				E405C87FA00B44C0060D6C7C71D36C04 /* Info.plist */,
-				F65F471F5F749AEB52926DFAB0AF5148 /* Pods-RappleProgressHUD_Example.modulemap */,
-				291032CA0498350D2EEB271941D5F0A5 /* Pods-RappleProgressHUD_Example-acknowledgements.markdown */,
-				7EA1D4AA88F0B32F5E7EC7F5A200196F /* Pods-RappleProgressHUD_Example-acknowledgements.plist */,
-				232A7B64284DC9792B742F9546D0E4AD /* Pods-RappleProgressHUD_Example-dummy.m */,
-				C31582F2B92DB44C9897D0A3E840B28C /* Pods-RappleProgressHUD_Example-frameworks.sh */,
-				3542880F4C57C505C1866B422FBF7402 /* Pods-RappleProgressHUD_Example-resources.sh */,
-				3712320A0CB6514CAB61299492922C0B /* Pods-RappleProgressHUD_Example-umbrella.h */,
-				324597D00AC5360734485FBB90FF82EC /* Pods-RappleProgressHUD_Example.debug.xcconfig */,
-				CFAFFCFF68DFCFD79B7CB4C430CDBA67 /* Pods-RappleProgressHUD_Example.release.xcconfig */,
-			);
-			name = "Pods-RappleProgressHUD_Example";
-			path = "Target Support Files/Pods-RappleProgressHUD_Example";
-			sourceTree = "<group>";
-		};
 		3DCAB2B7CDE207B3958B6CB957FCC758 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -143,6 +84,15 @@
 				70524734B949A1890699913D1ACAEA0B /* RappleProgressHUD */,
 			);
 			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		6028469F9AED4CD03B46082BE32B2B13 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5959C1ECF2C49A33330EAE91072FBF52 /* Pods_RappleProgressHUD_Example.framework */,
+				681E3B3E65F78499EDCFAE67D4DCE85E /* RappleProgressHUD.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		6749D66208DF408B2203C818619D3D7A /* Pod */ = {
@@ -183,8 +133,8 @@
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				5CCFC105759ABE433E04A721A70166E0 /* Development Pods */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				06228D8BEC4A94748B7A6962BBA1CDCF /* Products */,
-				1A0C949089D2FECF0C19597B9B8B3BE9 /* Targets Support Files */,
+				6028469F9AED4CD03B46082BE32B2B13 /* Products */,
+				F4F7C197A0252F573831A99EF021BAC9 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
@@ -196,30 +146,38 @@
 			path = Classes;
 			sourceTree = "<group>";
 		};
-		B45BC29BD637B5D69D0F09F18CE85512 /* Pods-RappleProgressHUD_Tests */ = {
-			isa = PBXGroup;
-			children = (
-				1B193E75FE7337D7CAA11C214524D0EF /* Info.plist */,
-				D7E844B81F54612917FB608FDAE1403A /* Pods-RappleProgressHUD_Tests.modulemap */,
-				FBC8EA4C7BDDC25CB8978594B1C8CFE5 /* Pods-RappleProgressHUD_Tests-acknowledgements.markdown */,
-				EA9463A27361CC8574DD14C6DC409615 /* Pods-RappleProgressHUD_Tests-acknowledgements.plist */,
-				0BFAE702E95F6E7242B0507A646EE306 /* Pods-RappleProgressHUD_Tests-dummy.m */,
-				33949CCDA8541BEB9E1461F50104536C /* Pods-RappleProgressHUD_Tests-frameworks.sh */,
-				58E505F0070827A853B73C4AE9F8A14F /* Pods-RappleProgressHUD_Tests-resources.sh */,
-				0188C0176380E7C4043D0EB6C146BACA /* Pods-RappleProgressHUD_Tests-umbrella.h */,
-				E124BCDCFD12D32685F1251B2A503CEB /* Pods-RappleProgressHUD_Tests.debug.xcconfig */,
-				F94609BE810C6EC753E654247F41B7CD /* Pods-RappleProgressHUD_Tests.release.xcconfig */,
-			);
-			name = "Pods-RappleProgressHUD_Tests";
-			path = "Target Support Files/Pods-RappleProgressHUD_Tests";
-			sourceTree = "<group>";
-		};
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				3DCAB2B7CDE207B3958B6CB957FCC758 /* iOS */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F4F7C197A0252F573831A99EF021BAC9 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				FFF7E6C220CCEC742724606D8C2B2739 /* Pods-RappleProgressHUD_Example */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		FFF7E6C220CCEC742724606D8C2B2739 /* Pods-RappleProgressHUD_Example */ = {
+			isa = PBXGroup;
+			children = (
+				FE3215D8CD83EB237C5868D693F5E40B /* Info.plist */,
+				AF2FA127F06D3310C2AE14C8443C2445 /* Pods-RappleProgressHUD_Example.modulemap */,
+				B17BADA9C726703D2D8DA80669EC452D /* Pods-RappleProgressHUD_Example-acknowledgements.markdown */,
+				8E0DB090DB45F76CD91288195DD6CD27 /* Pods-RappleProgressHUD_Example-acknowledgements.plist */,
+				FB47A580873F0C9C5371C02D323B1400 /* Pods-RappleProgressHUD_Example-dummy.m */,
+				92EEA6F2C463699ECA92AB358F749EC7 /* Pods-RappleProgressHUD_Example-frameworks.sh */,
+				8D934729AF8E3D8D6AE9B1851B5F1C13 /* Pods-RappleProgressHUD_Example-resources.sh */,
+				81A7B12A7CE0E87DC8FCA02A128FB9B7 /* Pods-RappleProgressHUD_Example-umbrella.h */,
+				DFF0DFFD63C913709A0E68E86350C837 /* Pods-RappleProgressHUD_Example.debug.xcconfig */,
+				35959659EE9A28E1DAADC280DF305F08 /* Pods-RappleProgressHUD_Example.release.xcconfig */,
+			);
+			name = "Pods-RappleProgressHUD_Example";
+			path = "Target Support Files/Pods-RappleProgressHUD_Example";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,14 +199,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F8B0CF9AF5AEA056230BB0BFF5B6B7FF /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9DF446061E6136BD10157210E1A6D12F /* Pods-RappleProgressHUD_Tests-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
@@ -267,7 +217,7 @@
 			);
 			name = "Pods-RappleProgressHUD_Example";
 			productName = "Pods-RappleProgressHUD_Example";
-			productReference = 84D4A95F57B78222539CCDA0F9AD97BC /* Pods_RappleProgressHUD_Example.framework */;
+			productReference = 5959C1ECF2C49A33330EAE91072FBF52 /* Pods_RappleProgressHUD_Example.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		060275B37D4034446205EA5F7CF080F2 /* RappleProgressHUD */ = {
@@ -284,24 +234,7 @@
 			);
 			name = RappleProgressHUD;
 			productName = RappleProgressHUD;
-			productReference = C1AF4CF91A0F4684D4389007935F371B /* RappleProgressHUD.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		E776CB53396A61A9118EDCE83A11CB6C /* Pods-RappleProgressHUD_Tests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = F580F3042F144D0FE59AE7A7906A5148 /* Build configuration list for PBXNativeTarget "Pods-RappleProgressHUD_Tests" */;
-			buildPhases = (
-				894D1FB9283FE0EEBFB0C16EAA11D2EA /* Sources */,
-				B29C8923188AE0D6A04B135823B62ACF /* Frameworks */,
-				F8B0CF9AF5AEA056230BB0BFF5B6B7FF /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Pods-RappleProgressHUD_Tests";
-			productName = "Pods-RappleProgressHUD_Tests";
-			productReference = 059244B78A9A5D5CB1CF6EE2FD6F3A08 /* Pods_RappleProgressHUD_Tests.framework */;
+			productReference = 681E3B3E65F78499EDCFAE67D4DCE85E /* RappleProgressHUD.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -329,12 +262,11 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 06228D8BEC4A94748B7A6962BBA1CDCF /* Products */;
+			productRefGroup = 6028469F9AED4CD03B46082BE32B2B13 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				057736D2D086F8662763EBD94A5FE2CF /* Pods-RappleProgressHUD_Example */,
-				E776CB53396A61A9118EDCE83A11CB6C /* Pods-RappleProgressHUD_Tests */,
 				060275B37D4034446205EA5F7CF080F2 /* RappleProgressHUD */,
 			);
 		};
@@ -347,14 +279,6 @@
 			files = (
 				E7806B029F48173B4EE86D3FB50CDDF9 /* RappleActivityIndicatorView.swift in Sources */,
 				A9DF63EADFF71AF3A07B7E2FB0DDE698 /* RappleProgressHUD-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		894D1FB9283FE0EEBFB0C16EAA11D2EA /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6DC2D4ECB31E73C7D4E3D0C0F0E24E8B /* Pods-RappleProgressHUD_Tests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,13 +340,14 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
 				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_VERSION = 3.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Debug;
 		};
 		5040DDC561991DB158BD6F48B2DE5C14 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CFAFFCFF68DFCFD79B7CB4C430CDBA67 /* Pods-RappleProgressHUD_Example.release.xcconfig */;
+			baseConfigurationReference = 35959659EE9A28E1DAADC280DF305F08 /* Pods-RappleProgressHUD_Example.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -454,42 +379,9 @@
 			};
 			name = Release;
 		};
-		69F763F59BB322B8A54F5BD8F785B4AD /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F94609BE810C6EC753E654247F41B7CD /* Pods-RappleProgressHUD_Tests.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-RappleProgressHUD_Tests/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-RappleProgressHUD_Tests/Pods-RappleProgressHUD_Tests.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_RappleProgressHUD_Tests;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 		7FFD89B29A6CA264D29903A683603430 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 324597D00AC5360734485FBB90FF82EC /* Pods-RappleProgressHUD_Example.debug.xcconfig */;
+			baseConfigurationReference = DFF0DFFD63C913709A0E68E86350C837 /* Pods-RappleProgressHUD_Example.debug.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -555,6 +447,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_VERSION = 3.0;
 				SYMROOT = "${SRCROOT}/../build";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -621,39 +514,6 @@
 			};
 			name = Release;
 		};
-		FD3AFED6BB3B728C521D0C094F558934 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = E124BCDCFD12D32685F1251B2A503CEB /* Pods-RappleProgressHUD_Tests.debug.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-RappleProgressHUD_Tests/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-RappleProgressHUD_Tests/Pods-RappleProgressHUD_Tests.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_RappleProgressHUD_Tests;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -680,15 +540,6 @@
 			buildConfigurations = (
 				7FFD89B29A6CA264D29903A683603430 /* Debug */,
 				5040DDC561991DB158BD6F48B2DE5C14 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		F580F3042F144D0FE59AE7A7906A5148 /* Build configuration list for PBXNativeTarget "Pods-RappleProgressHUD_Tests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FD3AFED6BB3B728C521D0C094F558934 /* Debug */,
-				69F763F59BB322B8A54F5BD8F785B4AD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

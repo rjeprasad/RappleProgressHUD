@@ -2,10 +2,4 @@ use_frameworks!
 
 target 'RappleProgressHUD_Example' do
     pod 'RappleProgressHUD', :path => '../'
-    
-    target 'RappleProgressHUD_Tests' do
-        inherit! :search_paths
-        
-        
-    end
 end

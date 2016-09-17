@@ -297,7 +297,7 @@ open class RappleActivityIndicatorView: NSObject {
         // calc center values
         let size = calcTextSize(text)
         let h = 45 + size.height
-        var sqHeight: CGFloat = h + 20
+        let sqHeight: CGFloat = h + 20
         let cd = 24 + size.height - (h / 2)
         var c = keyWindow.center; c.y -= cd
         
