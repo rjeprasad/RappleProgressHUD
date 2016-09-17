@@ -164,9 +164,13 @@ open class RappleActivityIndicatorView: NSObject {
     fileprivate var activityIndicator : UIActivityIndicatorView? // apple activity indicator
     fileprivate var circularActivity1 : CAShapeLayer? // circular activity indicator
     fileprivate var circularActivity2 : CAShapeLayer? // circular activity indicator
+    fileprivate var completionPoint : CGPoint = .zero // activity indicator center point
+    fileprivate var completionRadius : CGFloat = 18 // activity indicator complete circle
+    fileprivate var completionWidth : CGFloat = 4 // activity indicator complete circle
     
     fileprivate var progressBar : UIProgressView? // apple style bar
     fileprivate var progressLayer : CAShapeLayer? // circular bar
+    fileprivate var progressLayerBG : CAShapeLayer? // circular bar
     fileprivate var progressLabel : UILabel? // percentage value
     fileprivate var activityLable : UILabel? // text value
     
@@ -258,14 +262,44 @@ open class RappleActivityIndicatorView: NSObject {
             } else {
                 sharedInstance.circularActivity1?.removeFromSuperlayer()
                 sharedInstance.circularActivity2?.removeFromSuperlayer()
+                sharedInstance.progressLayer?.removeFromSuperlayer()
+                sharedInstance.progressLayerBG?.removeFromSuperlayer()
             }
             sharedInstance.progressLabel?.removeFromSuperview()
             
             sharedInstance.activityLable?.text = completionLabel
+            sharedInstance.drawCheckMark()
             
             Timer.scheduledTimer(timeInterval: completionTimeout, target: sharedInstance, selector: #selector(RappleActivityIndicatorView.closePrivateActivityCompletion), userInfo: nil, repeats: false)
         }
         NotificationCenter.default.removeObserver(sharedInstance)
+    }
+    
+    /** draw completion check mark */
+    fileprivate func drawCheckMark() {
+        let x = completionPoint.x - 10
+        let y = completionPoint.y + 4
+        
+        let circle = UIBezierPath(arcCenter: completionPoint, radius: completionRadius, startAngle: CGFloat(-M_PI_2), endAngle:CGFloat(2 * M_PI - M_PI_2), clockwise: true)
+        let pgrsBg = CAShapeLayer()
+        pgrsBg.path = circle.cgPath
+        pgrsBg.fillColor = nil
+        pgrsBg.strokeColor = getColor(key: RappleProgressBarFillColorKey).cgColor
+        pgrsBg.lineWidth = completionWidth
+        backgroundView?.layer.addSublayer(pgrsBg)
+        
+        let checkPath = UIBezierPath()
+        checkPath.move(to: CGPoint(x: x, y: y))
+        checkPath.addLine(to: CGPoint(x: x + 7, y: y + 5))
+        checkPath.addLine(to: CGPoint(x: x + 18, y: y - 12))
+        
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.path = checkPath
+            .cgPath
+        shapeLayer.fillColor = nil
+        shapeLayer.strokeColor = getColor(key: RappleProgressBarFillColorKey).cgColor
+        shapeLayer.lineWidth = completionWidth
+        backgroundView?.layer.addSublayer(shapeLayer)
     }
     
     /** close completion UIs */
@@ -315,7 +349,7 @@ open class RappleActivityIndicatorView: NSObject {
         if backgroundView == nil { createProgressBG() }
         clearUIs() // clear all before restart
         let style = attributes[RappleIndicatorStyleKey] as? String ?? RappleStyleCircle
-        if style != nil && style == RappleStyleApple {
+        if style == RappleStyleApple {
             createAppleUIs()
         } else {
             createCircleUIs()
@@ -362,6 +396,10 @@ open class RappleActivityIndicatorView: NSObject {
             backgroundView?.addSubview(progressLabel!)
             progressLabel?.text = ""
         }
+        completionPoint = activityIndicator!.center
+        completionPoint.x = backgroundView!.center.x
+        completionRadius = 18
+        completionWidth = 2
         
         // add label and size
         activityLable = UILabel(frame: CGRect(x: 0, y: 0, width: size.width+1, height: size.height+1))
@@ -429,7 +467,8 @@ open class RappleActivityIndicatorView: NSObject {
         if (text == nil) {
             return CGSize.zero
         }
-        let size = (text as! NSString).boundingRect(with: CGSize(width: 220, height: 9999), options: .usesLineFragmentOrigin, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 16)], context: nil).size
+        let nss = text! as NSString
+        let size = nss.boundingRect(with: CGSize(width: 220, height: 9999), options: .usesLineFragmentOrigin, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 16)], context: nil).size
         var h = size.height
         if h > 100 {
             h = 100
@@ -458,6 +497,9 @@ open class RappleActivityIndicatorView: NSObject {
             let circle2 = UIBezierPath(arcCenter: center, radius: r, startAngle: CGFloat(M_PI_2), endAngle:CGFloat(5 * M_PI_2), clockwise: true)
             circularActivity2 = rotatingCircle(circle: circle2)
         }
+        completionPoint = center
+        completionRadius = (showProgress == true) ? r - 5 : r
+        completionWidth = 4
         
         return center.y + r + 10
     }
@@ -512,12 +554,12 @@ open class RappleActivityIndicatorView: NSObject {
             var center = keyWindow.center; center.y -= cd
             let circle = UIBezierPath(arcCenter: center, radius: (r - 5), startAngle: CGFloat(-M_PI_2), endAngle:CGFloat(2 * M_PI - M_PI_2), clockwise: true)
             
-            let pgrsBg = CAShapeLayer()
-            pgrsBg.path = circle.cgPath
-            pgrsBg.fillColor = nil
-            pgrsBg.strokeColor = getColor(key: RappleProgressBarColorKey).cgColor
-            pgrsBg.lineWidth = 4.0
-            backgroundView?.layer.addSublayer(pgrsBg)
+            progressLayerBG = CAShapeLayer()
+            progressLayerBG?.path = circle.cgPath
+            progressLayerBG?.fillColor = nil
+            progressLayerBG?.strokeColor = getColor(key: RappleProgressBarColorKey).cgColor
+            progressLayerBG?.lineWidth = 4.0
+            backgroundView?.layer.addSublayer(progressLayerBG!)
             
             progressLayer = CAShapeLayer()
             progressLayer?.path = circle.cgPath
@@ -580,8 +622,9 @@ extension RappleActivityIndicatorView {
                     l.removeFromSuperlayer()
                 }
             }
-            progressLayer = nil;
-            progressLabel = nil;
+            progressLayer = nil
+            progressLayerBG = nil
+            progressLabel = nil
         }
     }
     
