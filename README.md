@@ -33,8 +33,8 @@ this is a dictionary with following Keys.
 - `RappleScreenBGColorKey`           Background color (full screen background)
 - `RappleProgressBGColorKey`         Background color around the progress indicator (Only applicable for Apple Style)
 - `RappleIndicatorStyleKey`          Style of the ActivityIndicator - see below section for styles
-- `RappleProgressBarColorKey`        Progress bar bg color
-- `RappleProgressBarFillColorKey`    Progress bar filling color with progression 
+- `RappleProgressBarColorKey`        Progress bar bg color - track bg color
+- `RappleProgressBarFillColorKey`    Progress bar filling color with progression - filled track color
 
 In above dictionary we can send 'RappleIndicatorStyleKey' with two styles (see the demo for more details)
 
