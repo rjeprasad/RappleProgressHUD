@@ -4,7 +4,7 @@
 [![License](https://img.shields.io/cocoapods/l/RappleProgressHUD.svg?style=flat)](http://cocoapods.org/pods/RappleProgressHUD)
 [![Platform](https://img.shields.io/cocoapods/p/RappleProgressHUD.svg?style=flat)](http://cocoapods.org/pods/RappleProgressHUD)
 
-##Requirement
+##Requirements
 - Swift 3
 - Xcode 8
 - iOS 8+
