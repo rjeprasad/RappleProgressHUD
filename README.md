@@ -64,7 +64,7 @@ Predefined attribute dictionary to match default apple look & feel
 Or we can send any custom made dictionary with these Key values to customize the look and feel
 
 
-###RappleActivityIndicatorView starter methods
+####RappleActivityIndicatorView starter methods
 
 Start Rapple progress indicator using RappleModernAttributes - no text message
 ```ruby
@@ -86,12 +86,12 @@ Start Rapple progress indicator with text message and attributes
 RappleActivityIndicatorView.startAnimatingWithLabel("Processing...", attributes: RappleModernAttributes)
 ```
 
-Stop Rapple progress indicator
+####Stop Rapple progress indicator
 ```ruby
 RappleActivityIndicatorView.stopAnimating()
 ```
 
-Start Rapple progress value indicator
+####Start Rapple progress value indicator
 - progress amount 0<= progress <= 1.0
 - texual progress amount value (e.g. `"3/8"` or `"3/10"`) : limited space avaibale
 - textValue `nil`   -> percentage value (e.g. 78%)
@@ -103,7 +103,7 @@ RappleActivityIndicatorView.setProgress(0.2, textValue: "1/5")
 ```
 
 ####How to add progress bar
-i. first start progress bar using any of the starter methods
+i. First start progress bar using any of the starter methods</br>
 ii. Call `setProgress` methods with or without `textValue:` parameter
 ```ruby
 RappleActivityIndicatorView.startAnimatingWithLabel("Processing...")
