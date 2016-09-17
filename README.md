@@ -32,7 +32,7 @@ this is a dictionary with following Keys.
 - `RappleTintColorKey`               Color of the progrss circle and text
 - `RappleScreenBGColorKey`           Background color (full screen background)
 - `RappleProgressBGColorKey`         Background color around the progress indicator (Only applicable for Apple Style)
-- `RappleIndicatorStyleKey`          Style of the ActivityIndicator
+- `RappleIndicatorStyleKey`          Style of the ActivityIndicator - see below section for styles
 - `RappleProgressBarColorKey`        Progress bar bg color
 - `RappleProgressBarFillColorKey`    Progress bar filling color with progression 
 
