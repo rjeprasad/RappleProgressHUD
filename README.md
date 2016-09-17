@@ -29,7 +29,7 @@ this is the text value we are gonna display with the animated indicator
 ###`attributes` 
 this is a dictionary with following Keys.
 
-- `RappleTintColorKey`               Color of the progrss circle and text
+- `RappleTintColorKey`               Color of the progress circle and text
 - `RappleScreenBGColorKey`           Background color (full screen background)
 - `RappleProgressBGColorKey`         Background color around the progress indicator (Only applicable for Apple Style)
 - `RappleIndicatorStyleKey`          Style of the ActivityIndicator - see below section for styles
@@ -66,38 +66,38 @@ Or we can send any custom made dictionary with these Key values to customize the
 
 ####RappleActivityIndicatorView starter methods
 
-Start Rapple progress indicator using RappleModernAttributes - no text message
+Start RappleActivityIndicatorView using RappleModernAttributes - no text message
 ```ruby
 RappleActivityIndicatorView.startAnimating()
 ```
 
-Start Rapple progress indicator with custom (or pre-defined) attributes - no text message
+Start RappleActivityIndicatorView with custom (or pre-defined) attributes - no text message
 ```ruby
 RappleActivityIndicatorView.startAnimating(attributes: RappleModernAttributes)
 ```
 
-Start Rapple progress indicator with a text message, using RappleModernAttributes
+Start RappleActivityIndicatorView with a text message, using RappleModernAttributes
 ```ruby
 RappleActivityIndicatorView.startAnimatingWithLabel("Processing...")
 ```
 
-Start Rapple progress indicator with text message and attributes
+Start RappleActivityIndicatorView with text message and attributes
 ```ruby
 RappleActivityIndicatorView.startAnimatingWithLabel("Processing...", attributes: RappleModernAttributes)
 ```
 
-####Stop Rapple progress indicator
+####Stop RappleActivityIndicatorView
 ```ruby
 RappleActivityIndicatorView.stopAnimating()
 ```
 
-####Start Rapple progress value indicator
+####Start RappleActivityIndicatorView’s progress value
 - progress amount 0<= progress <= 1.0
-- texual progress amount value (e.g. `"3/8"` or `"3/10"`) : limited space avaibale
+- textual progress amount value (e.g. `"3/8"` or `"3/10"`) : limited space available
 - textValue `nil`   -> percentage value (e.g. 78%)
-- textValue `""`    -> hide texual progress amount
+- textValue `""`    -> hide textual progress amount
 - `RappleStyleApple` will use default apple progress bar
-- `RappleStyleCircle` will use curcular progress bar
+- `RappleStyleCircle` will use circular progress bar
 ```ruby
 RappleActivityIndicatorView.setProgress(0.2, textValue: "1/5")
 ```
@@ -109,7 +109,7 @@ ii. Call `setProgress` methods with or without `textValue:` parameter
 RappleActivityIndicatorView.startAnimatingWithLabel("Processing...")
 RappleActivityIndicatorView.setProgress(0.2, textValue: "1/5")
 ```
-Then gradually increate progress values accordingly - can be called from any thread
+Then gradually increase progress values accordingly - can be called from any thread
 ```ruby
 RappleActivityIndicatorView.setProgress(0.4, textValue: "2/5")
 ```
@@ -148,7 +148,7 @@ all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
