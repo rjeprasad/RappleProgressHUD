@@ -44,18 +44,18 @@ In above dictionary we can send 'RappleIndicatorStyleKey' with two styles (see t
 
 RappleActivityIndicatorView has two pre-defines attribute sets for ease of use
 
-###RappleAppleAttributes
+####RappleAppleAttributes
 Predefined attribute dictionary to match default apple look & feel
-- `RappleTintColorKey`               UIColor.whiteColor()
-- `RappleScreenBGColorKey`           UIColor(white: 0.0, alpha: 0.2)
-- `RappleProgressBGColorKey`         UIColor(white: 0.0, alpha: 0.7)
+- `RappleTintColorKey`               white
+- `RappleScreenBGColorKey`           white: 0.0, alpha: 0.2
+- `RappleProgressBGColorKey`         white: 0.0, alpha: 0.7
 - `RappleIndicatorStyleKey`          RappleStyleApple
 - `RappleProgressBarColorKey`        lightGray
 - `RappleProgressBarFillColorKey`    white
 
-###RappleModernAttributes
-- `RappleTintColorKey`               UIColor.whiteColor()
-- `RappleScreenBGColorKey`           UIColor(white: 0.0, alpha: 0.5)
+####RappleModernAttributes
+- `RappleTintColorKey`               white
+- `RappleScreenBGColorKey`           white: 0.0, alpha: 0.5
 - `RappleProgressBGColorKey`         N/A
 - `RappleIndicatorStyleKey`          RappleStyleCircle
 - `RappleProgressBarColorKey`        lightGray
