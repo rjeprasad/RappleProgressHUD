@@ -102,6 +102,18 @@ Start Rapple progress value indicator
 RappleActivityIndicatorView.setProgress(0.2, textValue: "1/5")
 ```
 
+####How to add progress bar
+i. first start progress bar using any of the starter methods
+ii. Call `setProgress` methods with or without `textValue:` parameter
+```ruby
+RappleActivityIndicatorView.startAnimatingWithLabel("Processing...")
+RappleActivityIndicatorView.setProgress(0.2, textValue: "1/5")
+```
+Then gradually increate progress values accordingly - can be called from any thread
+```ruby
+RappleActivityIndicatorView.setProgress(0.4, textValue: "2/5")
+```
+
 Check for RappleActivityIndicatorView visiblility
 ```ruby
 RappleActivityIndicatorView.isVisible()
