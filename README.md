@@ -4,13 +4,11 @@
 [![License](https://img.shields.io/cocoapods/l/RappleProgressHUD.svg?style=flat)](http://cocoapods.org/pods/RappleProgressHUD)
 [![Platform](https://img.shields.io/cocoapods/p/RappleProgressHUD.svg?style=flat)](http://cocoapods.org/pods/RappleProgressHUD)
 
-#### Support for Swift 3
 
 ## Installation
 RappleProgressHUD is available through [CocoaPods](http://cocoapods.org). To install it, simply add the following line to your Podfile:
 
 ## Usage
-
 ```ruby
 pod "RappleProgressHUD" 
 ```
