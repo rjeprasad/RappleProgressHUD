@@ -91,6 +91,11 @@ RappleActivityIndicatorView.startAnimatingWithLabel("Processing...", attributes:
 RappleActivityIndicatorView.stopAnimating()
 ```
 
+RappleActivityIndicatorView can also be close with completion indicator
+```ruby
+RappleActivityIndicatorView.stopAnimating(showCompletion: true, completionLabel: "Completed.", completionTimeout: 2.0)
+```
+
 ####Start RappleActivityIndicatorView’s progress value
 - progress amount 0<= progress <= 1.0
 - textual progress amount value (e.g. `"3/8"` or `"3/10"`) : limited space available

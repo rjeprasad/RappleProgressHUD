@@ -138,9 +138,9 @@ extension RappleActivityIndicatorView {
     }
     
     /** Stop Rapple progress indicator */
-    public class func stopAnimating() {
+    public class func stopAnimating(showCompletion: Bool = false, completionLabel: String? = nil, completionTimeout: TimeInterval = 2.0) {
         DispatchQueue.main.async {
-            RappleActivityIndicatorView.stopPrivateAnimating()
+            RappleActivityIndicatorView.stopPrivateAnimating(showCompletion: showCompletion, completionLabel: completionLabel, completionTimeout: completionTimeout)
         }
     }
     
@@ -159,10 +159,16 @@ open class RappleActivityIndicatorView: NSObject {
     fileprivate static let sharedInstance = RappleActivityIndicatorView()
     
     fileprivate var backgroundView : UIView?
-    fileprivate var contentView : UIView?
-    fileprivate var progressBar : UIProgressView?
-    fileprivate var progressLayer : CAShapeLayer?
-    fileprivate var progressLabel : UILabel?
+    fileprivate var contentSqure : UIView?
+    
+    fileprivate var activityIndicator : UIActivityIndicatorView? // apple activity indicator
+    fileprivate var circularActivity1 : CAShapeLayer? // circular activity indicator
+    fileprivate var circularActivity2 : CAShapeLayer? // circular activity indicator
+    
+    fileprivate var progressBar : UIProgressView? // apple style bar
+    fileprivate var progressLayer : CAShapeLayer? // circular bar
+    fileprivate var progressLabel : UILabel? // percentage value
+    fileprivate var activityLable : UILabel? // text value
     
     fileprivate var text : String?
     fileprivate var attributes : [String:AnyObject] = RappleModernAttributes
@@ -218,28 +224,53 @@ open class RappleActivityIndicatorView: NSObject {
     }
     
     /** stop & clear */
-    fileprivate class func stopPrivateAnimating() {
-        sharedInstance.keyWindow.isUserInteractionEnabled = true
+    fileprivate class func stopPrivateAnimating(showCompletion: Bool, completionLabel: String?, completionTimeout: TimeInterval) {
         
-        let progress = RappleActivityIndicatorView.sharedInstance
-        
-        UIView.animate(withDuration: 0.5, animations: { () -> Void in
-            progress.backgroundView?.alpha = 0.0
-            sharedInstance.keyWindow.tintAdjustmentMode = .automatic
-            sharedInstance.keyWindow.tintColorDidChange()
-            }, completion: { (finished) -> Void in
+        if showCompletion == false {
+            UIView.animate(withDuration: 0.5, animations: { () -> Void in
+                sharedInstance.backgroundView?.alpha = 0.0
+                sharedInstance.keyWindow.tintAdjustmentMode = .automatic
+                sharedInstance.keyWindow.tintColorDidChange()
+                }, completion: { (finished) -> Void in
+                    sharedInstance.clearUIs()
+                    sharedInstance.backgroundView?.removeFromSuperview()
+                    sharedInstance.backgroundView = nil
+                    sharedInstance.keyWindow.isUserInteractionEnabled = true
+            })
+        } else {
+            if sharedInstance.attributes[RappleIndicatorStyleKey] as? String == RappleStyleApple {
+                sharedInstance.progressBar?.removeFromSuperview()
+                sharedInstance.activityIndicator?.removeFromSuperview()
                 
-                if let views = progress.backgroundView?.subviews {
-                    for v in views {
-                        v.removeFromSuperview()
-                    }
+                if sharedInstance.contentSqure != nil {
+                    var sqWidth: CGFloat = 55
+                    // calc center values
+                    let size = sharedInstance.calcTextSize(completionLabel ?? "")
+                    sqWidth = size.width + 20
+                    if sqWidth < 55 { sqWidth = 55; }
+                    let c = sharedInstance.contentSqure?.center
+                    var rect = sharedInstance.contentSqure?.frame
+                    rect?.size.width = sqWidth
+                    sharedInstance.contentSqure?.frame = rect!
+                    sharedInstance.contentSqure?.center = c!
                 }
                 
-                progress.backgroundView?.removeFromSuperview()
-                
-                progress.backgroundView = nil
-        })
-        NotificationCenter.default.removeObserver(progress)
+            } else {
+                sharedInstance.circularActivity1?.removeFromSuperlayer()
+                sharedInstance.circularActivity2?.removeFromSuperlayer()
+            }
+            sharedInstance.progressLabel?.removeFromSuperview()
+            
+            sharedInstance.activityLable?.text = completionLabel
+            
+            Timer.scheduledTimer(timeInterval: completionTimeout, target: sharedInstance, selector: #selector(RappleActivityIndicatorView.closePrivateActivityCompletion), userInfo: nil, repeats: false)
+        }
+        NotificationCenter.default.removeObserver(sharedInstance)
+    }
+    
+    /** close completion UIs */
+    internal func closePrivateActivityCompletion() {
+        RappleActivityIndicatorView.stopPrivateAnimating(showCompletion: false, completionLabel: nil, completionTimeout: 0)
     }
     
     /** set progress values */
@@ -293,7 +324,7 @@ open class RappleActivityIndicatorView: NSObject {
     
     /** create Apple style UIs */
     fileprivate func createAppleUIs() {
-        var sqWidth: CGFloat = 45
+        var sqWidth: CGFloat = 55
         // calc center values
         let size = calcTextSize(text)
         let h = 45 + size.height
@@ -302,50 +333,57 @@ open class RappleActivityIndicatorView: NSObject {
         var c = keyWindow.center; c.y -= cd
         
         // add activity indicator
-        let indicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
-        indicator.color = getColor(key: RappleTintColorKey)
-        indicator.startAnimating()
-        backgroundView?.addSubview(indicator)
+        activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        activityIndicator?.color = getColor(key: RappleTintColorKey)
+        activityIndicator?.startAnimating()
+        backgroundView?.addSubview(activityIndicator!)
         if showProgress == false {
-            indicator.center = c
+            activityIndicator?.center = c
             sqWidth = size.width + 20
+            if sqWidth < 55 { sqWidth = 55; }
         } else {
             var newc = c; newc.x -= 100
-            indicator.center = newc
+            activityIndicator?.center = newc
             sqWidth = 260
             
             progressBar = UIProgressView(progressViewStyle: .bar)
             progressBar?.frame = CGRect(x: 0, y: 0, width: 180, height: 4)
-            progressBar?.center = CGPoint(x: c.x + 22, y: newc.y)
+            progressBar?.center = CGPoint(x: c.x + 22, y: newc.y + 10)
             progressBar?.trackTintColor = getColor(key: RappleProgressBarColorKey)
             progressBar?.progressTintColor = getColor(key: RappleProgressBarFillColorKey)
             backgroundView?.addSubview(progressBar!)
             
-            createProgressBarValueDisplay("25%")
+            var rect = progressBar!.frame
+            rect.origin.y -= 24
+            rect.size.height = 21
+            progressLabel = UILabel(frame: rect)
+            progressLabel?.textColor = getColor(key: RappleTintColorKey)
+            progressLabel?.textAlignment = .right
+            backgroundView?.addSubview(progressLabel!)
+            progressLabel?.text = ""
         }
         
         // add label and size
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: size.width+1, height: size.height+1))
+        activityLable = UILabel(frame: CGRect(x: 0, y: 0, width: size.width+1, height: size.height+1))
         let x = keyWindow.center.x
         let y = keyWindow.center.y - (size.height / 2) + (h / 2)
-        label.center = CGPoint(x: x, y: y)
-        label.font = UIFont.systemFont(ofSize: 16)
-        label.textColor = getColor(key: RappleTintColorKey)
-        label.textAlignment = .center
-        label.numberOfLines = 0
-        label.lineBreakMode = .byWordWrapping
-        label.text = text
-        backgroundView?.addSubview(label)
+        activityLable?.center = CGPoint(x: x, y: y)
+        activityLable?.font = UIFont.systemFont(ofSize: 16)
+        activityLable?.textColor = getColor(key: RappleTintColorKey)
+        activityLable?.textAlignment = .center
+        activityLable?.numberOfLines = 0
+        activityLable?.lineBreakMode = .byWordWrapping
+        activityLable?.text = text
+        backgroundView?.addSubview(activityLable!)
         
         // set the rounded rectangle view at the middle
-        let squre = UIView(frame: CGRect(x: 0, y: 0, width: sqWidth, height: sqHeight))
-        squre.backgroundColor = getColor(key: RappleProgressBGColorKey)
-        squre.layer.cornerRadius = 10.0
-        squre.layer.masksToBounds = true
-        squre.center = keyWindow.center
-        backgroundView?.addSubview(squre)
-        
-        backgroundView?.sendSubview(toBack: squre)
+        contentSqure = UIView(frame: CGRect(x: 0, y: 0, width: sqWidth, height: sqHeight))
+        contentSqure?.backgroundColor = getColor(key: RappleProgressBGColorKey)
+        contentSqure?.layer.cornerRadius = 10.0
+        contentSqure?.layer.masksToBounds = true
+        contentSqure?.center = keyWindow.center
+        backgroundView?.addSubview(contentSqure!)
+        backgroundView?.sendSubview(toBack: contentSqure!)
     }
     
     fileprivate func setBarProgressValue(_ progress: Float, pgText: String?){
@@ -357,22 +395,6 @@ open class RappleActivityIndicatorView: NSObject {
         progressLabel?.text = textVal
     }
     
-    /** create & set progress text value label */
-    fileprivate func createProgressBarValueDisplay(_ pgText: String?) {
-        if progressLabel == nil {
-            var c = progressBar!.center
-            c.y += 10; progressBar?.center = c
-            var rect = progressBar!.frame
-            rect.origin.y -= 24
-            rect.size.height = 21
-            progressLabel = UILabel(frame: rect)
-            progressLabel?.textColor = getColor(key: RappleTintColorKey)
-            progressLabel?.textAlignment = .right
-            backgroundView?.addSubview(progressLabel!)
-        }
-        progressLabel?.text = pgText
-    }
-    
     /** create circular UIs */
     fileprivate func createCircleUIs() {
         let size = calcTextSize(text)
@@ -380,17 +402,17 @@ open class RappleActivityIndicatorView: NSObject {
         if showProgress == true {
             addProgresCircle(currentProgress, pgText: "")
         }
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: size.width+1, height: size.height+1))
+        activityLable = UILabel(frame: CGRect(x: 0, y: 0, width: size.width+1, height: size.height+1))
         let x = keyWindow.center.x
         let y = yi + (size.height / 2)
-        label.center = CGPoint(x: x, y: y)
-        label.textColor = getColor(key: RappleTintColorKey)
-        label.font = UIFont.systemFont(ofSize: 16)
-        label.textAlignment = .center
-        label.numberOfLines = 0
-        label.lineBreakMode = .byWordWrapping
-        label.text = text
-        backgroundView?.addSubview(label)
+        activityLable?.center = CGPoint(x: x, y: y)
+        activityLable?.textColor = getColor(key: RappleTintColorKey)
+        activityLable?.font = UIFont.systemFont(ofSize: 16)
+        activityLable?.textAlignment = .center
+        activityLable?.numberOfLines = 0
+        activityLable?.lineBreakMode = .byWordWrapping
+        activityLable?.text = text
+        backgroundView?.addSubview(activityLable!)
     }
     
     /** radius of the circular activity indicator */
@@ -430,18 +452,18 @@ open class RappleActivityIndicatorView: NSObject {
         var center = keyWindow.center; center.y -= cd
         
         let circle1 = UIBezierPath(arcCenter: center, radius: r, startAngle: CGFloat(-M_PI_2), endAngle:CGFloat(3 * M_PI_2), clockwise: true)
-        rotatingCircle(circle: circle1)
+        circularActivity1 = rotatingCircle(circle: circle1)
         
         if twoSided == true {
             let circle2 = UIBezierPath(arcCenter: center, radius: r, startAngle: CGFloat(M_PI_2), endAngle:CGFloat(5 * M_PI_2), clockwise: true)
-            rotatingCircle(circle: circle2)
+            circularActivity2 = rotatingCircle(circle: circle2)
         }
         
         return center.y + r + 10
     }
     
     /** create circular path with UIBezierPath */
-    fileprivate func rotatingCircle(circle: UIBezierPath) {
+    fileprivate func rotatingCircle(circle: UIBezierPath) -> CAShapeLayer {
         let shapeLayer = CAShapeLayer()
         shapeLayer.path = circle.cgPath
         shapeLayer.fillColor = nil
@@ -474,6 +496,8 @@ open class RappleActivityIndicatorView: NSObject {
         
         shapeLayer.add(endGroup, forKey: "end")
         shapeLayer.add(startGroup, forKey: "start")
+        
+        return shapeLayer
     }
     
     /** create & set circular progress bar */
@@ -502,20 +526,7 @@ open class RappleActivityIndicatorView: NSObject {
             progressLayer?.lineWidth = 4.0
             backgroundView?.layer.addSublayer(progressLayer!)
             
-            createProgressCircleValueDisplay("", center: center, radius: r)
-        }
-        var textVal = pgText
-        if pgText == nil { textVal = "\(Int(progress * 100))%"; }
-        progressLabel?.text = textVal
-        
-        progressLayer?.strokeStart = 0.0
-        progressLayer?.strokeEnd = CGFloat(progress)
-    }
-    
-    /** create & set progress text value label */
-    fileprivate func createProgressCircleValueDisplay(_ pgText: String?, center: CGPoint, radius: CGFloat) {
-        if progressLabel == nil {
-            let w = (radius * 2) - 10
+            let w = (r * 2) - 10
             progressLabel = UILabel(frame: CGRect(x: 0, y: 0, width: w, height: w))
             progressLabel?.center = center
             progressLabel?.textColor = getColor(key: RappleTintColorKey)
@@ -524,6 +535,12 @@ open class RappleActivityIndicatorView: NSObject {
             progressLabel?.lineBreakMode = .byWordWrapping
             backgroundView?.addSubview(progressLabel!)
         }
+        var textVal = pgText
+        if pgText == nil { textVal = "\(Int(progress * 100))%"; }
+        progressLabel?.text = textVal
+        
+        progressLayer?.strokeStart = 0.0
+        progressLayer?.strokeEnd = CGFloat(progress)
     }
 }
 
