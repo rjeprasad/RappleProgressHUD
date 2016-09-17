@@ -91,7 +91,7 @@ RappleActivityIndicatorView.startAnimatingWithLabel("Processing...", attributes:
 RappleActivityIndicatorView.stopAnimating()
 ```
 
-RappleActivityIndicatorView can also be close with completion indicator
+RappleActivityIndicatorView can also be closed with completion indicator
 ```ruby
 RappleActivityIndicatorView.stopAnimating(showCompletion: true, completionLabel: "Completed.", completionTimeout: 2.0)
 ```
