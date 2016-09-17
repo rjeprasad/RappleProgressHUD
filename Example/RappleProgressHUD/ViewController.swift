@@ -42,7 +42,7 @@ class ViewController: UIViewController {
             i += 1
             Thread.sleep(forTimeInterval: 0.05)
         }
-        RappleActivityIndicatorView.stopAnimating()
+        RappleActivityIndicatorView.stopAnimating(showCompletion: true, completionLabel: "Completed.", completionTimeout: 2.0)
     }
     
     func stopAnimation(){
