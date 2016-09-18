@@ -15,7 +15,7 @@ echo "running 'pod lib lint'"
 pod lib lint
 
 echo "creating tag '$version'"
-git tag '$version'
+git tag $version
 git push --tags
 
 echo "pushing to cocoapods"
