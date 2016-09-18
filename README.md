@@ -140,7 +140,7 @@ RappleActivityIndicatorView.isVisible()
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-Check `https://github.com/rjeprasad/iSwift.tech/tree/master/CocoaPodTester` project for more 
+Check [CocoaPodTester](https://github.com/rjeprasad/iSwift.tech/tree/master/CocoaPodTester) project for more 
 
 ## Author
 
