@@ -87,6 +87,7 @@ extension RappleActivityIndicatorView {
      */
     public class func startAnimating() {
         DispatchQueue.main.async {
+            RappleActivityIndicatorView.loacClearUp()
             RappleActivityIndicatorView.startPrivateAnimating()
         }
     }
@@ -97,6 +98,7 @@ extension RappleActivityIndicatorView {
      */
     public class func startAnimating(attributes:[String:AnyObject]) {
         DispatchQueue.main.async {
+            RappleActivityIndicatorView.loacClearUp()
             RappleActivityIndicatorView.startPrivateAnimating(attributes: attributes)
         }
     }
@@ -107,10 +109,11 @@ extension RappleActivityIndicatorView {
      */
     public class func startAnimatingWithLabel(_ label : String) {
         DispatchQueue.main.async {
+            RappleActivityIndicatorView.loacClearUp()
             RappleActivityIndicatorView.startPrivateAnimatingWithLabel(label)
         }
     }
- 
+    
     /**
      Start Rapple progress indicator & text message
      - parameter label: text value to display with activity indicator
@@ -118,6 +121,7 @@ extension RappleActivityIndicatorView {
      */
     public class func startAnimatingWithLabel(_ label : String, attributes:[String:AnyObject]) {
         DispatchQueue.main.async {
+            RappleActivityIndicatorView.loacClearUp()
             RappleActivityIndicatorView.startPrivateAnimatingWithLabel(label, attributes: attributes)
         }
     }
@@ -152,6 +156,12 @@ extension RappleActivityIndicatorView {
     public class func isVisible() -> Bool {
         return RappleActivityIndicatorView.isPrivateVisible()
     }
+    
+    /** Cleanup text & attribute values*/
+    private class func loacClearUp() {
+        RappleActivityIndicatorView.sharedInstance.textLabel = nil
+        RappleActivityIndicatorView.sharedInstance.attributes.removeAll()
+    }
 }
 
 /**
@@ -178,7 +188,7 @@ open class RappleActivityIndicatorView: NSObject {
     fileprivate var progressLabel : UILabel? // percentage value
     fileprivate var activityLable : UILabel? // text value
     
-    fileprivate var text : String?
+    fileprivate var textLabel : String?
     fileprivate var attributes : [String:AnyObject] = RappleModernAttributes
     fileprivate var currentProgress: Float = 0
     fileprivate var showProgress: Bool = false
@@ -215,20 +225,20 @@ open class RappleActivityIndicatorView: NSObject {
     /** create & start */
     fileprivate class func startPrivateAnimating(attributes:[String:AnyObject]) {
         RappleActivityIndicatorView.sharedInstance.attributes = attributes
-        RappleActivityIndicatorView.startAnimating()
+        RappleActivityIndicatorView.startPrivateAnimating()
     }
     
     /** create & start */
     fileprivate class func startPrivateAnimatingWithLabel(_ label : String) {
-        RappleActivityIndicatorView.sharedInstance.text = label
-        RappleActivityIndicatorView.startAnimating()
+        RappleActivityIndicatorView.sharedInstance.textLabel = label
+        RappleActivityIndicatorView.startPrivateAnimating()
     }
     
     /** create & start */
     fileprivate class func startPrivateAnimatingWithLabel(_ label : String, attributes:[String:AnyObject]) {
         RappleActivityIndicatorView.sharedInstance.attributes = attributes
-        RappleActivityIndicatorView.sharedInstance.text = label
-        RappleActivityIndicatorView.startAnimating()
+        RappleActivityIndicatorView.sharedInstance.textLabel = label
+        RappleActivityIndicatorView.startPrivateAnimating()
     }
     
     /** stop & clear */
@@ -253,7 +263,11 @@ open class RappleActivityIndicatorView: NSObject {
                 if sharedInstance.contentSqure != nil {
                     var sqWidth: CGFloat = 55
                     // calc center values
-                    let size = sharedInstance.calcTextSize(completionLabel ?? "")
+                    var comLabel = completionLabel
+                    if RappleActivityIndicatorView.sharedInstance.textLabel == nil {
+                        comLabel = nil
+                    }
+                    let size = sharedInstance.calcTextSize(comLabel)
                     sqWidth = size.width + 20
                     if sqWidth < 55 { sqWidth = 55; }
                     let c = sharedInstance.contentSqure?.center
@@ -364,7 +378,7 @@ open class RappleActivityIndicatorView: NSObject {
     fileprivate func createAppleUIs() {
         var sqWidth: CGFloat = 55
         // calc center values
-        let size = calcTextSize(text)
+        let size = calcTextSize(textLabel)
         let h = 45 + size.height
         let sqHeight: CGFloat = h + 20
         let cd = 24 + size.height - (h / 2)
@@ -400,10 +414,6 @@ open class RappleActivityIndicatorView: NSObject {
             backgroundView?.addSubview(progressLabel!)
             progressLabel?.text = ""
         }
-        completionPoint = activityIndicator!.center
-        completionPoint.x = backgroundView!.center.x
-        completionRadius = 18
-        completionWidth = 2
         
         // add label and size
         activityLable = UILabel(frame: CGRect(x: 0, y: 0, width: size.width+1, height: size.height+1))
@@ -415,7 +425,7 @@ open class RappleActivityIndicatorView: NSObject {
         activityLable?.textAlignment = .center
         activityLable?.numberOfLines = 0
         activityLable?.lineBreakMode = .byWordWrapping
-        activityLable?.text = text
+        activityLable?.text = textLabel
         backgroundView?.addSubview(activityLable!)
         
         // set the rounded rectangle view at the middle
@@ -426,6 +436,11 @@ open class RappleActivityIndicatorView: NSObject {
         contentSqure?.center = keyWindow.center
         backgroundView?.addSubview(contentSqure!)
         backgroundView?.sendSubview(toBack: contentSqure!)
+        
+        completionPoint = activityIndicator!.center
+        completionPoint.x = contentSqure!.center.x
+        completionRadius = 18
+        completionWidth = 2
     }
     
     fileprivate func setBarProgressValue(_ progress: Float, pgText: String?){
@@ -439,7 +454,7 @@ open class RappleActivityIndicatorView: NSObject {
     
     /** create circular UIs */
     fileprivate func createCircleUIs() {
-        let size = calcTextSize(text)
+        let size = calcTextSize(textLabel)
         let yi = addAnimatingCircle(twoSided: showProgress == false)
         if showProgress == true {
             addProgresCircle(currentProgress, pgText: "")
@@ -453,7 +468,7 @@ open class RappleActivityIndicatorView: NSObject {
         activityLable?.textAlignment = .center
         activityLable?.numberOfLines = 0
         activityLable?.lineBreakMode = .byWordWrapping
-        activityLable?.text = text
+        activityLable?.text = textLabel
         backgroundView?.addSubview(activityLable!)
     }
     
@@ -487,7 +502,7 @@ open class RappleActivityIndicatorView: NSObject {
     /** create circulat activity indicators */
     fileprivate func addAnimatingCircle(twoSided: Bool) -> CGFloat {
         
-        let size = calcTextSize(text)
+        let size = calcTextSize(textLabel)
         let r = radius
         let h = (2 * r) + size.height + 10
         let cd = (h - size.height - 10) / 2
@@ -550,7 +565,7 @@ open class RappleActivityIndicatorView: NSObject {
     fileprivate func addProgresCircle(_ progress: Float, pgText: String?) {
         
         if progressLayer == nil {
-            let size = calcTextSize(text)
+            let size = calcTextSize(textLabel)
             let r = radius
             let h = 2 * r + size.height + 10
             let cd = (h - size.height - 10) / 2
