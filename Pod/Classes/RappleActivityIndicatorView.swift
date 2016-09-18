@@ -93,7 +93,7 @@ extension RappleActivityIndicatorView {
     
     /**
      Start Rapple progress indicator without any text message
-     @param attributes  - dictionary with custom attributes
+     - parameter attributes: dictionary with custom attributes
      */
     public class func startAnimating(attributes:[String:AnyObject]) {
         DispatchQueue.main.async {
@@ -103,18 +103,18 @@ extension RappleActivityIndicatorView {
     
     /**
      Start Rapple progress indicator & text message, using RappleModernAttributes
-     @param label       - text value to display with activity indicator
+     - parameter label: text value to display with activity indicator
      */
     public class func startAnimatingWithLabel(_ label : String) {
         DispatchQueue.main.async {
             RappleActivityIndicatorView.startPrivateAnimatingWithLabel(label)
         }
     }
-    
+ 
     /**
      Start Rapple progress indicator & text message
-     @param label       - text value to display with activity indicator
-     @param attributes  - dictionary with custom attributes
+     - parameter label: text value to display with activity indicator
+     - parameter attributes: dictionary with custom attributes
      */
     public class func startAnimatingWithLabel(_ label : String, attributes:[String:AnyObject]) {
         DispatchQueue.main.async {
@@ -124,12 +124,11 @@ extension RappleActivityIndicatorView {
     
     /**
      Start Rapple progress value indicator
-     @param progress    - progress amount 0<= x <= 1.0
-     @param textValue   - texual progress amount value (e.g. "3/8" or "3 of 10") - only limited space avaibale
-     @note textValue    - send nil for percentage value (e.g. 78%)
-     @note textValue    - send "" to hide texual progress amount
-     Progress bar will display for 'RappleStyleApple' style
-     Progress percentage value will display for 'RappleStyleCircle' style
+     - parameter progress: progress amount 0<= x <= 1.0
+     - parameter textValue: texual progress amount value (e.g. "3/8" or "3 of 10") - only limited space avaibale
+     - Note: textValue -> nil for percentage value (e.g. 78%)
+     - Note: textValue -> "" to hide texual progress amount
+     - Note: normal progress bar will display for 'RappleStyleApple' and circular progress bar will display for 'RappleStyleCircle'
      */
     public class func setProgress(_ progress: CGFloat, textValue: String? = nil) {
         DispatchQueue.main.async {
