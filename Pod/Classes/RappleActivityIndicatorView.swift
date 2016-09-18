@@ -136,7 +136,12 @@ extension RappleActivityIndicatorView {
         }
     }
     
-    /** Stop Rapple progress indicator */
+    /**
+     Start Rapple progress value indicator
+     - parameter showCompletion: show completion indicator Default false
+     - parameter completionLabel: string label for completion indicator Default nil
+     - parameter completionTimeout: hide completion indicator after timeout time Defailt = 2.0
+     */
     public class func stopAnimating(showCompletion: Bool = false, completionLabel: String? = nil, completionTimeout: TimeInterval = 2.0) {
         DispatchQueue.main.async {
             RappleActivityIndicatorView.stopPrivateAnimating(showCompletion: showCompletion, completionLabel: completionLabel, completionTimeout: completionTimeout)
