@@ -66,8 +66,7 @@ RappleActivityIndicatorView has two pre-defines attribute sets for ease of use
 Or we can send any custom made dictionary with these Key values to customize the look and feel
 
 
-- RappleActivityIndicatorView starter methods
-
+#### RappleActivityIndicatorView starter methods
 
 Start RappleActivityIndicatorView using RappleModernAttributes - no text message
 ```ruby
@@ -89,7 +88,7 @@ Start RappleActivityIndicatorView with text message and attributes
 RappleActivityIndicatorView.startAnimatingWithLabel("Processing...", attributes: RappleModernAttributes)
 ```
 
-####Stop RappleActivityIndicatorView
+#### Stop RappleActivityIndicatorView
 ```ruby
 RappleActivityIndicatorView.stopAnimating()
 ```
@@ -99,7 +98,7 @@ RappleActivityIndicatorView can also be closed with completion indicator
 RappleActivityIndicatorView.stopAnimating(showCompletion: true, completionLabel: "Completed.", completionTimeout: 2.0)
 ```
 
-- Start RappleActivityIndicatorView’s progress value
+#### Start RappleActivityIndicatorView’s progress value
 
 progress amount 0<= progress <= 1.0</br>
     textual progress amount value (e.g. `"3/8"` or `"3/10"`) : limited space available</br>
@@ -111,10 +110,10 @@ progress amount 0<= progress <= 1.0</br>
 RappleActivityIndicatorView.setProgress(0.2, textValue: "1/5")
 ```
 
-- How to add progress bar
+#### How to add progress bar
 
 First start progress bar using any of the starter methods</br>
-Call `setProgress` methods with or without `textValue:` parameter
+Then call `setProgress` methods with or without `textValue:` parameter
 ```ruby
 RappleActivityIndicatorView.startAnimatingWithLabel("Processing...")
 RappleActivityIndicatorView.setProgress(0.2, textValue: "1/5")
