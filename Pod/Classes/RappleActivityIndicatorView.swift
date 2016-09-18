@@ -333,7 +333,7 @@ open class RappleActivityIndicatorView: NSObject {
         if (backgroundView == nil){
             backgroundView = UIView(frame: CGRect.zero)
             backgroundView?.translatesAutoresizingMaskIntoConstraints = false
-            backgroundView?.backgroundColor = getColor(key: RappleScreenBGColorKey)
+            backgroundView?.backgroundColor = getColor(key: RappleScreenBGColorKey).withAlphaComponent(0.4)
             backgroundView?.alpha = 1.0
             backgroundView?.isUserInteractionEnabled = false
             keyWindow.addSubview(backgroundView!)
@@ -600,7 +600,7 @@ extension RappleActivityIndicatorView {
         case RappleProgressBGColorKey:
             return UIColor.black.withAlphaComponent(0.7)
         case RappleProgressBarColorKey:
-            return UIColor.black.withAlphaComponent(0.9)
+            return UIColor.lightGray.withAlphaComponent(0.8)
         case RappleProgressBarFillColorKey:
             return UIColor.white.withAlphaComponent(0.9)
         default:
