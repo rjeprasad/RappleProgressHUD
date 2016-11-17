@@ -353,13 +353,20 @@ open class RappleActivityIndicatorView: NSObject {
             backgroundView?.translatesAutoresizingMaskIntoConstraints = false
             backgroundView?.backgroundColor = getColor(key: RappleScreenBGColorKey).withAlphaComponent(0.4)
             backgroundView?.alpha = 1.0
-            backgroundView?.isUserInteractionEnabled = false
+            backgroundView?.isUserInteractionEnabled = true
             keyWindow.addSubview(backgroundView!)
+            
+            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapBlocker))
+            backgroundView?.addGestureRecognizer(tapGestureRecognizer)
             
             let dic = ["BG": backgroundView!]
             keyWindow.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[BG]|", options: .alignAllCenterY, metrics: nil, views: dic))
             keyWindow.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[BG]|", options: .alignAllCenterX, metrics: nil, views: dic))
         }
+    }
+    
+    @objc fileprivate func tapBlocker() {
+        //do nothing
     }
     
     /** create all UIs */
