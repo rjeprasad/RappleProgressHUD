@@ -357,7 +357,7 @@ open class RappleActivityIndicatorView: NSObject {
             keyWindow.addSubview(backgroundView!)
             
             let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapBlocker))
-            backgroundView.addGestureRecognizer(tapGestureRecognizer)
+            backgroundView?.addGestureRecognizer(tapGestureRecognizer)
             
             let dic = ["BG": backgroundView!]
             keyWindow.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[BG]|", options: .alignAllCenterY, metrics: nil, views: dic))
@@ -365,7 +365,7 @@ open class RappleActivityIndicatorView: NSObject {
         }
     }
     
-    fileprivate func tapBlocker() {
+    @objc fileprivate func tapBlocker() {
         //do nothing
     }
     
