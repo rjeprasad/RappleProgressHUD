@@ -6,7 +6,7 @@ cd $DIR;
 echo "Directory :" 
 pwd
 
-read -p "Do yo want to continue? y/n " -n 1 -r
+read -p "Do yo want to continue? y/n "
 echo    # (optional) move to a new line
 if [[ ! $REPLY =~ ^[Yy]$ ]]
 then
@@ -22,9 +22,25 @@ find . -name '.DS_Store' -print -exec rm -rf {} \;
 echo "running 'pod lib lint'"
 pod lib lint
 
+read -p "Do yo want to continue? y/n "
+echo    # (optional) move to a new line
+if [[ ! $REPLY =~ ^[Yy]$ ]]
+then
+	echo "exit"
+    exit 1
+fi
+
 echo "creating tag '$version'"
 git tag $version
 git push --tags
+
+read -p "Do yo want to push to Cocoapods? y/n "
+echo    # (optional) move to a new line
+if [[ ! $REPLY =~ ^[Yy]$ ]]
+then
+	echo "exit"
+    exit 1
+fi
 
 echo "pushing to cocoapods"
 pod trunk push RappleProgressHUD.podspec

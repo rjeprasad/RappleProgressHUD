@@ -542,7 +542,7 @@ open class RappleActivityIndicatorView: NSObject {
     func changeTextValue() {
         var dots = ""
         let c = (dotCount % 4) + 1
-        for i in 1...c { dots.append("."); }
+        for _ in 1...c { dots.append("."); }
         DispatchQueue.main.async {
             self.progressLabel?.text = dots
         }
@@ -551,7 +551,7 @@ open class RappleActivityIndicatorView: NSObject {
     
     fileprivate func setAttributeDict(attributes: [String:Any]) {
         RappleActivityIndicatorView.sharedInstance.attributes = attributes
-        self.attributes[RappleIndicatorStyleKey] = style as? AnyObject
+        self.attributes[RappleIndicatorStyleKey] = style
     }
     
     //** get current style */
