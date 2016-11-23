@@ -50,9 +50,11 @@ public let RappleProgressBarFillColorKey    = "ProgressBarFillColorKey"
  Available Styles
  - RappleStyleApple              Default Apple ActivityIndicator
  - RappleStyleCircle             Custom Rapple Circle ActivityIndicator
+ - RappleStyleText             Custom Rapple Text based indicator (e.g. Please wait...)
  */
 public let RappleStyleApple     = "Apple"
 public let RappleStyleCircle    = "Circle"
+public let RappleStyleText      = "Text"
 
 /**
  Predefined attribute dictionary to match default apple look & feel
@@ -63,7 +65,7 @@ public let RappleStyleCircle    = "Circle"
  - RappleProgressBarColorKey        lightGray
  - RappleProgressBarFillColorKey    white
  */
-public let RappleAppleAttributes : [String:AnyObject] = [RappleTintColorKey:UIColor.white, RappleIndicatorStyleKey:RappleStyleApple as AnyObject, RappleScreenBGColorKey:UIColor(white: 0.0, alpha: 0.2),RappleProgressBGColorKey:UIColor(white: 0.0, alpha: 0.7), RappleProgressBarColorKey: UIColor.lightGray, RappleProgressBarFillColorKey: UIColor.white]
+public let RappleAppleAttributes : [String:Any] = [RappleTintColorKey:UIColor.white, RappleIndicatorStyleKey:RappleStyleApple, RappleScreenBGColorKey:UIColor(white: 0.0, alpha: 0.2),RappleProgressBGColorKey:UIColor(white: 0.0, alpha: 0.7), RappleProgressBarColorKey: UIColor.lightGray, RappleProgressBarFillColorKey: UIColor.white]
 
 /**
  Predefined attribute dictionary to match modern look & feel
@@ -74,7 +76,7 @@ public let RappleAppleAttributes : [String:AnyObject] = [RappleTintColorKey:UICo
  - RappleProgressBarColorKey        lightGray
  - RappleProgressBarFillColorKey    white
  */
-public let RappleModernAttributes : [String:AnyObject] = [RappleTintColorKey:UIColor.white, RappleIndicatorStyleKey:RappleStyleCircle as AnyObject, RappleScreenBGColorKey:UIColor(white: 0.0, alpha: 0.5), RappleProgressBarColorKey: UIColor.lightGray, RappleProgressBarFillColorKey: UIColor.white]
+public let RappleModernAttributes : [String:Any] = [RappleTintColorKey:UIColor.white, RappleIndicatorStyleKey:RappleStyleCircle, RappleScreenBGColorKey:UIColor(white: 0.0, alpha: 0.5), RappleProgressBarColorKey: UIColor.lightGray, RappleProgressBarFillColorKey: UIColor.white]
 
 /**
  RappleActivityIndicatorView is a shared controller and calling multipel times will overide the previouse activity indicator view.
@@ -96,7 +98,7 @@ extension RappleActivityIndicatorView {
      Start Rapple progress indicator without any text message
      - parameter attributes: dictionary with custom attributes
      */
-    public class func startAnimating(attributes:[String:AnyObject]) {
+    public class func startAnimating(attributes:[String:Any]) {
         DispatchQueue.main.async {
             RappleActivityIndicatorView.loacClearUp()
             RappleActivityIndicatorView.startPrivateAnimating(attributes: attributes)
@@ -119,7 +121,7 @@ extension RappleActivityIndicatorView {
      - parameter label: text value to display with activity indicator
      - parameter attributes: dictionary with custom attributes
      */
-    public class func startAnimatingWithLabel(_ label : String, attributes:[String:AnyObject]) {
+    public class func startAnimatingWithLabel(_ label : String, attributes:[String:Any]) {
         DispatchQueue.main.async {
             RappleActivityIndicatorView.loacClearUp()
             RappleActivityIndicatorView.startPrivateAnimatingWithLabel(label, attributes: attributes)
@@ -188,8 +190,10 @@ open class RappleActivityIndicatorView: NSObject {
     fileprivate var progressLabel : UILabel? // percentage value
     fileprivate var activityLable : UILabel? // text value
     
+    fileprivate var textStyleVisible: Bool = false
+    
     fileprivate var textLabel : String?
-    fileprivate var attributes : [String:AnyObject] = RappleModernAttributes
+    fileprivate var attributes : [String:Any] = RappleModernAttributes
     fileprivate var currentProgress: Float = 0
     fileprivate var showProgress: Bool = false
     
@@ -217,14 +221,14 @@ open class RappleActivityIndicatorView: NSObject {
             
             progress.backgroundView?.alpha = 1.0
             
-            }, completion: { (finished) -> Void in
-                progress.createActivityIndicator()
+        }, completion: { (finished) -> Void in
+            progress.createActivityIndicator()
         })
     }
     
     /** create & start */
-    fileprivate class func startPrivateAnimating(attributes:[String:AnyObject]) {
-        RappleActivityIndicatorView.sharedInstance.attributes = attributes
+    fileprivate class func startPrivateAnimating(attributes:[String:Any]) {
+        RappleActivityIndicatorView.sharedInstance.setAttributeDict(attributes: attributes)
         RappleActivityIndicatorView.startPrivateAnimating()
     }
     
@@ -235,8 +239,8 @@ open class RappleActivityIndicatorView: NSObject {
     }
     
     /** create & start */
-    fileprivate class func startPrivateAnimatingWithLabel(_ label : String, attributes:[String:AnyObject]) {
-        RappleActivityIndicatorView.sharedInstance.attributes = attributes
+    fileprivate class func startPrivateAnimatingWithLabel(_ label : String, attributes:[String:Any]) {
+        RappleActivityIndicatorView.sharedInstance.setAttributeDict(attributes: attributes)
         RappleActivityIndicatorView.sharedInstance.textLabel = label
         RappleActivityIndicatorView.startPrivateAnimating()
     }
@@ -245,18 +249,28 @@ open class RappleActivityIndicatorView: NSObject {
     fileprivate class func stopPrivateAnimating(showCompletion: Bool, completionLabel: String?, completionTimeout: TimeInterval) {
         
         if showCompletion == false {
+            sharedInstance.textStyleVisible = false
+            
             UIView.animate(withDuration: 0.5, animations: { () -> Void in
                 sharedInstance.backgroundView?.alpha = 0.0
                 sharedInstance.keyWindow.tintAdjustmentMode = .automatic
                 sharedInstance.keyWindow.tintColorDidChange()
-                }, completion: { (finished) -> Void in
-                    sharedInstance.clearUIs()
-                    sharedInstance.backgroundView?.removeFromSuperview()
-                    sharedInstance.backgroundView = nil
-                    sharedInstance.keyWindow.isUserInteractionEnabled = true
+            }, completion: { (finished) -> Void in
+                sharedInstance.clearUIs()
+                sharedInstance.backgroundView?.removeFromSuperview()
+                sharedInstance.backgroundView = nil
+                sharedInstance.keyWindow.isUserInteractionEnabled = true
+                
+                if sharedInstance.attributes[RappleIndicatorStyleKey] as? String == RappleStyleText {
+                    sharedInstance.dotCount = 0
+                    sharedInstance.textStyleVisible = false
+                    sharedInstance.activityLable?.removeFromSuperview() // only text value is available
+                }
             })
+            
         } else {
-            if sharedInstance.attributes[RappleIndicatorStyleKey] as? String == RappleStyleApple {
+            let style = sharedInstance.attributes[RappleIndicatorStyleKey] as? String ?? RappleStyleCircle
+            if style == RappleStyleApple {
                 sharedInstance.progressBar?.removeFromSuperview()
                 sharedInstance.activityIndicator?.removeFromSuperview()
                 
@@ -277,15 +291,21 @@ open class RappleActivityIndicatorView: NSObject {
                     sharedInstance.contentSqure?.center = c!
                 }
                 
-            } else {
+            } else if style == RappleStyleCircle {
                 sharedInstance.circularActivity1?.removeFromSuperlayer()
                 sharedInstance.circularActivity2?.removeFromSuperlayer()
                 sharedInstance.progressLayer?.removeFromSuperlayer()
                 sharedInstance.progressLayerBG?.removeFromSuperlayer()
+            } else if style == RappleStyleText {
+                sharedInstance.dotCount = 0
+                sharedInstance.textStyleVisible = false
+                var c = sharedInstance.activityLable!.center; c.y += 40
+                sharedInstance.activityLable?.center = c
+                sharedInstance.activityLable?.textAlignment = .center
             }
             sharedInstance.progressLabel?.removeFromSuperview()
-            
             sharedInstance.activityLable?.text = completionLabel
+            
             sharedInstance.drawCheckMark()
             
             Timer.scheduledTimer(timeInterval: completionTimeout, target: sharedInstance, selector: #selector(RappleActivityIndicatorView.closePrivateActivityCompletion), userInfo: nil, repeats: false)
@@ -325,8 +345,13 @@ open class RappleActivityIndicatorView: NSObject {
         RappleActivityIndicatorView.stopPrivateAnimating(showCompletion: false, completionLabel: nil, completionTimeout: 0)
     }
     
-    /** set progress values */
+    /** set progress values
+     - not available with RappleStyleText mode
+     */
     fileprivate class func setPrivateProgress(_ progress: Float, textValue: String? = nil) {
+        let style = sharedInstance.attributes[RappleIndicatorStyleKey] as? String ?? RappleStyleCircle
+        if style == RappleStyleText { /* not available */ return; }
+        
         if progress >= 0 && progress <= 1.0 {
             sharedInstance.currentProgress = progress
             if sharedInstance.showProgress == false {
@@ -334,10 +359,9 @@ open class RappleActivityIndicatorView: NSObject {
                 sharedInstance.createActivityIndicator()
             }
             
-            let style = sharedInstance.attributes[RappleIndicatorStyleKey] as? String ?? RappleStyleCircle
             if style == RappleStyleApple {
                 sharedInstance.setBarProgressValue(progress, pgText: textValue)
-            } else {
+            } else if style == RappleStyleCircle {
                 sharedInstance.addProgresCircle(progress, pgText: textValue)
             }
             
@@ -369,8 +393,10 @@ open class RappleActivityIndicatorView: NSObject {
         let style = attributes[RappleIndicatorStyleKey] as? String ?? RappleStyleCircle
         if style == RappleStyleApple {
             createAppleUIs()
-        } else {
+        } else if style == RappleStyleCircle {
             createCircleUIs()
+        } else if style == RappleStyleText {
+            createTextUIs()
         }
     }
     
@@ -470,6 +496,74 @@ open class RappleActivityIndicatorView: NSObject {
         activityLable?.lineBreakMode = .byWordWrapping
         activityLable?.text = textLabel
         backgroundView?.addSubview(activityLable!)
+    }
+    
+    /** create text UIs */
+    fileprivate func createTextUIs() {
+        // add label and size
+        let size = calcTextSize(textLabel)
+        activityLable = UILabel(frame: CGRect(x: 0, y: 0, width: size.width+1, height: size.height+1))
+        let x = keyWindow.center.x
+        let y = keyWindow.center.y
+        activityLable?.center = CGPoint(x: x, y: y)
+        activityLable?.font = UIFont.systemFont(ofSize: 16)
+        activityLable?.textColor = getColor(key: RappleTintColorKey)
+        activityLable?.textAlignment = .center
+        activityLable?.numberOfLines = 0
+        activityLable?.lineBreakMode = .byWordWrapping
+        activityLable?.text = textLabel
+        backgroundView?.addSubview(activityLable!)
+        
+        let rect = activityLable!.frame
+        progressLabel = UILabel(frame: CGRect(x: rect.maxX, y: rect.minY, width: 50, height: size.height+1))
+        progressLabel?.font = UIFont.systemFont(ofSize: 16)
+        progressLabel?.textColor = getColor(key: RappleTintColorKey)
+        progressLabel?.textAlignment = .left
+        progressLabel?.numberOfLines = 0
+        progressLabel?.lineBreakMode = .byWordWrapping
+        progressLabel?.text = ""
+        backgroundView?.addSubview(progressLabel!)
+        
+        completionPoint = activityLable!.center
+        completionRadius = 25
+        
+        textStyleVisible = true
+        Thread.detachNewThreadSelector(#selector(RappleActivityIndicatorView.runTextStyle), toTarget: self, with: nil)
+    }
+    
+    @objc fileprivate func runTextStyle() {
+        while textStyleVisible == true {
+            self.changeTextValue()
+            Thread.sleep(forTimeInterval: 0.5)
+        }
+    }
+    
+    var dotCount: Int = 0
+    func changeTextValue() {
+        var dots = ""
+        let c = (dotCount % 4) + 1
+        for i in 1...c { dots.append("."); }
+        DispatchQueue.main.async {
+            self.progressLabel?.text = dots
+        }
+        dotCount += 1
+    }
+    
+    fileprivate func setAttributeDict(attributes: [String:Any]) {
+        RappleActivityIndicatorView.sharedInstance.attributes = attributes
+        self.attributes[RappleIndicatorStyleKey] = style as? AnyObject
+    }
+    
+    //** get current style */
+    fileprivate var style: String {
+        if let st = RappleActivityIndicatorView.sharedInstance.attributes[RappleIndicatorStyleKey] as? String {
+            if st == RappleStyleApple {
+                return RappleStyleApple
+            } else if st == RappleStyleText {
+                return RappleStyleText
+            }
+        }
+        return RappleStyleCircle
     }
     
     /** radius of the circular activity indicator */

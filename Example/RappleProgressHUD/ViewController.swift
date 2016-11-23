@@ -35,6 +35,17 @@ class ViewController: UIViewController {
         Thread.detachNewThreadSelector(#selector(ViewController.runProgress), toTarget: self, with: nil)
     }
     
+    func startTextProgress() {
+        var attrib = RappleModernAttributes
+        attrib[RappleIndicatorStyleKey] = RappleStyleText
+        RappleActivityIndicatorView.startAnimatingWithLabel("Processing", attributes: attrib)
+        Timer.scheduledTimer(timeInterval: 8.0, target: self, selector: #selector(ViewController.stopText), userInfo: nil, repeats: false)
+    }
+    
+    func stopText() {
+        RappleActivityIndicatorView.stopAnimating(showCompletion: true, completionLabel: "Completed.", completionTimeout: 2.0)
+    }
+    
     func runProgress() {
         var i: CGFloat = 0
         while i <= 100 {
@@ -57,10 +68,10 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return section < 2 ? 2 : 1
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70
@@ -81,6 +92,10 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             } else {
                 cell.textLabel?.text = "Modern Style Activity Indicator\nwith progress bar."
             }
+        } else if indexPath.section == 2 {
+            if indexPath.row == 0 {
+                cell.textLabel?.text = "Textual Style Activity Indicator."
+            }
         }
         return cell
     }
@@ -96,6 +111,10 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
                 startModernProgress()
             } else {
                 startModernProgressWithBar()
+            }
+        } else if indexPath.section == 2 {
+            if indexPath.row == 0 {
+                startTextProgress()
             }
         }
     }

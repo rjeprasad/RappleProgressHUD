@@ -43,8 +43,9 @@ this is a dictionary with following Keys.
 
 In above dictionary we can send 'RappleIndicatorStyleKey' with two styles (see the demo for more details)
 
-- `RappleStyleApple`              Default Apple ActivityIndicator
-- `RappleStyleCircle`             Custom Circular ActivityIndicator
+- `RappleStyleApple`                Default Apple ActivityIndicator
+- `RappleStyleCircle`               Custom Circular ActivityIndicator
+- `RappleStyleText`                 Custom Texual ActivityIndicator (e.g. Loading.. | Loading....)
 
 
 RappleActivityIndicatorView has two pre-defines attribute sets for ease of use
@@ -109,7 +110,8 @@ progress amount 0<= progress <= 1.0</br>
     textValue `nil`   -> percentage value (e.g. 78%)</br>
     textValue `""`-> hide textual progress amount</br>
     `RappleStyleApple` will use default apple progress bar</br>
-    `RappleStyleCircle` will use circular progress bar
+    `RappleStyleCircle` will use circular progress bar</br>
+    `RappleStyleText` will not display any progress bar
 ```ruby
 RappleActivityIndicatorView.setProgress(0.2, textValue: "1/5")
 ```
