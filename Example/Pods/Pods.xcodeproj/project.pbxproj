@@ -10,6 +10,9 @@
 		1B70DD2212664588CD51A65668A3F74D /* RappleProgressHUD-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E4B625C93B7DD5BB5F605EE84D39FD63 /* RappleProgressHUD-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		227701E8AE74F4B51BD96FF775CD3827 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
 		396DEA7533B0D5935BD5C04BD91EC60C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		46C4F1B01E516956000436B8 /* RappleAIPrivate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C4F1AF1E516956000436B8 /* RappleAIPrivate.swift */; };
+		46C4F1B21E518049000436B8 /* RappleAIAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C4F1B11E518049000436B8 /* RappleAIAction.swift */; };
+		46C4F1B41E5180C3000436B8 /* RappleAIUIs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C4F1B31E5180C3000436B8 /* RappleAIUIs.swift */; };
 		5DDA9F7AB0E1F29F0C328DB392B0532A /* Pods-RappleProgressHUD_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FB47A580873F0C9C5371C02D323B1400 /* Pods-RappleProgressHUD_Example-dummy.m */; };
 		89D574FCB39369D2F4B570FC2B678267 /* Pods-RappleProgressHUD_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 81A7B12A7CE0E87DC8FCA02A128FB9B7 /* Pods-RappleProgressHUD_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A9DF63EADFF71AF3A07B7E2FB0DDE698 /* RappleProgressHUD-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E170652217C110982266CEF0D3DB414 /* RappleProgressHUD-dummy.m */; };
@@ -30,6 +33,9 @@
 		1E170652217C110982266CEF0D3DB414 /* RappleProgressHUD-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "RappleProgressHUD-dummy.m"; sourceTree = "<group>"; };
 		35959659EE9A28E1DAADC280DF305F08 /* Pods-RappleProgressHUD_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RappleProgressHUD_Example.release.xcconfig"; sourceTree = "<group>"; };
 		4607F9CA599883B24C1E3D5A38F8B6DC /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		46C4F1AF1E516956000436B8 /* RappleAIPrivate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RappleAIPrivate.swift; sourceTree = "<group>"; };
+		46C4F1B11E518049000436B8 /* RappleAIAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RappleAIAction.swift; sourceTree = "<group>"; };
+		46C4F1B31E5180C3000436B8 /* RappleAIUIs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RappleAIUIs.swift; sourceTree = "<group>"; };
 		5351B39963EC3CA8717250947C3E3449 /* RappleProgressHUD.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RappleProgressHUD.xcconfig; sourceTree = "<group>"; };
 		5959C1ECF2C49A33330EAE91072FBF52 /* Pods_RappleProgressHUD_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RappleProgressHUD_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		681E3B3E65F78499EDCFAE67D4DCE85E /* RappleProgressHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RappleProgressHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -142,6 +148,9 @@
 			isa = PBXGroup;
 			children = (
 				FA9C43787CF684996A8190348EC99DC0 /* RappleActivityIndicatorView.swift */,
+				46C4F1AF1E516956000436B8 /* RappleAIPrivate.swift */,
+				46C4F1B11E518049000436B8 /* RappleAIAction.swift */,
+				46C4F1B31E5180C3000436B8 /* RappleAIUIs.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -269,7 +278,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46C4F1B41E5180C3000436B8 /* RappleAIUIs.swift in Sources */,
+				46C4F1B01E516956000436B8 /* RappleAIPrivate.swift in Sources */,
 				E7806B029F48173B4EE86D3FB50CDDF9 /* RappleActivityIndicatorView.swift in Sources */,
+				46C4F1B21E518049000436B8 /* RappleAIAction.swift in Sources */,
 				A9DF63EADFF71AF3A07B7E2FB0DDE698 /* RappleProgressHUD-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

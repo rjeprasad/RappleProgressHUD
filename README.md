@@ -105,15 +105,19 @@ RappleActivityIndicatorView.stopAnimating(showCompletion: true, completionLabel:
 
 #### Start RappleActivityIndicatorView’s progress value
 
-progress amount 0<= progress <= 1.0</br>
-    textual progress amount value (e.g. `"3/8"` or `"3/10"`) : limited space available</br>
-    textValue `nil`   -> percentage value (e.g. 78%)</br>
-    textValue `""`-> hide textual progress amount</br>
-    `RappleStyleApple` will use default apple progress bar</br>
-    `RappleStyleCircle` will use circular progress bar</br>
-    `RappleStyleText` will not display any progress bar
+- progress amount 0<= progress <= 1.0
+- textual progress amount value (e.g. `"3/8"` or `"3/10"`) : limited space available
+- textValue `nil` will display percentage values (e.g. 78%)
+- textValue `""`-> hide textual progress amount
+- `RappleStyleApple` will use default apple progress bar
+- `RappleStyleCircle` will use circular progress bar
+- `RappleStyleText` will not display any progress bar
 ```ruby
 RappleActivityIndicatorView.setProgress(0.2, textValue: "1/5")
+```
+
+```ruby
+RappleActivityIndicatorView.setProgress(0.2) // Display with percentage value
 ```
 
 #### How to add progress bar
@@ -151,7 +155,7 @@ Rajeev Prasad, rjeprasad@gmail.com
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2016 Rajeev Prasad <rjeprasad@gmail.com>
+Copyright (c) 2017 Rajeev Prasad <rjeprasad@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
