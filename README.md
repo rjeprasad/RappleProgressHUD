@@ -140,7 +140,7 @@ RappleActivityIndicatorView.isVisible()
 
 
 ###Demo
-![demo](Example/Demo/progress.gif)
+![demo](Example/Demo/progress221.gif)
 
 ## Example Project
 

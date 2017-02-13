@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2EA578836304BCFBC04D82E9 /* Pods_RappleProgressHUD_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 275DF3BF7CD6DE8537E862D4 /* Pods_RappleProgressHUD_Example.framework */; };
-		5DE7D3CE1C09D74A00DE3177 /* progress.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5DE7D3CD1C09D74A00DE3177 /* progress.gif */; };
+		5DE7D3CE1C09D74A00DE3177 /* progress221.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5DE7D3CD1C09D74A00DE3177 /* progress221.gif */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -19,7 +19,7 @@
 /* Begin PBXFileReference section */
 		275DF3BF7CD6DE8537E862D4 /* Pods_RappleProgressHUD_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RappleProgressHUD_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		45E576E581EDBB1CB2E3FBD3 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		5DE7D3CD1C09D74A00DE3177 /* progress.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = progress.gif; sourceTree = "<group>"; };
+		5DE7D3CD1C09D74A00DE3177 /* progress221.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = progress221.gif; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* RappleProgressHUD_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RappleProgressHUD_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -48,7 +48,7 @@
 		5D5B47241BF8B19C00EF7F3C /* Demo */ = {
 			isa = PBXGroup;
 			children = (
-				5DE7D3CD1C09D74A00DE3177 /* progress.gif */,
+				5DE7D3CD1C09D74A00DE3177 /* progress221.gif */,
 			);
 			path = Demo;
 			sourceTree = SOURCE_ROOT;
@@ -187,7 +187,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
-				5DE7D3CE1C09D74A00DE3177 /* progress.gif in Resources */,
+				5DE7D3CE1C09D74A00DE3177 /* progress221.gif in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 			);
