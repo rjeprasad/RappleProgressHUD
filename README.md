@@ -4,6 +4,10 @@
 [![License](https://img.shields.io/cocoapods/l/RappleProgressHUD.svg?style=flat)](http://cocoapods.org/pods/RappleProgressHUD)
 [![Platform](https://img.shields.io/cocoapods/p/RappleProgressHUD.svg?style=flat)](http://cocoapods.org/pods/RappleProgressHUD)
 
+
+###Demo
+![demo](Example/Demo/progress221.gif)
+
 ##Requirements
 - Swift 3
 - Xcode 8
@@ -137,10 +141,6 @@ Check for RappleActivityIndicatorView visiblility
 ```ruby
 RappleActivityIndicatorView.isVisible()
 ```
-
-
-###Demo
-![demo](Example/Demo/progress221.gif)
 
 ## Example Project
 
