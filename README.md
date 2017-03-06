@@ -72,12 +72,22 @@ RappleActivityIndicatorView has two pre-defines attribute sets for ease of use
 - `RappleProgressBarColorKey`        lightGray
 - `RappleProgressBarFillColorKey`    white
 
+#### `RappleTextAttributes`  Predefined attribute dictionary with modern look & feel
+
+- `RappleTintColorKey`               white
+- `RappleScreenBGColorKey`           white: 0.0, alpha: 0.5
+- `RappleProgressBGColorKey`         N/A
+- `RappleIndicatorStyleKey`          RappleStyleText
+- `RappleProgressBarColorKey`        N/A
+- `RappleProgressBarFillColorKey`    N/A
+
 Or we can send any custom made dictionary with these Key values to customize the look and feel
 
 to create custom attribute dictionary we can use below method
 
 ```ruby
-let attributes = RappleActivityIndicatorView.attribute(style: RappleStyleCircle, tintColor: .white, screenBG: nil, progressBG: .black, progressBarBG: .lightGray, progreeBarFill: .yellow)```
+let attributes = RappleActivityIndicatorView.attribute(style: RappleStyleCircle, tintColor: .white, screenBG: nil, progressBG: .black, progressBarBG: .lightGray, progreeBarFill: .yellow)
+```
 
 
 #### RappleActivityIndicatorView starter methods
