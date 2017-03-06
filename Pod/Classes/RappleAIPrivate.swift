@@ -29,7 +29,7 @@
 
 /** general methods */
 extension RappleActivityIndicatorView {
-
+    
     /** get color attribute values for key */
     func getColor(key: String) -> UIColor {
         if let color = attributes[key] as? UIColor {
@@ -49,6 +49,24 @@ extension RappleActivityIndicatorView {
         default:
             return UIColor.white.withAlphaComponent(0.8)
         }
+    }
+    
+    
+    /** get completion indicator string value */
+    func getCompletion(indicator: RappleCompletion) -> (String, UIFont) {
+        switch indicator {
+        case .success:
+            return ("✓", .boldSystemFont(ofSize: 25))
+        case .failed:
+            return ("X", .systemFont(ofSize: 22))
+        case .incomplete:
+            return ("!", .boldSystemFont(ofSize: 27))
+        case .unknown:
+            return ("?", .boldSystemFont(ofSize: 25))
+        case .none:
+            return ("", .systemFont(ofSize: 22))
+        }
+        
     }
     
     /** re-create after orientation change */

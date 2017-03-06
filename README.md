@@ -6,7 +6,7 @@
 
 
 ###Demo
-![demo](Example/Demo/progress221.gif)
+![demo](Example/Demo/progress225.gif)
 
 ##Requirements
 - Swift 3
@@ -74,6 +74,11 @@ RappleActivityIndicatorView has two pre-defines attribute sets for ease of use
 
 Or we can send any custom made dictionary with these Key values to customize the look and feel
 
+to create custom attribute dictionary we can use below method
+
+```ruby
+let attributes = RappleActivityIndicatorView.attribute(style: RappleStyleCircle, tintColor: .white, screenBG: nil, progressBG: .black, progressBarBG: .lightGray, progreeBarFill: .yellow)```
+
 
 #### RappleActivityIndicatorView starter methods
 
@@ -104,8 +109,15 @@ RappleActivityIndicatorView.stopAnimating()
 
 RappleActivityIndicatorView can also be closed with completion indicator
 ```ruby
-RappleActivityIndicatorView.stopAnimating(showCompletion: true, completionLabel: "Completed.", completionTimeout: 2.0)
+RappleActivityIndicatorView.stopAnimation(completionIndicator: .success, completionLabel: "Completed.", completionTimeout: 1.0)
 ```
+
+We can use any of the following RappleCompletion enum values as the indicator
+- `none`             Stop and hide animation with out completion indicator
+- `success`          ✓ symbol
+- `failed`           x symbol
+- `incomplete`       ! symbol
+- `unknown`          ? symbol
 
 #### Start RappleActivityIndicatorView’s progress value
 

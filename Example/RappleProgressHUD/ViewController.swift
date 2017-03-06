@@ -11,111 +11,66 @@ import RappleProgressHUD
 
 class ViewController: UIViewController {
     
+    @IBOutlet var styleSeg: UISegmentedControl!
+    @IBOutlet var barSwitch: UISwitch!
+    @IBOutlet var cmplSeg: UISegmentedControl!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    func startModernProgress() {
-        RappleActivityIndicatorView.startAnimatingWithLabel("Processing...", attributes: RappleModernAttributes)
-        Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(ViewController.stopAnimation), userInfo: nil, repeats: false)
-    }
-    
-    func startModernProgressWithBar() {
-        RappleActivityIndicatorView.startAnimatingWithLabel("Downloading...", attributes: RappleModernAttributes)
-        Thread.detachNewThreadSelector(#selector(ViewController.runProgress), toTarget: self, with: nil)
-    }
-    
-    func startAppleProgress() {
-        RappleActivityIndicatorView.startAnimatingWithLabel("Processing...", attributes: RappleAppleAttributes)
-        Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(ViewController.stopAnimation), userInfo: nil, repeats: false)
-    }
-    
-    func startAppleProgressWithBar() {
-        RappleActivityIndicatorView.startAnimatingWithLabel("Downloading...", attributes: RappleAppleAttributes)
-        Thread.detachNewThreadSelector(#selector(ViewController.runProgress), toTarget: self, with: nil)
-    }
-    
-    func startTextProgress() {
-        var attrib = RappleModernAttributes
-        attrib[RappleIndicatorStyleKey] = RappleStyleText
-        RappleActivityIndicatorView.startAnimatingWithLabel("Processing", attributes: attrib)
-        Timer.scheduledTimer(timeInterval: 8.0, target: self, selector: #selector(ViewController.stopText), userInfo: nil, repeats: false)
-    }
-    
-    func stopText() {
-        RappleActivityIndicatorView.stopAnimating(showCompletion: true, completionLabel: "Completed.", completionTimeout: 2.0)
+    @IBAction func startDefault(_ sender: UIButton) {
+        var timeOut: TimeInterval = 2
+        switch styleSeg.selectedSegmentIndex {
+        case 0:
+            RappleActivityIndicatorView.startAnimatingWithLabel("Processing...", attributes: RappleAppleAttributes)
+        case 1:
+            RappleActivityIndicatorView.startAnimatingWithLabel("Processing...", attributes: RappleModernAttributes)
+        case 2:
+            RappleActivityIndicatorView.startAnimatingWithLabel("Processing", attributes: RappleTextAttributes)
+            timeOut = 5
+        default: ()
+        }
+        
+        if barSwitch.isOn == true && styleSeg.selectedSegmentIndex != 2 {
+            Thread.detachNewThreadSelector(#selector(runProgress), toTarget: self, with: nil)
+        } else {
+            Timer.scheduledTimer(timeInterval: timeOut, target: self, selector: #selector(stopAnimation), userInfo: nil, repeats: false)
+        }
+        
+        
     }
     
     func runProgress() {
-        var i: CGFloat = 0
-        while i <= 100 {
-            RappleActivityIndicatorView.setProgress(i/100)
-            i += 1
-            Thread.sleep(forTimeInterval: 0.05)
+        if styleSeg.selectedSegmentIndex != 2 {
+            var i: CGFloat = 0
+            while i <= 100 {
+                RappleActivityIndicatorView.setProgress(i/100)
+                i += 1
+                Thread.sleep(forTimeInterval: 0.01)
+            }
         }
-        RappleActivityIndicatorView.stopAnimating(showCompletion: true, completionLabel: "Completed.", completionTimeout: 2.0)
+        self.stopAnimation()
     }
     
     func stopAnimation(){
-        RappleActivityIndicatorView.stopAnimating()
+        switch self.cmplSeg.selectedSegmentIndex {
+        case 0:
+            RappleActivityIndicatorView.stopAnimation()
+        case 1:
+            RappleActivityIndicatorView.stopAnimation(completionIndicator: .success, completionLabel: "Completed.", completionTimeout: 1.0)
+        case 2:
+            RappleActivityIndicatorView.stopAnimation(completionIndicator: .failed, completionLabel: "Failed.", completionTimeout: 1.0)
+        case 3:
+            RappleActivityIndicatorView.stopAnimation(completionIndicator: .incomplete, completionLabel: "Incomplete.", completionTimeout: 1.0)
+        case 4:
+            RappleActivityIndicatorView.stopAnimation(completionIndicator: .unknown, completionLabel: "Unknown.", completionTimeout: 1.0)
+        default: ()
+        }
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-}
-
-extension ViewController: UITableViewDelegate, UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
-    }
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return section < 2 ? 2 : 1
-    }
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70
-    }
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.numberOfLines = 0
-        cell.textLabel?.lineBreakMode = .byWordWrapping
-        if indexPath.section == 0 {
-            if indexPath.row == 0 {
-                cell.textLabel?.text = "Apple Style Activity Indicator."
-            } else {
-                cell.textLabel?.text = "Apple Style Activity Indicator\nwith progress bar."
-            }
-        } else if indexPath.section == 1 {
-            if indexPath.row == 0 {
-                cell.textLabel?.text = "Modern Style Activity Indicator."
-            } else {
-                cell.textLabel?.text = "Modern Style Activity Indicator\nwith progress bar."
-            }
-        } else if indexPath.section == 2 {
-            if indexPath.row == 0 {
-                cell.textLabel?.text = "Textual Style Activity Indicator."
-            }
-        }
-        return cell
-    }
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section == 0 {
-            if indexPath.row == 0 {
-                startAppleProgress()
-            } else {
-                startAppleProgressWithBar()
-            }
-        } else if indexPath.section == 1 {
-            if indexPath.row == 0 {
-                startModernProgress()
-            } else {
-                startModernProgressWithBar()
-            }
-        } else if indexPath.section == 2 {
-            if indexPath.row == 0 {
-                startTextProgress()
-            }
-        }
-    }
 }

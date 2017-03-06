@@ -125,7 +125,7 @@ extension RappleActivityIndicatorView {
         
         completionPoint = activityIndicator!.center
         completionPoint.x = contentSqure!.center.x
-        completionRadius = 18
+        completionRadius = 22
         completionWidth = 2
     }
     
@@ -305,30 +305,30 @@ extension RappleActivityIndicatorView {
         progressLayer?.strokeEnd = CGFloat(progress)
     }
     
-    /** draw completion check mark */
-    func drawCheckMark() {
-        let x = completionPoint.x - 10
-        let y = completionPoint.y + 4
-        
-        let circle = UIBezierPath(arcCenter: completionPoint, radius: completionRadius, startAngle: CGFloat(-M_PI_2), endAngle:CGFloat(2 * M_PI - M_PI_2), clockwise: true)
-        let pgrsBg = CAShapeLayer()
-        pgrsBg.path = circle.cgPath
-        pgrsBg.fillColor = nil
-        pgrsBg.strokeColor = getColor(key: RappleProgressBarFillColorKey).cgColor
-        pgrsBg.lineWidth = completionWidth
-        backgroundView?.layer.addSublayer(pgrsBg)
-        
-        let checkPath = UIBezierPath()
-        checkPath.move(to: CGPoint(x: x, y: y))
-        checkPath.addLine(to: CGPoint(x: x + 7, y: y + 5))
-        checkPath.addLine(to: CGPoint(x: x + 18, y: y - 12))
-        
-        let shapeLayer = CAShapeLayer()
-        shapeLayer.path = checkPath
-            .cgPath
-        shapeLayer.fillColor = nil
-        shapeLayer.strokeColor = getColor(key: RappleProgressBarFillColorKey).cgColor
-        shapeLayer.lineWidth = completionWidth
-        backgroundView?.layer.addSublayer(shapeLayer)
+    /** draw completion indicator */
+    func drawCheckMark(indicator: RappleCompletion) {
+        if indicator != .none {
+            let x = completionPoint.x - 10
+            let y = completionPoint.y + 4
+            
+            completionLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+            completionLabel?.center = completionPoint
+            completionLabel?.textColor = getColor(key: RappleTintColorKey)
+            completionLabel?.textAlignment = .center
+            completionLabel?.numberOfLines = 1
+            let (c, f) = getCompletion(indicator: indicator)
+            completionLabel?.font = f
+            completionLabel?.text = c
+            backgroundView?.addSubview(completionLabel!)
+            
+            
+            let circle = UIBezierPath(arcCenter: completionPoint, radius: completionRadius, startAngle: CGFloat(-M_PI_2), endAngle:CGFloat(2 * M_PI - M_PI_2), clockwise: true)
+            let pgrsBg = CAShapeLayer()
+            pgrsBg.path = circle.cgPath
+            pgrsBg.fillColor = nil
+            pgrsBg.strokeColor = getColor(key: RappleTintColorKey).cgColor
+            pgrsBg.lineWidth = completionWidth
+            backgroundView?.layer.addSublayer(pgrsBg)
+        }
     }
 }

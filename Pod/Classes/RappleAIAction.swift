@@ -80,29 +80,11 @@ extension RappleActivityIndicatorView {
     }
     
     /** stop & clear */
-    class func stopPrivateAnimating(showCompletion: Bool, completionLabel: String?, completionTimeout: TimeInterval) {
+    class func stopPrivateAnimating(indicator: RappleCompletion, completionLabel: String?, completionTimeout: TimeInterval) {
         
-        if showCompletion == false {
-            sharedInstance.textStyleVisible = false
+        if indicator == .success || indicator == .failed ||
+            indicator == .incomplete || indicator == .unknown {
             
-            UIView.animate(withDuration: 0.5, animations: { () -> Void in
-                sharedInstance.backgroundView?.alpha = 0.0
-                sharedInstance.keyWindow.tintAdjustmentMode = .automatic
-                sharedInstance.keyWindow.tintColorDidChange()
-            }, completion: { (finished) -> Void in
-                sharedInstance.clearUIs()
-                sharedInstance.backgroundView?.removeFromSuperview()
-                sharedInstance.backgroundView = nil
-                sharedInstance.keyWindow.isUserInteractionEnabled = true
-                
-                if sharedInstance.attributes[RappleIndicatorStyleKey] as? String == RappleStyleText {
-                    sharedInstance.dotCount = 0
-                    sharedInstance.textStyleVisible = false
-                    sharedInstance.activityLable?.removeFromSuperview() // only text value is available
-                }
-            })
-            
-        } else {
             let style = sharedInstance.attributes[RappleIndicatorStyleKey] as? String ?? RappleStyleCircle
             if style == RappleStyleApple {
                 sharedInstance.progressBar?.removeFromSuperview()
@@ -140,16 +122,36 @@ extension RappleActivityIndicatorView {
             sharedInstance.progressLabel?.removeFromSuperview()
             sharedInstance.activityLable?.text = completionLabel
             
-            sharedInstance.drawCheckMark()
+            sharedInstance.drawCheckMark(indicator: indicator)
             
             Timer.scheduledTimer(timeInterval: completionTimeout, target: sharedInstance, selector: #selector(RappleActivityIndicatorView.closePrivateActivityCompletion), userInfo: nil, repeats: false)
+        }
+        else {
+            sharedInstance.textStyleVisible = false
+            
+            UIView.animate(withDuration: 0.5, animations: { () -> Void in
+                sharedInstance.backgroundView?.alpha = 0.0
+                sharedInstance.keyWindow.tintAdjustmentMode = .automatic
+                sharedInstance.keyWindow.tintColorDidChange()
+            }, completion: { (finished) -> Void in
+                sharedInstance.clearUIs()
+                sharedInstance.backgroundView?.removeFromSuperview()
+                sharedInstance.backgroundView = nil
+                sharedInstance.keyWindow.isUserInteractionEnabled = true
+                
+                if sharedInstance.attributes[RappleIndicatorStyleKey] as? String == RappleStyleText {
+                    sharedInstance.dotCount = 0
+                    sharedInstance.textStyleVisible = false
+                    sharedInstance.activityLable?.removeFromSuperview() // only text value is available
+                }
+            })
         }
         NotificationCenter.default.removeObserver(sharedInstance)
     }
     
     /** close completion UIs */
     internal func closePrivateActivityCompletion() {
-        RappleActivityIndicatorView.stopPrivateAnimating(showCompletion: false, completionLabel: nil, completionTimeout: 0)
+        RappleActivityIndicatorView.stopPrivateAnimating(indicator: .none, completionLabel: nil, completionTimeout: 0)
     }
     
     /** set progress values

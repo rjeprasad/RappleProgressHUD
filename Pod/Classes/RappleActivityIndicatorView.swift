@@ -48,20 +48,36 @@ public let RappleProgressBarFillColorKey    = "ProgressBarFillColorKey"
 
 /**
  Available Styles
- - RappleStyleApple              Default Apple ActivityIndicator
- - RappleStyleCircle             Custom Rapple Circle ActivityIndicator
- - RappleStyleText             Custom Rapple Text based indicator (e.g. Please wait...)
+ - RappleStyleApple             Default Apple ActivityIndicator
+ - RappleStyleCircle            Custom Rapple Circle ActivityIndicator
+ - RappleStyleText              Custom Rapple Text based indicator (e.g. Please wait...)
  */
 public let RappleStyleApple     = "Apple"
 public let RappleStyleCircle    = "Circle"
 public let RappleStyleText      = "Text"
 
 /**
+ Progress completion with status
+ - none             Stop and hide animation with out completion indicator
+ - success          ✓ symbol
+ - failed           x symbol
+ - incomplete       ! symbol
+ - unknown          ? symbol
+ */
+public enum RappleCompletion: String {
+    case none // default value (no completion indicator)
+    case success
+    case failed
+    case incomplete
+    case unknown
+}
+
+/**
  Predefined attribute dictionary to match default apple look & feel
+ - RappleIndicatorStyleKey          RappleStyleApple
  - RappleTintColorKey               UIColor.whiteColor()
  - RappleScreenBGColorKey           UIColor(white: 0.0, alpha: 0.2)
  - RappleProgressBGColorKey         UIColor(white: 0.0, alpha: 0.7)
- - RappleIndicatorStyleKey          RappleStyleApple
  - RappleProgressBarColorKey        lightGray
  - RappleProgressBarFillColorKey    white
  */
@@ -69,20 +85,59 @@ public let RappleAppleAttributes : [String:Any] = [RappleTintColorKey:UIColor.wh
 
 /**
  Predefined attribute dictionary to match modern look & feel
+ - RappleIndicatorStyleKey          RappleStyleCircle
  - RappleTintColorKey               UIColor.whiteColor()
  - RappleScreenBGColorKey           UIColor(white: 0.0, alpha: 0.5)
  - RappleProgressBGColorKey         N/A
- - RappleIndicatorStyleKey          RappleStyleCircle
  - RappleProgressBarColorKey        lightGray
  - RappleProgressBarFillColorKey    white
  */
 public let RappleModernAttributes : [String:Any] = [RappleTintColorKey:UIColor.white, RappleIndicatorStyleKey:RappleStyleCircle, RappleScreenBGColorKey:UIColor(white: 0.0, alpha: 0.5), RappleProgressBarColorKey: UIColor.lightGray, RappleProgressBarFillColorKey: UIColor.white]
+
+
+/**
+ Predefined attribute dictionary to match texual progress indicator
+ - RappleIndicatorStyleKey          RappleStyleText
+ - RappleTintColorKey               UIColor.whiteColor()
+ - RappleScreenBGColorKey           UIColor(white: 0.0, alpha: 0.5)
+ - RappleProgressBGColorKey         N/A
+ - RappleProgressBarColorKey        N/A
+ - RappleProgressBarFillColorKey    N/A
+ */
+public let RappleTextAttributes : [String:Any] = [RappleTintColorKey:UIColor.white, RappleIndicatorStyleKey:RappleStyleText, RappleScreenBGColorKey:UIColor(white: 0.0, alpha: 0.5)]
 
 /**
  RappleActivityIndicatorView is a shared controller and calling multipel times will overide the previouse activity indicator view.
  So closing it once at the end of process will close shared activity indicator completely
  */
 extension RappleActivityIndicatorView {
+    
+    /**
+     Create custom attribute dictionary
+     - parameter style: Style of the ActivityIndicator (only `RappleStyleApple` or `RappleStyleCircle` or `RappleStyleText`)
+     - parameter tintColor: Color of the progrss circle and text
+     - parameter screenBG: Background color (full screen background)
+     - parameter progressBG: Background color around the progress indicator (Only applicable for Apple Style)
+     - parameter progressBarBG: Progress bar bg color
+     - parameter progreeBarFill: Progress bar filling color with progression
+     */
+    public class func attribute(style: String,
+                                tintColor: UIColor?,
+                                screenBG: UIColor?,
+                                progressBG: UIColor?,
+                                progressBarBG: UIColor?,
+                                progreeBarFill: UIColor?) -> [String: Any] {
+        
+        var attribute: [String: Any] = [RappleIndicatorStyleKey: style]
+        if let tint = tintColor { attribute[RappleTintColorKey] = tint; }
+        if let scBG = screenBG { attribute[RappleScreenBGColorKey] = scBG; }
+        if let pgBG = progressBG { attribute[RappleProgressBGColorKey] = pgBG; }
+        if let bar = progressBarBG { attribute[RappleProgressBarColorKey] = bar; }
+        if let fill = progreeBarFill { attribute[RappleProgressBarFillColorKey] = fill; }
+        
+        return attribute;
+        
+    }
     
     /**
      Start Rapple progress indicator without any text message, using RappleModernAttributes
@@ -148,9 +203,26 @@ extension RappleActivityIndicatorView {
      - parameter completionLabel: string label for completion indicator Default nil
      - parameter completionTimeout: hide completion indicator after timeout time Defailt = 2.0
      */
+    @available(*, deprecated, message: "use `stopAnimation(completionIndicator: completionLabel: completionTimeout:)` instead (this method will be removed from v3.0)")
     public class func stopAnimating(showCompletion: Bool = false, completionLabel: String? = nil, completionTimeout: TimeInterval = 2.0) {
         DispatchQueue.main.async {
-            RappleActivityIndicatorView.stopPrivateAnimating(showCompletion: showCompletion, completionLabel: completionLabel, completionTimeout: completionTimeout)
+            if showCompletion == true {
+                RappleActivityIndicatorView.stopPrivateAnimating(indicator: .success, completionLabel: completionLabel, completionTimeout: completionTimeout)
+            } else {
+                RappleActivityIndicatorView.stopPrivateAnimating(indicator:.none, completionLabel: completionLabel, completionTimeout: completionTimeout)
+            }
+        }
+    }
+    
+    /**
+     Start Rapple progress value indicator
+     - parameter completionIndicator: completion indicator type - Default: RappleCompletionNone (no indicator)
+     - parameter completionLabel: string label for completion indicator Default nil
+     - parameter completionTimeout: hide completion indicator after timeout time Defailt = 2.0
+     */
+    public class func stopAnimation(completionIndicator: RappleCompletion = .none, completionLabel: String? = nil, completionTimeout: TimeInterval = 2.0) {
+        DispatchQueue.main.async {
+            RappleActivityIndicatorView.stopPrivateAnimating(indicator: completionIndicator, completionLabel: completionLabel, completionTimeout: completionTimeout)
         }
     }
     
@@ -192,6 +264,7 @@ open class RappleActivityIndicatorView: NSObject {
     var progressLayerBG : CAShapeLayer? // circular bar
     var progressLabel : UILabel? // percentage value
     var activityLable : UILabel? // text value
+    var completionLabel : UILabel? // completion indicator
     
     var textStyleVisible: Bool = false // texual progress
     

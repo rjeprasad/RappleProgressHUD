@@ -366,7 +366,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6AC8EED5D6F4D4D5548E873D /* Pods-RappleProgressHUD_Example.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = FHJ5ZKEKWP;
@@ -382,7 +381,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A1A81A639012EC9E03AC2A27 /* Pods-RappleProgressHUD_Example.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = FHJ5ZKEKWP;
