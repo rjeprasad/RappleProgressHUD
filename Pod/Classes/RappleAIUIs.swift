@@ -308,9 +308,6 @@ extension RappleActivityIndicatorView {
     /** draw completion indicator */
     func drawCheckMark(indicator: RappleCompletion) {
         if indicator != .none {
-            let x = completionPoint.x - 10
-            let y = completionPoint.y + 4
-            
             completionLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
             completionLabel?.center = completionPoint
             completionLabel?.textColor = getColor(key: RappleTintColorKey)
