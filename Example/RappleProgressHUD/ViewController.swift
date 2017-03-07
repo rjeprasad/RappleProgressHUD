@@ -19,36 +19,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        DispatchQueue.main.asyncAfter(deadline: .now()) {
-            RappleActivityIndicatorView.startAnimatingWithLabel("Processing...", attributes: RappleAppleAttributes)
-        }
-        
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            RappleActivityIndicatorView.startAnimatingWithLabel("Processing...", attributes: RappleModernAttributes)
-        }
-        
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
-            RappleActivityIndicatorView.stopAnimation(completionIndicator: .success, completionLabel: "sjkashk", completionTimeout: 5)
-        }
-        
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-            RappleActivityIndicatorView.stopAnimation(completionIndicator: .failed, completionLabel: "sjkashk", completionTimeout: 5)
-        }
-        
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 6) {
-            RappleActivityIndicatorView.stopAnimation(completionIndicator: .unknown, completionLabel: "sjkashk", completionTimeout: 5)
-        }
-        
-        
-    }
-    
     @IBAction func startDefault(_ sender: UIButton) {
         var timeOut: TimeInterval = 2
         switch styleSeg.selectedSegmentIndex {
