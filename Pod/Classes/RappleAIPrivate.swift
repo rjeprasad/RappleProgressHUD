@@ -58,7 +58,7 @@ extension RappleActivityIndicatorView {
         case .success:
             return ("✓", .boldSystemFont(ofSize: 25))
         case .failed:
-            return ("X", .systemFont(ofSize: 22))
+            return ("✕", .systemFont(ofSize: 25))
         case .incomplete:
             return ("!", .boldSystemFont(ofSize: 27))
         case .unknown:

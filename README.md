@@ -125,7 +125,7 @@ RappleActivityIndicatorView.stopAnimation(completionIndicator: .success, complet
 We can use any of the following RappleCompletion enum values as the indicator
 - `none`             Stop and hide animation with out completion indicator
 - `success`          ✓ symbol
-- `failed`           x symbol
+- `failed`           ✕ symbol
 - `incomplete`       ! symbol
 - `unknown`          ? symbol
 

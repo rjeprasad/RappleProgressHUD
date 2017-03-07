@@ -60,7 +60,7 @@ public let RappleStyleText      = "Text"
  Progress completion with status
  - none             Stop and hide animation with out completion indicator
  - success          ✓ symbol
- - failed           x symbol
+ - failed           ✕ symbol
  - incomplete       ! symbol
  - unknown          ? symbol
  */
@@ -144,7 +144,7 @@ extension RappleActivityIndicatorView {
      */
     public class func startAnimating() {
         DispatchQueue.main.async {
-            RappleActivityIndicatorView.loacClearUp()
+            RappleActivityIndicatorView.localClearUp()
             RappleActivityIndicatorView.startPrivateAnimating()
         }
     }
@@ -155,7 +155,7 @@ extension RappleActivityIndicatorView {
      */
     public class func startAnimating(attributes:[String:Any]) {
         DispatchQueue.main.async {
-            RappleActivityIndicatorView.loacClearUp()
+            RappleActivityIndicatorView.localClearUp()
             RappleActivityIndicatorView.startPrivateAnimating(attributes: attributes)
         }
     }
@@ -166,7 +166,7 @@ extension RappleActivityIndicatorView {
      */
     public class func startAnimatingWithLabel(_ label : String) {
         DispatchQueue.main.async {
-            RappleActivityIndicatorView.loacClearUp()
+            RappleActivityIndicatorView.localClearUp()
             RappleActivityIndicatorView.startPrivateAnimatingWithLabel(label)
         }
     }
@@ -178,7 +178,7 @@ extension RappleActivityIndicatorView {
      */
     public class func startAnimatingWithLabel(_ label : String, attributes:[String:Any]) {
         DispatchQueue.main.async {
-            RappleActivityIndicatorView.loacClearUp()
+            RappleActivityIndicatorView.localClearUp()
             RappleActivityIndicatorView.startPrivateAnimatingWithLabel(label, attributes: attributes)
         }
     }
@@ -232,7 +232,7 @@ extension RappleActivityIndicatorView {
     }
     
     /** Cleanup text & attribute values*/
-    private class func loacClearUp() {
+    private class func localClearUp() {
         RappleActivityIndicatorView.sharedInstance.textLabel = nil
         RappleActivityIndicatorView.sharedInstance.attributes.removeAll()
     }

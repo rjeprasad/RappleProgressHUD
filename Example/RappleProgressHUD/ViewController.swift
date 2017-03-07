@@ -19,6 +19,36 @@ class ViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now()) {
+            RappleActivityIndicatorView.startAnimatingWithLabel("Processing...", attributes: RappleAppleAttributes)
+        }
+        
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            RappleActivityIndicatorView.startAnimatingWithLabel("Processing...", attributes: RappleModernAttributes)
+        }
+        
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+            RappleActivityIndicatorView.stopAnimation(completionIndicator: .success, completionLabel: "sjkashk", completionTimeout: 5)
+        }
+        
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+            RappleActivityIndicatorView.stopAnimation(completionIndicator: .failed, completionLabel: "sjkashk", completionTimeout: 5)
+        }
+        
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 6) {
+            RappleActivityIndicatorView.stopAnimation(completionIndicator: .unknown, completionLabel: "sjkashk", completionTimeout: 5)
+        }
+        
+        
+    }
+    
     @IBAction func startDefault(_ sender: UIButton) {
         var timeOut: TimeInterval = 2
         switch styleSeg.selectedSegmentIndex {
@@ -37,8 +67,6 @@ class ViewController: UIViewController {
         } else {
             Timer.scheduledTimer(timeInterval: timeOut, target: self, selector: #selector(stopAnimation), userInfo: nil, repeats: false)
         }
-        
-        
     }
     
     func runProgress() {
@@ -54,19 +82,58 @@ class ViewController: UIViewController {
     }
     
     func stopAnimation(){
+        let timeOut: TimeInterval = 1
         switch self.cmplSeg.selectedSegmentIndex {
         case 0:
             RappleActivityIndicatorView.stopAnimation()
         case 1:
-            RappleActivityIndicatorView.stopAnimation(completionIndicator: .success, completionLabel: "Completed.", completionTimeout: 1.0)
+            RappleActivityIndicatorView.stopAnimation(completionIndicator: .success, completionLabel: "Completed.", completionTimeout: timeOut)
         case 2:
-            RappleActivityIndicatorView.stopAnimation(completionIndicator: .failed, completionLabel: "Failed.", completionTimeout: 1.0)
+            RappleActivityIndicatorView.stopAnimation(completionIndicator: .failed, completionLabel: "Failed.", completionTimeout: timeOut)
         case 3:
-            RappleActivityIndicatorView.stopAnimation(completionIndicator: .incomplete, completionLabel: "Incomplete.", completionTimeout: 1.0)
+            RappleActivityIndicatorView.stopAnimation(completionIndicator: .incomplete, completionLabel: "Incomplete.", completionTimeout: timeOut)
         case 4:
-            RappleActivityIndicatorView.stopAnimation(completionIndicator: .unknown, completionLabel: "Unknown.", completionTimeout: 1.0)
+            RappleActivityIndicatorView.stopAnimation(completionIndicator: .unknown, completionLabel: "Unknown.", completionTimeout: timeOut)
         default: ()
         }
+    }
+    
+    
+    /** custom attributes */
+    @IBAction func custom(_ sender: UIButton) {
+        var attribute = RappleActivityIndicatorView.attribute(style: RappleStyleApple, tintColor: .yellow, screenBG: .purple, progressBG: .black, progressBarBG: .orange, progreeBarFill: .red)
+        
+        switch sender.tag {
+        case 1:
+            RappleActivityIndicatorView.startAnimatingWithLabel("Processing...", attributes: attribute)
+            
+        case 2:
+            attribute[RappleIndicatorStyleKey] = RappleStyleCircle
+            RappleActivityIndicatorView.startAnimatingWithLabel("Processing...", attributes: attribute)
+            
+        case 3:
+            attribute[RappleIndicatorStyleKey] = RappleStyleText
+            RappleActivityIndicatorView.startAnimatingWithLabel("Processing", attributes: attribute)
+            
+            
+        default: return;
+        }
+        
+        Thread.detachNewThreadSelector(#selector(runCustomProgress), toTarget: self, with: nil)
+        
+        
+    }
+    
+    func runCustomProgress() {
+        if styleSeg.selectedSegmentIndex != 2 {
+            var i: CGFloat = 0
+            while i <= 100 {
+                RappleActivityIndicatorView.setProgress(i/100)
+                i += 1
+                Thread.sleep(forTimeInterval: 0.01)
+            }
+        }
+        RappleActivityIndicatorView.stopAnimation(completionIndicator: .success, completionLabel: "Completed.", completionTimeout: 2.0)
     }
     
     override func didReceiveMemoryWarning() {

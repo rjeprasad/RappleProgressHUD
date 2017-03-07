@@ -39,7 +39,7 @@ extension RappleActivityIndicatorView {
     
     /** create & start */
     class func startPrivateAnimating() {
-        
+                
         sharedInstance.keyWindow.endEditing(true)
         sharedInstance.keyWindow.isUserInteractionEnabled = false
         
@@ -119,6 +119,7 @@ extension RappleActivityIndicatorView {
                 sharedInstance.activityLable?.center = c
                 sharedInstance.activityLable?.textAlignment = .center
             }
+            sharedInstance.completionLabel?.removeFromSuperview()
             sharedInstance.progressLabel?.removeFromSuperview()
             sharedInstance.activityLable?.text = completionLabel
             
