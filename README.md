@@ -5,7 +5,12 @@
 [![Platform](https://img.shields.io/cocoapods/p/RappleProgressHUD.svg?style=flat)](http://cocoapods.org/pods/RappleProgressHUD)
 
 
+### RappleProgressHUD
+
+User-friendly and easy to use activity / progress indicator view with Swift 3
+
 ###Demo
+
 ![demo](Example/Demo/progress225.gif)
 
 ##Requirements
