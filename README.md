@@ -33,7 +33,7 @@ import RappleProgressHUD
 RappleActivityIndicatorView can be started using any of the starter methods mentioned below. 
 When calling these starter methods, two basic optional input values can be used to customize UIs.
 
-`**label**` this is the text value we are gonna display with the animated indicator
+**`label`** this is the text value we are gonna display with the animated indicator
 
 **`attributes`** this is a dictionary with following Keys.
 
