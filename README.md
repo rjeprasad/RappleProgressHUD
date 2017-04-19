@@ -31,15 +31,11 @@ import RappleProgressHUD
 </BR>
 
 RappleActivityIndicatorView can be started using any of the starter methods mentioned below. 
-When calling these starter methods, two basic input values are required to customize UIs.
+When calling these starter methods, two basic optional input values can be used to customize UIs.
 
-#### `label` 
+`label` this is the text value we are gonna display with the animated indicator
 
-this is the text value we are gonna display with the animated indicator
-
-#### `attributes` 
-
-this is a dictionary with following Keys.
+`attributes` this is a dictionary with following Keys.
 
 - `RappleTintColorKey`               Color of the progress circle and text
 - `RappleScreenBGColorKey`           Background color (full screen background)
