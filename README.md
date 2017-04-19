@@ -14,7 +14,7 @@ User-friendly and easy to use activity / progress indicator view with Swift 3
 ## Requirements
 - Swift 3
 - Xcode 8
-- iOS 8+ß
+- iOS 8+
 
 ## Installation
 RappleProgressHUD is available through [CocoaPods](http://cocoapods.org). To install it, simply add the following line to your Podfile:
