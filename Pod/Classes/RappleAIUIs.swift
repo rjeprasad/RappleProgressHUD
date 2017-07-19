@@ -35,7 +35,12 @@ extension RappleActivityIndicatorView {
         if (backgroundView == nil){
             backgroundView = UIView(frame: CGRect.zero)
             backgroundView?.translatesAutoresizingMaskIntoConstraints = false
-            backgroundView?.backgroundColor = getColor(key: RappleScreenBGColorKey).withAlphaComponent(0.4)
+            let screenBG = getColor(key: RappleScreenBGColorKey)
+            if screenBG != .clear {
+                backgroundView?.backgroundColor = getColor(key: RappleScreenBGColorKey).withAlphaComponent(0.4)
+            } else {
+                backgroundView?.backgroundColor = .clear
+            }
             backgroundView?.alpha = 1.0
             backgroundView?.isUserInteractionEnabled = false
             keyWindow.addSubview(backgroundView!)
@@ -126,7 +131,7 @@ extension RappleActivityIndicatorView {
         completionPoint = activityIndicator!.center
         completionPoint.x = contentSqure!.center.x
         completionRadius = 22
-        completionWidth = 2
+        completionWidth = getThickness(adjustment: 2)
     }
     
     /** create circular UIs */
@@ -219,7 +224,7 @@ extension RappleActivityIndicatorView {
         }
         completionPoint = center
         completionRadius = (showProgress == true) ? r - 5 : r
-        completionWidth = 4
+        completionWidth = getThickness()
         
         return center.y + r + 10
     }
@@ -230,7 +235,7 @@ extension RappleActivityIndicatorView {
         shapeLayer.path = circle.cgPath
         shapeLayer.fillColor = nil
         shapeLayer.strokeColor = getColor(key: RappleTintColorKey).cgColor
-        shapeLayer.lineWidth = 5.0
+        shapeLayer.lineWidth = attributes[RappleIndicatorThicknessKey] as? CGFloat ?? 4.0
         backgroundView?.layer.addSublayer(shapeLayer)
         
         let strokeEnd = CABasicAnimation(keyPath: "strokeEnd")
@@ -278,14 +283,14 @@ extension RappleActivityIndicatorView {
             progressLayerBG?.path = circle.cgPath
             progressLayerBG?.fillColor = nil
             progressLayerBG?.strokeColor = getColor(key: RappleProgressBarColorKey).cgColor
-            progressLayerBG?.lineWidth = 4.0
+            progressLayerBG?.lineWidth = attributes[RappleIndicatorThicknessKey] as? CGFloat ?? 4.0
             backgroundView?.layer.addSublayer(progressLayerBG!)
             
             progressLayer = CAShapeLayer()
             progressLayer?.path = circle.cgPath
             progressLayer?.fillColor = nil
             progressLayer?.strokeColor = getColor(key: RappleProgressBarFillColorKey).cgColor
-            progressLayer?.lineWidth = 4.0
+            progressLayer?.lineWidth = attributes[RappleIndicatorThicknessKey] as? CGFloat ?? 4.0
             backgroundView?.layer.addSublayer(progressLayer!)
             
             let w = (r * 2) - 10

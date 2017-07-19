@@ -35,6 +35,7 @@ import UIKit
  - RappleScreenBGColorKey           Background color (full screen background)
  - RappleProgressBGColorKey         Background color around the progress indicator (Only applicable for Apple Style)
  - RappleIndicatorStyleKey          Style of the ActivityIndicator
+ - RappleIndicatorThicknessKey      Thickness(width) of the progress indicator(if applicable) and completion indicator
  - RappleProgressBarColorKey        Progress bar bg color
  - RappleProgressBarFillColorKey    Progress bar filling color with progression
  */
@@ -42,6 +43,7 @@ public let RappleTintColorKey               = "TintColorKey"
 public let RappleScreenBGColorKey           = "ScreenBGColorKey"
 public let RappleProgressBGColorKey         = "ProgressBGColorKey"
 public let RappleIndicatorStyleKey          = "IndicatorStyleKey"
+public let RappleIndicatorThicknessKey      = "IndicatorThicknessKey"
 public let RappleProgressBarColorKey        = "ProgressBarColorKey"
 public let RappleProgressBarFillColorKey    = "ProgressBarFillColorKey"
 
@@ -55,6 +57,12 @@ public let RappleProgressBarFillColorKey    = "ProgressBarFillColorKey"
 public let RappleStyleApple     = "Apple"
 public let RappleStyleCircle    = "Circle"
 public let RappleStyleText      = "Text"
+
+public enum RappleStyle: String {
+    case apple = "Apple"
+    case circle = "Circle"
+    case text = "Text"
+}
 
 /**
  Progress completion with status
@@ -80,6 +88,7 @@ public enum RappleCompletion: String {
  - RappleProgressBGColorKey         UIColor(white: 0.0, alpha: 0.7)
  - RappleProgressBarColorKey        lightGray
  - RappleProgressBarFillColorKey    white
+ - RappleIndicatorThicknessKey      4.0
  */
 public let RappleAppleAttributes : [String:Any] = [RappleTintColorKey:UIColor.white, RappleIndicatorStyleKey:RappleStyleApple, RappleScreenBGColorKey:UIColor(white: 0.0, alpha: 0.2),RappleProgressBGColorKey:UIColor(white: 0.0, alpha: 0.7), RappleProgressBarColorKey: UIColor.lightGray, RappleProgressBarFillColorKey: UIColor.white]
 
@@ -91,6 +100,7 @@ public let RappleAppleAttributes : [String:Any] = [RappleTintColorKey:UIColor.wh
  - RappleProgressBGColorKey         N/A
  - RappleProgressBarColorKey        lightGray
  - RappleProgressBarFillColorKey    white
+ - RappleIndicatorThicknessKey      4.0
  */
 public let RappleModernAttributes : [String:Any] = [RappleTintColorKey:UIColor.white, RappleIndicatorStyleKey:RappleStyleCircle, RappleScreenBGColorKey:UIColor(white: 0.0, alpha: 0.5), RappleProgressBarColorKey: UIColor.lightGray, RappleProgressBarFillColorKey: UIColor.white]
 
@@ -103,6 +113,7 @@ public let RappleModernAttributes : [String:Any] = [RappleTintColorKey:UIColor.w
  - RappleProgressBGColorKey         N/A
  - RappleProgressBarColorKey        N/A
  - RappleProgressBarFillColorKey    N/A
+ - RappleIndicatorThicknessKey      4.0
  */
 public let RappleTextAttributes : [String:Any] = [RappleTintColorKey:UIColor.white, RappleIndicatorStyleKey:RappleStyleText, RappleScreenBGColorKey:UIColor(white: 0.0, alpha: 0.5)]
 
@@ -114,26 +125,28 @@ extension RappleActivityIndicatorView {
     
     /**
      Create custom attribute dictionary
-     - parameter style: Style of the ActivityIndicator (only `RappleStyleApple` or `RappleStyleCircle` or `RappleStyleText`)
+     - parameter style: Style of the ActivityIndicator 'enum RappleStyle'
      - parameter tintColor: Color of the progrss circle and text
      - parameter screenBG: Background color (full screen background)
      - parameter progressBG: Background color around the progress indicator (Only applicable for Apple Style)
      - parameter progressBarBG: Progress bar bg color
      - parameter progreeBarFill: Progress bar filling color with progression
      */
-    public class func attribute(style: String,
-                                tintColor: UIColor?,
-                                screenBG: UIColor?,
-                                progressBG: UIColor?,
-                                progressBarBG: UIColor?,
-                                progreeBarFill: UIColor?) -> [String: Any] {
+    public class func attribute(style: RappleStyle = .circle,
+                                tintColor: UIColor = UIColor.white,
+                                screenBG: UIColor = UIColor(white: 0.0, alpha: 0.5),
+                                progressBG: UIColor = UIColor(white: 0.0, alpha: 0.8),
+                                progressBarBG: UIColor = UIColor.lightGray,
+                                progreeBarFill: UIColor = UIColor.white,
+                                thickness: CGFloat = 4.0) -> [String: Any] {
         
-        var attribute: [String: Any] = [RappleIndicatorStyleKey: style]
-        if let tint = tintColor { attribute[RappleTintColorKey] = tint; }
-        if let scBG = screenBG { attribute[RappleScreenBGColorKey] = scBG; }
-        if let pgBG = progressBG { attribute[RappleProgressBGColorKey] = pgBG; }
-        if let bar = progressBarBG { attribute[RappleProgressBarColorKey] = bar; }
-        if let fill = progreeBarFill { attribute[RappleProgressBarFillColorKey] = fill; }
+        var attribute: [String: Any] = [RappleIndicatorStyleKey: style.rawValue]
+        attribute[RappleTintColorKey] = tintColor
+        attribute[RappleScreenBGColorKey] = screenBG
+        attribute[RappleProgressBGColorKey] = progressBG
+        attribute[RappleProgressBarColorKey] = progressBarBG
+        attribute[RappleProgressBarFillColorKey] = progreeBarFill
+        attribute[RappleIndicatorThicknessKey] = thickness
         
         return attribute;
         

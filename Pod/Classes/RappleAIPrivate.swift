@@ -51,6 +51,17 @@ extension RappleActivityIndicatorView {
         }
     }
     
+    func getThickness(adjustment: CGFloat = 0) -> CGFloat {
+        if let thick = attributes[RappleIndicatorThicknessKey] as? CGFloat {
+            if thick > adjustment {
+                return thick - adjustment
+            } else {
+                return 1
+            }
+        }
+        return 4.0 - adjustment
+    }
+    
     
     /** get completion indicator string value */
     func getCompletion(indicator: RappleCompletion) -> (String, UIFont) {
