@@ -91,8 +91,6 @@ to create custom attribute dictionary you can use below method, and all the para
 ```ruby
 let attributes = RappleActivityIndicatorView.attribute(style: RappleStyle.apple, tintColor: .yellow, screenBG: .purple, progressBG: .black, progressBarBG: .orange, progreeBarFill: .red, thickness: 4)
 
-or 
-
 let attributes = RappleActivityIndicatorView.attribute(style: RappleStyle.apple, tintColor: .yellow, progreeBarFill: .red, thickness: 2)
 
 ```
@@ -129,7 +127,7 @@ RappleActivityIndicatorView can also be closed with completion indicator
 RappleActivityIndicatorView.stopAnimation(completionIndicator: .success, completionLabel: "Completed.", completionTimeout: 1.0)
 ```
 
-We can use any of the following RappleCompletion enum values as the indicator
+You can use any of the following RappleCompletion enum values as the indicator
 - `none`             Stop and hide animation with out completion indicator
 - `success`          ✓ symbol
 - `failed`           ✕ symbol
@@ -174,8 +172,6 @@ RappleActivityIndicatorView.isVisible()
 ## Example Project
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
-
-Check [CocoaPodTester](https://github.com/rjeprasad/iSwift.tech/tree/master/CocoaPodTester) project for more 
 
 ## Author
 
