@@ -72,7 +72,7 @@ class ViewController: UIViewController {
     /** custom attributes */
     @IBAction func custom(_ sender: UIButton) {
         
-        var attribute = RappleActivityIndicatorView.attribute(style: .apple, tintColor: .yellow, screenBG: .purple, progressBG: .black, progressBarBG: .orange, progreeBarFill: .red, thickness: 2)
+        var attribute = RappleActivityIndicatorView.attribute(style: .apple, tintColor: .yellow, screenBG: .purple, progressBG: .black, progressBarBG: .orange, progreeBarFill: .red, thickness: 4)
         
         switch sender.tag {
         case 1:
