@@ -32,13 +32,13 @@
 extension RappleActivityIndicatorView {
     
     /** isVisible */
-    class func isPrivateVisible() -> Bool {
+    @objc class func isPrivateVisible() -> Bool {
         let progress = RappleActivityIndicatorView.sharedInstance
         return progress.backgroundView?.superview != nil
     }
     
     /** create & start */
-    class func startPrivateAnimating() {
+    @objc class func startPrivateAnimating() {
                 
         sharedInstance.keyWindow.endEditing(true)
         sharedInstance.keyWindow.isUserInteractionEnabled = false
@@ -61,19 +61,19 @@ extension RappleActivityIndicatorView {
     }
     
     /** create & start */
-    class func startPrivateAnimating(attributes:[String:Any]) {
+    @objc class func startPrivateAnimating(attributes:[String:Any]) {
         RappleActivityIndicatorView.sharedInstance.setAttributeDict(attributes: attributes)
         RappleActivityIndicatorView.startPrivateAnimating()
     }
     
     /** create & start */
-    class func startPrivateAnimatingWithLabel(_ label : String) {
+    @objc class func startPrivateAnimatingWithLabel(_ label : String) {
         RappleActivityIndicatorView.sharedInstance.textLabel = label
         RappleActivityIndicatorView.startPrivateAnimating()
     }
     
     /** create & start */
-    class func startPrivateAnimatingWithLabel(_ label : String, attributes:[String:Any]) {
+    @objc class func startPrivateAnimatingWithLabel(_ label : String, attributes:[String:Any]) {
         RappleActivityIndicatorView.sharedInstance.setAttributeDict(attributes: attributes)
         RappleActivityIndicatorView.sharedInstance.textLabel = label
         RappleActivityIndicatorView.startPrivateAnimating()
@@ -151,14 +151,14 @@ extension RappleActivityIndicatorView {
     }
     
     /** close completion UIs */
-    internal func closePrivateActivityCompletion() {
+    @objc internal func closePrivateActivityCompletion() {
         RappleActivityIndicatorView.stopPrivateAnimating(indicator: .none, completionLabel: nil, completionTimeout: 0)
     }
     
     /** set progress values
      - not available with RappleStyleText mode
      */
-    class func setPrivateProgress(_ progress: Float, textValue: String? = nil) {
+    @objc class func setPrivateProgress(_ progress: Float, textValue: String? = nil) {
         let style = sharedInstance.attributes[RappleIndicatorStyleKey] as? String ?? RappleStyleCircle
         if style == RappleStyleText { /* not available */ return; }
         
@@ -180,7 +180,7 @@ extension RappleActivityIndicatorView {
         }
     }
     
-    func setBarProgressValue(_ progress: Float, pgText: String?){
+    @objc func setBarProgressValue(_ progress: Float, pgText: String?){
         progressBar?.progress = progress
         var textVal = pgText
         if pgText == nil {
@@ -196,7 +196,7 @@ extension RappleActivityIndicatorView {
         }
     }
     
-    func changeTextValue() {
+    @objc func changeTextValue() {
         var dots = ""
         let c = (dotCount % 4) + 1
         for _ in 1...c { dots.append("."); }

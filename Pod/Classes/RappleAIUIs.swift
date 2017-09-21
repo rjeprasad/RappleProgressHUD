@@ -31,7 +31,7 @@
 extension RappleActivityIndicatorView {
     
     /** create background view */
-    func createProgressBG() {
+    @objc func createProgressBG() {
         if (backgroundView == nil){
             backgroundView = UIView(frame: CGRect.zero)
             backgroundView?.translatesAutoresizingMaskIntoConstraints = false
@@ -52,7 +52,7 @@ extension RappleActivityIndicatorView {
     }
     
     /** create all UIs */
-    func createActivityIndicator(){
+    @objc func createActivityIndicator(){
         if backgroundView == nil { createProgressBG() }
         clearUIs() // clear all before restart
         let style = attributes[RappleIndicatorStyleKey] as? String ?? RappleStyleCircle
@@ -66,7 +66,7 @@ extension RappleActivityIndicatorView {
     }
     
     /** create Apple style UIs */
-    func createAppleUIs() {
+    @objc func createAppleUIs() {
         var sqWidth: CGFloat = 55
         // calc center values
         let size = calcTextSize(textLabel)
@@ -135,7 +135,7 @@ extension RappleActivityIndicatorView {
     }
     
     /** create circular UIs */
-    func createCircleUIs() {
+    @objc func createCircleUIs() {
         let size = calcTextSize(textLabel)
         let yi = addAnimatingCircle(twoSided: showProgress == false)
         if showProgress == true {
@@ -155,7 +155,7 @@ extension RappleActivityIndicatorView {
     }
     
     /** create text UIs */
-    func createTextUIs() {
+    @objc func createTextUIs() {
         // add label and size
         let size = calcTextSize(textLabel)
         activityLable = UILabel(frame: CGRect(x: 0, y: 0, width: size.width+1, height: size.height+1))
@@ -188,12 +188,12 @@ extension RappleActivityIndicatorView {
     }
     
     /** calc text value height - max 220x x 100 */
-    func calcTextSize(_ text: String?) -> CGSize {
+    @objc func calcTextSize(_ text: String?) -> CGSize {
         if (text == nil) {
             return CGSize.zero
         }
         let nss = text! as NSString
-        let size = nss.boundingRect(with: CGSize(width: 220, height: 9999), options: .usesLineFragmentOrigin, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 16)], context: nil).size
+        let size = nss.boundingRect(with: CGSize(width: 220, height: 9999), options: .usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 16)], context: nil).size
         var h = size.height
         if h > 100 {
             h = 100
@@ -206,7 +206,7 @@ extension RappleActivityIndicatorView {
     }
     
     /** create circulat activity indicators */
-    func addAnimatingCircle(twoSided: Bool) -> CGFloat {
+    @objc func addAnimatingCircle(twoSided: Bool) -> CGFloat {
         
         let size = calcTextSize(textLabel)
         let r = radius
@@ -230,7 +230,7 @@ extension RappleActivityIndicatorView {
     }
     
     /** create circular path with UIBezierPath */
-    func rotatingCircle(circle: UIBezierPath) -> CAShapeLayer {
+    @objc func rotatingCircle(circle: UIBezierPath) -> CAShapeLayer {
         let shapeLayer = CAShapeLayer()
         shapeLayer.path = circle.cgPath
         shapeLayer.fillColor = nil
@@ -268,7 +268,7 @@ extension RappleActivityIndicatorView {
     }
     
     /** create & set circular progress bar */
-    func addProgresCircle(_ progress: Float, pgText: String?) {
+    @objc func addProgresCircle(_ progress: Float, pgText: String?) {
         
         if progressLayer == nil {
             let size = calcTextSize(textLabel)

@@ -39,7 +39,7 @@ class ViewController: UIViewController {
         }
     }
     
-    func runProgress() {
+    @objc func runProgress() {
         if styleSeg.selectedSegmentIndex != 2 {
             var i: CGFloat = 0
             while i <= 100 {
@@ -51,7 +51,7 @@ class ViewController: UIViewController {
         self.stopAnimation()
     }
     
-    func stopAnimation(){
+    @objc func stopAnimation(){
         let timeOut: TimeInterval = 1
         switch self.cmplSeg.selectedSegmentIndex {
         case 0:
@@ -95,7 +95,7 @@ class ViewController: UIViewController {
         
     }
     
-    func runCustomProgress() {
+    @objc func runCustomProgress() {
         if styleSeg.selectedSegmentIndex != 2 {
             var i: CGFloat = 0
             while i <= 100 {

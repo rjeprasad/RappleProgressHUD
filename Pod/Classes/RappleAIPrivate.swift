@@ -31,7 +31,7 @@
 extension RappleActivityIndicatorView {
     
     /** get color attribute values for key */
-    func getColor(key: String) -> UIColor {
+    @objc func getColor(key: String) -> UIColor {
         if let color = attributes[key] as? UIColor {
             return color
         }
@@ -51,7 +51,7 @@ extension RappleActivityIndicatorView {
         }
     }
     
-    func getThickness(adjustment: CGFloat = 0) -> CGFloat {
+    @objc func getThickness(adjustment: CGFloat = 0) -> CGFloat {
         if let thick = attributes[RappleIndicatorThicknessKey] as? CGFloat {
             if thick > adjustment {
                 return thick - adjustment
@@ -81,12 +81,12 @@ extension RappleActivityIndicatorView {
     }
     
     /** re-create after orientation change */
-    internal func orientationChanged() {
+    @objc internal func orientationChanged() {
         RappleActivityIndicatorView.sharedInstance.createActivityIndicator()
     }
     
     /** clear all UIs */
-    func clearUIs() {
+    @objc func clearUIs() {
         if let bgview = RappleActivityIndicatorView.sharedInstance.backgroundView {
             for v in bgview.subviews {
                 v.removeFromSuperview()
@@ -103,7 +103,7 @@ extension RappleActivityIndicatorView {
     }
     
     /** get key window */
-    var keyWindow: UIWindow {
+    @objc var keyWindow: UIWindow {
         return UIApplication.shared.keyWindow!
     }
 }
