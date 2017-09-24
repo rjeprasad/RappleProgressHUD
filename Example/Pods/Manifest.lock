@@ -1,5 +1,5 @@
 PODS:
-  - RappleProgressHUD (2.3.1)
+  - RappleProgressHUD (2.4.1)
 
 DEPENDENCIES:
   - RappleProgressHUD (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  RappleProgressHUD: 10ce616259648e0f664e9c681fec5f26ab0e81be
+  RappleProgressHUD: bc72a70cfe379dba609080591bb22bc987dbe965
 
 PODFILE CHECKSUM: 6bdb2e72528bb439ec1fc91a27d54e65160f39b2
 
