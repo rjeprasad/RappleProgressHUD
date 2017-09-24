@@ -155,7 +155,7 @@ extension RappleActivityIndicatorView {
     /**
      Start Rapple progress indicator without any text message, using RappleModernAttributes
      */
-    public class func startAnimating() {
+    @objc public class func startAnimating() {
         DispatchQueue.main.async {
             RappleActivityIndicatorView.localClearUp()
             RappleActivityIndicatorView.startPrivateAnimating()
@@ -166,7 +166,7 @@ extension RappleActivityIndicatorView {
      Start Rapple progress indicator without any text message
      - parameter attributes: dictionary with custom attributes
      */
-    public class func startAnimating(attributes:[String:Any]) {
+    @objc public class func startAnimating(attributes:[String:Any]) {
         DispatchQueue.main.async {
             RappleActivityIndicatorView.localClearUp()
             RappleActivityIndicatorView.startPrivateAnimating(attributes: attributes)
@@ -177,7 +177,7 @@ extension RappleActivityIndicatorView {
      Start Rapple progress indicator & text message, using RappleModernAttributes
      - parameter label: text value to display with activity indicator
      */
-    public class func startAnimatingWithLabel(_ label : String) {
+    @objc public class func startAnimatingWithLabel(_ label : String) {
         DispatchQueue.main.async {
             RappleActivityIndicatorView.localClearUp()
             RappleActivityIndicatorView.startPrivateAnimatingWithLabel(label)
@@ -189,7 +189,7 @@ extension RappleActivityIndicatorView {
      - parameter label: text value to display with activity indicator
      - parameter attributes: dictionary with custom attributes
      */
-    public class func startAnimatingWithLabel(_ label : String, attributes:[String:Any]) {
+    @objc public class func startAnimatingWithLabel(_ label : String, attributes:[String:Any]) {
         DispatchQueue.main.async {
             RappleActivityIndicatorView.localClearUp()
             RappleActivityIndicatorView.startPrivateAnimatingWithLabel(label, attributes: attributes)
@@ -204,7 +204,7 @@ extension RappleActivityIndicatorView {
      - Note: textValue -> "" to hide texual progress amount
      - Note: normal progress bar will display for 'RappleStyleApple' and circular progress bar will display for 'RappleStyleCircle'
      */
-    public class func setProgress(_ progress: CGFloat, textValue: String? = nil) {
+    @objc public class func setProgress(_ progress: CGFloat, textValue: String? = nil) {
         DispatchQueue.main.async {
             RappleActivityIndicatorView.setPrivateProgress(Float(progress), textValue: textValue)
         }
@@ -216,7 +216,7 @@ extension RappleActivityIndicatorView {
      - parameter completionLabel: string label for completion indicator Default nil
      - parameter completionTimeout: hide completion indicator after timeout time Defailt = 2.0
      */
-    @available(*, deprecated, message: "use `stopAnimation(completionIndicator: completionLabel: completionTimeout:)` instead (this method will be removed from v3.0)")
+    @objc @available(*, deprecated, message: "use `stopAnimation(completionIndicator: completionLabel: completionTimeout:)` instead (this method will be removed from v3.0)")
     public class func stopAnimating(showCompletion: Bool = false, completionLabel: String? = nil, completionTimeout: TimeInterval = 2.0) {
         DispatchQueue.main.async {
             if showCompletion == true {
@@ -240,7 +240,7 @@ extension RappleActivityIndicatorView {
     }
     
     /** Check wheather RappleActivityIndicatorView is visible */
-    public class func isVisible() -> Bool {
+    @objc public class func isVisible() -> Bool {
         return RappleActivityIndicatorView.isPrivateVisible()
     }
     
@@ -260,42 +260,42 @@ open class RappleActivityIndicatorView: NSObject {
     /**
      Shared instance for internal usage
      */
-    static let sharedInstance = RappleActivityIndicatorView()
+    @objc static let sharedInstance = RappleActivityIndicatorView()
     
-    var backgroundView : UIView? // full screen background
-    var contentSqure : UIView? // background atounf progress (apple style)
+    @objc var backgroundView : UIView? // full screen background
+    @objc var contentSqure : UIView? // background atounf progress (apple style)
     
-    var activityIndicator : UIActivityIndicatorView? // apple activity indicator
-    var circularActivity1 : CAShapeLayer? // circular activity indicator
-    var circularActivity2 : CAShapeLayer? // circular activity indicator
-    var completionPoint : CGPoint = .zero // activity indicator center point
-    var completionRadius : CGFloat = 18 // activity indicator complete circle
-    var completionWidth : CGFloat = 4 // activity indicator complete circle
+    @objc var activityIndicator : UIActivityIndicatorView? // apple activity indicator
+    @objc var circularActivity1 : CAShapeLayer? // circular activity indicator
+    @objc var circularActivity2 : CAShapeLayer? // circular activity indicator
+    @objc var completionPoint : CGPoint = .zero // activity indicator center point
+    @objc var completionRadius : CGFloat = 18 // activity indicator complete circle
+    @objc var completionWidth : CGFloat = 4 // activity indicator complete circle
     
-    var progressBar : UIProgressView? // apple style bar
-    var progressLayer : CAShapeLayer? // circular bar
-    var progressLayerBG : CAShapeLayer? // circular bar
-    var progressLabel : UILabel? // percentage value
-    var activityLable : UILabel? // text value
-    var completionLabel : UILabel? // completion indicator
+    @objc var progressBar : UIProgressView? // apple style bar
+    @objc var progressLayer : CAShapeLayer? // circular bar
+    @objc var progressLayerBG : CAShapeLayer? // circular bar
+    @objc var progressLabel : UILabel? // percentage value
+    @objc var activityLable : UILabel? // text value
+    @objc var completionLabel : UILabel? // completion indicator
     
-    var textStyleVisible: Bool = false // texual progress
+    @objc var textStyleVisible: Bool = false // texual progress
     
-    var textLabel : String?
-    var attributes : [String:Any] = RappleModernAttributes
-    var currentProgress: Float = 0
-    var showProgress: Bool = false
+    @objc var textLabel : String?
+    @objc var attributes : [String:Any] = RappleModernAttributes
+    @objc var currentProgress: Float = 0
+    @objc var showProgress: Bool = false
     
-    var dotCount: Int = 0 // texual progress dot count
+    @objc var dotCount: Int = 0 // texual progress dot count
     
     /** set attribute dictionary */
-    func setAttributeDict(attributes: [String:Any]) {
+    @objc func setAttributeDict(attributes: [String:Any]) {
         RappleActivityIndicatorView.sharedInstance.attributes = attributes
         self.attributes[RappleIndicatorStyleKey] = style
     }
     
     /** get current style */
-    var style: String {
+    @objc var style: String {
         if let st = RappleActivityIndicatorView.sharedInstance.attributes[RappleIndicatorStyleKey] as? String {
             if st == RappleStyleApple {
                 return RappleStyleApple
@@ -307,7 +307,7 @@ open class RappleActivityIndicatorView: NSObject {
     }
     
     /** radius of the circular activity indicator */
-    var radius: CGFloat {
+    @objc var radius: CGFloat {
         if showProgress {
             return 40
         } else {
