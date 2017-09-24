@@ -40,7 +40,7 @@ class ViewController: UIViewController {
     }
     
     @objc func runProgress() {
-        if styleSeg.selectedSegmentIndex != 2 {
+        if self.styleSeg.selectedSegmentIndex != 2 {
             var i: CGFloat = 0
             while i <= 100 {
                 RappleActivityIndicatorView.setProgress(i/100)
@@ -96,7 +96,7 @@ class ViewController: UIViewController {
     }
     
     @objc func runCustomProgress() {
-        if styleSeg.selectedSegmentIndex != 2 {
+        if self.styleSeg.selectedSegmentIndex != 2 {
             var i: CGFloat = 0
             while i <= 100 {
                 RappleActivityIndicatorView.setProgress(i/100)

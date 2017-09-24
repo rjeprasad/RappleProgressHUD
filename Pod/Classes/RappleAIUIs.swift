@@ -1,6 +1,6 @@
 /* **
  RappleAIUIs.swift
- Custom Activity Indicator with swift 3
+ Custom Activity Indicator with swift 4
  
  Created by Rajeev Prasad on 18/12/16.
  

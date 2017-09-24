@@ -5,16 +5,21 @@
 [![Platform](https://img.shields.io/cocoapods/p/RappleProgressHUD.svg?style=flat)](http://cocoapods.org/pods/RappleProgressHUD)
 
 
-User-friendly and easy to use activity / progress indicator view with Swift 3
+User-friendly and easy to use activity / progress indicator view with Swift 4
+
+[Please use version 2.3.1 for Swift 3 builds]
 
 ## Demo
 
 ![demo](Example/Demo/progress225.gif)
 
 ## Requirements
-- Swift 3
-- Xcode 8
+- Swift 4
+- Xcode 9
 - iOS 8+
+
+### Please use version 2.3.1 for Swift 3 builds
+
 
 ## Installation
 RappleProgressHUD is available through [CocoaPods](http://cocoapods.org). To install it, simply add the following line to your Podfile:
