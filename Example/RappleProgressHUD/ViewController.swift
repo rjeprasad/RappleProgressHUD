@@ -21,7 +21,8 @@ class ViewController: UIViewController {
     
     @IBAction func startDefault(_ sender: UIButton) {
         var timeOut: TimeInterval = 2
-        switch styleSeg.selectedSegmentIndex {
+        let type =  styleSeg.selectedSegmentIndex
+        switch type {
         case 0:
             RappleActivityIndicatorView.startAnimatingWithLabel("Processing...", attributes: RappleAppleAttributes)
         case 1:
@@ -32,15 +33,17 @@ class ViewController: UIViewController {
         default: ()
         }
         
-        if barSwitch.isOn == true && styleSeg.selectedSegmentIndex != 2 {
-            Thread.detachNewThreadSelector(#selector(runProgress), toTarget: self, with: nil)
+        if barSwitch.isOn == true && type != 2 {
+            Thread.detachNewThread {
+                self.runProgress(type)
+            }
         } else {
             Timer.scheduledTimer(timeInterval: timeOut, target: self, selector: #selector(stopAnimation), userInfo: nil, repeats: false)
         }
     }
     
-    @objc func runProgress() {
-        if self.styleSeg.selectedSegmentIndex != 2 {
+    @objc func runProgress(_ type: Int) {
+        if type != 2 {
             var i: CGFloat = 0
             while i <= 100 {
                 RappleActivityIndicatorView.setProgress(i/100)
@@ -51,20 +54,22 @@ class ViewController: UIViewController {
         self.stopAnimation()
     }
     
-    @objc func stopAnimation(){
-        let timeOut: TimeInterval = 1
-        switch self.cmplSeg.selectedSegmentIndex {
-        case 0:
-            RappleActivityIndicatorView.stopAnimation()
-        case 1:
-            RappleActivityIndicatorView.stopAnimation(completionIndicator: .success, completionLabel: "Completed.", completionTimeout: timeOut)
-        case 2:
-            RappleActivityIndicatorView.stopAnimation(completionIndicator: .failed, completionLabel: "Failed.", completionTimeout: timeOut)
-        case 3:
-            RappleActivityIndicatorView.stopAnimation(completionIndicator: .incomplete, completionLabel: "Incomplete.", completionTimeout: timeOut)
-        case 4:
-            RappleActivityIndicatorView.stopAnimation(completionIndicator: .unknown, completionLabel: "Unknown.", completionTimeout: timeOut)
-        default: ()
+    @objc func stopAnimation() {
+        DispatchQueue.main.async {
+            let timeOut: TimeInterval = 1
+            switch self.cmplSeg.selectedSegmentIndex {
+            case 0:
+                RappleActivityIndicatorView.stopAnimation()
+            case 1:
+                RappleActivityIndicatorView.stopAnimation(completionIndicator: .success, completionLabel: "Completed.", completionTimeout: timeOut)
+            case 2:
+                RappleActivityIndicatorView.stopAnimation(completionIndicator: .failed, completionLabel: "Failed.", completionTimeout: timeOut)
+            case 3:
+                RappleActivityIndicatorView.stopAnimation(completionIndicator: .incomplete, completionLabel: "Incomplete.", completionTimeout: timeOut)
+            case 4:
+                RappleActivityIndicatorView.stopAnimation(completionIndicator: .unknown, completionLabel: "Unknown.", completionTimeout: timeOut)
+            default: ()
+            }
         }
     }
     
@@ -90,19 +95,18 @@ class ViewController: UIViewController {
         default: return;
         }
         
-        Thread.detachNewThreadSelector(#selector(runCustomProgress), toTarget: self, with: nil)
-        
+        Thread.detachNewThread {
+            self.runCustomProgress()
+        }
         
     }
     
     @objc func runCustomProgress() {
-        if self.styleSeg.selectedSegmentIndex != 2 {
-            var i: CGFloat = 0
-            while i <= 100 {
-                RappleActivityIndicatorView.setProgress(i/100)
-                i += 1
-                Thread.sleep(forTimeInterval: 0.01)
-            }
+        var i: CGFloat = 0
+        while i <= 100 {
+            RappleActivityIndicatorView.setProgress(i/100)
+            i += 1
+            Thread.sleep(forTimeInterval: 0.01)
         }
         RappleActivityIndicatorView.stopAnimation(completionIndicator: .success, completionLabel: "Completed.", completionTimeout: 2.0)
     }

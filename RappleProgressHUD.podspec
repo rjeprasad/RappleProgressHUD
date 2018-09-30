@@ -1,10 +1,10 @@
 Pod::Spec.new do |s|
 s.name             = "RappleProgressHUD"
-s.version          = "2.4.1"
+s.version          = "3.0.1"
 s.summary          = "Activity & Progress indicator for Swift."
 
 s.description      = <<-DESC
-Flexible & user-friendly Activity & Progress indicator for Swift 4.
+Flexible & user-friendly Activity & Progress indicator for Swift 4.2.
 DESC
 
 s.homepage         = "https://github.com/rjeprasad/RappleProgressHUD"

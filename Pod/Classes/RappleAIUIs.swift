@@ -76,7 +76,7 @@ extension RappleActivityIndicatorView {
         var c = keyWindow.center; c.y -= cd
         
         // add activity indicator
-        activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        activityIndicator = UIActivityIndicatorView(style: .whiteLarge)
         activityIndicator?.color = getColor(key: RappleTintColorKey)
         activityIndicator?.startAnimating()
         backgroundView?.addSubview(activityIndicator!)
@@ -126,7 +126,7 @@ extension RappleActivityIndicatorView {
         contentSqure?.layer.masksToBounds = true
         contentSqure?.center = keyWindow.center
         backgroundView?.addSubview(contentSqure!)
-        backgroundView?.sendSubview(toBack: contentSqure!)
+        backgroundView?.sendSubviewToBack(contentSqure!)
         
         completionPoint = activityIndicator!.center
         completionPoint.x = contentSqure!.center.x
@@ -193,7 +193,7 @@ extension RappleActivityIndicatorView {
             return CGSize.zero
         }
         let nss = text! as NSString
-        let size = nss.boundingRect(with: CGSize(width: 220, height: 9999), options: .usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 16)], context: nil).size
+        let size = nss.boundingRect(with: CGSize(width: 220, height: 9999), options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16)], context: nil).size
         var h = size.height
         if h > 100 {
             h = 100
@@ -242,7 +242,7 @@ extension RappleActivityIndicatorView {
         strokeEnd.fromValue = 0.0
         strokeEnd.toValue = 1.0
         strokeEnd.duration = 1.0
-        strokeEnd.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        strokeEnd.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
         
         let endGroup = CAAnimationGroup()
         endGroup.duration = 1.3
@@ -254,7 +254,7 @@ extension RappleActivityIndicatorView {
         strokeStart.fromValue = 0.0
         strokeStart.toValue = 1.0
         strokeStart.duration = 1.0
-        strokeStart.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        strokeStart.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
         
         let startGroup = CAAnimationGroup()
         startGroup.duration = 1.3

@@ -6,11 +6,11 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   RappleProgressHUD:
-    :path: ../
+    :path: "../"
 
 SPEC CHECKSUMS:
-  RappleProgressHUD: bc72a70cfe379dba609080591bb22bc987dbe965
+  RappleProgressHUD: f9e0e82b8fe735a7e0d53239d8e7dc089acc818a
 
 PODFILE CHECKSUM: 6bdb2e72528bb439ec1fc91a27d54e65160f39b2
 
-COCOAPODS: 1.3.1
+COCOAPODS: 1.5.3
