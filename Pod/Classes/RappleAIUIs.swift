@@ -27,6 +27,8 @@
  THE SOFTWARE.
  ** */
 
+import Foundation
+
 /** creation of UIs */
 extension RappleActivityIndicatorView {
     
