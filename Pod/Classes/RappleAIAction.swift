@@ -6,7 +6,7 @@
  
  The MIT License (MIT)
  
- Copyright (c) 2017 Rajeev Prasad <rjeprasad@gmail.com>
+ Copyright (c) 2015-2018 Rajeev Prasad <rjeprasad@gmail.com>
  
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
@@ -27,6 +27,7 @@
  THE SOFTWARE.
  ** */
 
+import Foundation
 
 /** calling actions */
 extension RappleActivityIndicatorView {
@@ -39,7 +40,7 @@ extension RappleActivityIndicatorView {
     
     /** create & start */
     @objc class func startPrivateAnimating() {
-                
+        
         sharedInstance.keyWindow.endEditing(true)
         sharedInstance.keyWindow.isUserInteractionEnabled = false
         
