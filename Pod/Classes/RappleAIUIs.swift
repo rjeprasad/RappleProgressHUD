@@ -52,7 +52,25 @@ extension RappleActivityIndicatorView {
             keyWindow.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[BG]|", options: .alignAllCenterX, metrics: nil, views: dic))
         }
     }
-    
+    @objc func createProgressBG(addTo view: UIView) {
+        if (backgroundView == nil){
+            backgroundView = UIView(frame: CGRect.zero)
+            backgroundView?.translatesAutoresizingMaskIntoConstraints = false
+            let screenBG = getColor(key: RappleScreenBGColorKey)
+            if screenBG != .clear {
+                backgroundView?.backgroundColor = getColor(key: RappleScreenBGColorKey).withAlphaComponent(0.4)
+            } else {
+                backgroundView?.backgroundColor = .clear
+            }
+            backgroundView?.alpha = 1.0
+            backgroundView?.isUserInteractionEnabled = false
+            view.addSubview(backgroundView!)
+            
+            let dic = ["BG": backgroundView!]
+            view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[BG]|", options: .alignAllCenterY, metrics: nil, views: dic))
+            view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[BG]|", options: .alignAllCenterX, metrics: nil, views: dic))
+        }
+    }
     /** create all UIs */
     @objc func createActivityIndicator(){
         if backgroundView == nil { createProgressBG() }

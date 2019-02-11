@@ -39,7 +39,7 @@ extension RappleActivityIndicatorView {
     }
     
     /** create & start */
-    @objc class func startPrivateAnimating() {
+    @objc class func startPrivateAnimating(addTo view: UIView? = nil) {
         
         sharedInstance.keyWindow.endEditing(true)
         sharedInstance.keyWindow.isUserInteractionEnabled = false
@@ -49,8 +49,11 @@ extension RappleActivityIndicatorView {
         NotificationCenter.default.addObserver(progress, selector: #selector(RappleActivityIndicatorView.orientationChanged), name: UIDevice.orientationDidChangeNotification, object: nil)
         
         sharedInstance.showProgress = false
-        
-        progress.createProgressBG()
+        if let view = view {
+            progress.createProgressBG(addTo: view)
+        }else{
+            progress.createProgressBG()
+        }
         
         UIView.animate(withDuration: 0.5, animations: { () -> Void in
             
@@ -62,22 +65,22 @@ extension RappleActivityIndicatorView {
     }
     
     /** create & start */
-    @objc class func startPrivateAnimating(attributes:[String:Any]) {
+    @objc class func startPrivateAnimating(attributes:[String:Any], addTo view: UIView? = nil) {
         RappleActivityIndicatorView.sharedInstance.setAttributeDict(attributes: attributes)
-        RappleActivityIndicatorView.startPrivateAnimating()
+        RappleActivityIndicatorView.startPrivateAnimating(addTo: view)
     }
     
     /** create & start */
-    @objc class func startPrivateAnimatingWithLabel(_ label : String) {
+    @objc class func startPrivateAnimatingWithLabel(_ label : String, addTo view: UIView? = nil) {
         RappleActivityIndicatorView.sharedInstance.textLabel = label
-        RappleActivityIndicatorView.startPrivateAnimating()
+        RappleActivityIndicatorView.startPrivateAnimating(addTo: view)
     }
     
     /** create & start */
-    @objc class func startPrivateAnimatingWithLabel(_ label : String, attributes:[String:Any]) {
+    @objc class func startPrivateAnimatingWithLabel(_ label : String, attributes:[String:Any], addTo view: UIView? = nil) {
         RappleActivityIndicatorView.sharedInstance.setAttributeDict(attributes: attributes)
         RappleActivityIndicatorView.sharedInstance.textLabel = label
-        RappleActivityIndicatorView.startPrivateAnimating()
+        RappleActivityIndicatorView.startPrivateAnimating(addTo: view)
     }
     
     /** stop & clear */
