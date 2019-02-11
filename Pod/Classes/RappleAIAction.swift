@@ -42,7 +42,7 @@ extension RappleActivityIndicatorView {
     @objc class func startPrivateAnimating(addTo view: UIView? = nil) {
         
         sharedInstance.keyWindow.endEditing(true)
-        sharedInstance.keyWindow.isUserInteractionEnabled = false
+        
         
         let progress = RappleActivityIndicatorView.sharedInstance
         
@@ -50,8 +50,10 @@ extension RappleActivityIndicatorView {
         
         sharedInstance.showProgress = false
         if let view = view {
+            sharedInstance.keyWindow.isUserInteractionEnabled = true
             progress.createProgressBG(addTo: view)
         }else{
+            sharedInstance.keyWindow.isUserInteractionEnabled = false
             progress.createProgressBG()
         }
         
