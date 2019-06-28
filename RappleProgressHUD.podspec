@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name             = "RappleProgressHUD"
-s.version          = "3.0.4"
+s.version          = "3.1.0"
 s.summary          = "Activity & Progress indicator for Swift."
 
 s.description      = <<-DESC
@@ -12,7 +12,7 @@ s.license          = { :type => 'MIT', :file => 'LICENSE' }
 s.author           = { "Rajeev Prasad" => "rjeprasad@gmail.com" }
 s.source           = { :git => "https://github.com/rjeprasad/RappleProgressHUD.git", :tag => s.version.to_s }
 
-s.swift_version = '4.2'
+s.swift_version = '5.0'
 
 s.ios.deployment_target = '10.0'
 s.source_files = 'Pod/Classes/*'
