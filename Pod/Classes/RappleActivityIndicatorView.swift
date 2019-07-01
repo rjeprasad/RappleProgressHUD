@@ -155,10 +155,10 @@ extension RappleActivityIndicatorView {
     /**
      Start Rapple progress indicator without any text message, using RappleModernAttributes
      */
-    @objc public class func startAnimating() {
+    @objc public class func startAnimating(addTo view: UIView? = nil) {
         DispatchQueue.main.async {
             RappleActivityIndicatorView.localClearUp()
-            RappleActivityIndicatorView.startPrivateAnimating()
+            RappleActivityIndicatorView.startPrivateAnimating(addTo: view)
         }
     }
     
@@ -166,10 +166,10 @@ extension RappleActivityIndicatorView {
      Start Rapple progress indicator without any text message
      - parameter attributes: dictionary with custom attributes
      */
-    @objc public class func startAnimating(attributes:[String:Any]) {
+    @objc public class func startAnimating(attributes:[String:Any], addTo view: UIView? = nil) {
         DispatchQueue.main.async {
             RappleActivityIndicatorView.localClearUp()
-            RappleActivityIndicatorView.startPrivateAnimating(attributes: attributes)
+            RappleActivityIndicatorView.startPrivateAnimating(attributes: attributes, addTo: view)
         }
     }
     
@@ -177,10 +177,10 @@ extension RappleActivityIndicatorView {
      Start Rapple progress indicator & text message, using RappleModernAttributes
      - parameter label: text value to display with activity indicator
      */
-    @objc public class func startAnimatingWithLabel(_ label : String) {
+    @objc public class func startAnimatingWithLabel(_ label : String, addTo view: UIView? = nil) {
         DispatchQueue.main.async {
             RappleActivityIndicatorView.localClearUp()
-            RappleActivityIndicatorView.startPrivateAnimatingWithLabel(label)
+            RappleActivityIndicatorView.startPrivateAnimatingWithLabel(label, addTo: view)
         }
     }
     
@@ -189,10 +189,10 @@ extension RappleActivityIndicatorView {
      - parameter label: text value to display with activity indicator
      - parameter attributes: dictionary with custom attributes
      */
-    @objc public class func startAnimatingWithLabel(_ label : String, attributes:[String:Any]) {
+    @objc public class func startAnimatingWithLabel(_ label : String, attributes:[String:Any], addTo view: UIView? = nil) {
         DispatchQueue.main.async {
             RappleActivityIndicatorView.localClearUp()
-            RappleActivityIndicatorView.startPrivateAnimatingWithLabel(label, attributes: attributes)
+            RappleActivityIndicatorView.startPrivateAnimatingWithLabel(label, attributes: attributes, addTo: view)
         }
     }
     
