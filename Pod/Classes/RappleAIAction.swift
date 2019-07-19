@@ -57,6 +57,8 @@ extension RappleActivityIndicatorView {
             progress.backgroundView?.alpha = 1.0
             
         }, completion: { (finished) -> Void in
+            sharedInstance.keyWindow.isUserInteractionEnabled = false
+            
             progress.createActivityIndicator()
         })
     }
