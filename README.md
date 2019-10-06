@@ -5,8 +5,9 @@
 [![Platform](https://img.shields.io/cocoapods/p/RappleProgressHUD.svg?style=flat)](http://cocoapods.org/pods/RappleProgressHUD)
 
 
-User-friendly and easy to use activity / progress indicator view with Swift 4.2
+User-friendly and easy to use activity / progress indicator view with Swift 5
 
+[Please use version 4.x for Swift 5 builds]
 [Please use version 3.x for Swift 4.2 builds]
 [Please use version 2.4.1 for Swift 4 builds]
 [Please use version 2.3.1 for Swift 3 builds]
@@ -16,10 +17,11 @@ User-friendly and easy to use activity / progress indicator view with Swift 4.2
 ![demo](Example/Demo/progress225.gif)
 
 ## Requirements
-- Swift 4.2
-- Xcode 10
+- Swift 5
+- Xcode 11
 - iOS 10+
 
+### Please use version 4.x for Swift 5 builds
 ### Please use version 3.x for Swift 4.2 builds
 ### Please use version 2.4.1 for Swift 4 builds
 ### Please use version 2.3.1 for Swift 3 builds
@@ -189,7 +191,7 @@ Rajeev Prasad, rjeprasad@gmail.com
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2015-2018 Rajeev Prasad <rjeprasad@gmail.com>
+Copyright (c) 2015-2019 Rajeev Prasad <rjeprasad@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
