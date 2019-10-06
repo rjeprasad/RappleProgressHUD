@@ -28,6 +28,7 @@
  ** */
 
 import Foundation
+import UIKit
 
 /** general methods */
 extension RappleActivityIndicatorView {
