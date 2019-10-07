@@ -2,29 +2,23 @@
 
 [![Version](https://img.shields.io/cocoapods/v/RappleProgressHUD.svg?style=flat)](http://cocoapods.org/pods/RappleProgressHUD)
 [![License](https://img.shields.io/cocoapods/l/RappleProgressHUD.svg?style=flat)](http://cocoapods.org/pods/RappleProgressHUD)
-[![Platform](https://img.shields.io/cocoapods/p/RappleProgressHUD.svg?style=flat)](http://cocoapods.org/pods/RappleProgressHUD)
-
+[![CocoaPods](https://img.shields.io/cocoapods/l/RappleProgressHUD.svg?style=flat)](http://cocoapods.org/pods/RappleProgressHUD)
+![Platform](https://img.shields.io/badge/platforms-iOS%2010.0-F28D00.svg)
 
 User-friendly and easy to use activity / progress indicator view with Swift 5
 
-[Please use version 4.x for Swift 5 builds]
-[Please use version 3.x for Swift 4.2 builds]
-[Please use version 2.4.1 for Swift 4 builds]
-[Please use version 2.3.1 for Swift 3 builds]
+#### For swift v5.0 use latest pod version (4.x)
+#### For swift v4.2 use latest pod version 3.0.4
+#### For swift v4.0 use latest pod version 2.4.1
 
 ## Demo
 
 ![demo](Example/Demo/progress225.gif)
 
-## Requirements
+## Requirements for latest pod
 - Swift 5
 - Xcode 11
 - iOS 10+
-
-### Please use version 4.x for Swift 5 builds
-### Please use version 3.x for Swift 4.2 builds
-### Please use version 2.4.1 for Swift 4 builds
-### Please use version 2.3.1 for Swift 3 builds
 
 
 ## Installation
