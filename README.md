@@ -1,15 +1,14 @@
 # RappleProgressHUD
 
 [![Version](https://img.shields.io/cocoapods/v/RappleProgressHUD.svg?style=flat)](http://cocoapods.org/pods/RappleProgressHUD)
-[![License](https://img.shields.io/cocoapods/l/RappleProgressHUD.svg?style=flat)](http://cocoapods.org/pods/RappleProgressHUD)
-[![CocoaPods](https://img.shields.io/cocoapods/l/RappleProgressHUD.svg?style=flat)](http://cocoapods.org/pods/RappleProgressHUD)
+[![License](https://img.shields.io/cocoapods/l/RappleProgressHUD.svg?style=flat)]
 ![Platform](https://img.shields.io/badge/platforms-iOS%2010.0-F28D00.svg)
 
 User-friendly and easy to use activity / progress indicator view with Swift 5
 
 #### For swift v5.0 use latest pod version (4.x)
-#### For swift v4.2 use latest pod version 3.0.4
-#### For swift v4.0 use latest pod version 2.4.1
+#### For swift v4.2 use pod version 3.0.4
+#### For swift v4.0 use pod version 2.4.1
 
 ## Demo
 

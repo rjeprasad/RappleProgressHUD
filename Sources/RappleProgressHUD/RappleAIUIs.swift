@@ -27,7 +27,6 @@
  THE SOFTWARE.
  ** */
 
-import Foundation
 import UIKit
 
 /** creation of UIs */
