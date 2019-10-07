@@ -4,11 +4,6 @@
 ![License](https://img.shields.io/cocoapods/l/RappleProgressHUD.svg?style=flat)
 ![Platform](https://img.shields.io/badge/platforms-iOS%2010.0-F28D00.svg)
 
-[![CI Status](https://img.shields.io/travis/rjeprasad/RappleProgressHUD.svg?style=flat)](https://travis-ci.org/rjeprasad/RappleProgressHUD)
-[![Version](https://img.shields.io/cocoapods/v/RappleProgressHUD.svg?style=flat)](https://cocoapods.org/pods/RappleProgressHUD)
-[![License](https://img.shields.io/cocoapods/l/RappleProgressHUD.svg?style=flat)](https://cocoapods.org/pods/RappleProgressHUD)
-[![Platform](https://img.shields.io/cocoapods/p/RappleProgressHUD.svg?style=flat)](https://cocoapods.org/pods/RappleProgressHUD)
-
 User-friendly and easy to use activity / progress indicator view with Swift 5
 
 #### For swift v5.0 use latest pod version (4.x)
@@ -26,12 +21,22 @@ User-friendly and easy to use activity / progress indicator view with Swift 5
 
 
 ## Installation
-RappleProgressHUD is available through [CocoaPods](http://cocoapods.org). To install it, simply add the following line to your Podfile:
 
-## Usage
+#### Cocoapods
+RappleProgressHUD is available through [CocoaPods](http://cocoapods.org). To install it, add the following line to your Podfile:
+
 ```ruby
 pod "RappleProgressHUD" 
 ```
+
+#### Swift Package Manager
+RappleProgressHUD is available Swift Package Manager. To install it, add following git link to swift package manager
+
+```ruby
+https://github.com/rjeprasad/RappleProgressHUD.git
+```
+
+## Usage
 
 Then simply import RappleProgressHUD 
 ```ruby

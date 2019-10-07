@@ -6,20 +6,6 @@
 	objectVersion = 46;
 	objects = {
 
-/* Begin PBXAggregateTarget section */
-		"RappleProgressHUD::RappleProgressHUDPackageTests::ProductTarget" /* RappleProgressHUDPackageTests */ = {
-			isa = PBXAggregateTarget;
-			buildConfigurationList = OBJ_44 /* Build configuration list for PBXAggregateTarget "RappleProgressHUDPackageTests" */;
-			buildPhases = (
-			);
-			dependencies = (
-				OBJ_47 /* PBXTargetDependency */,
-			);
-			name = RappleProgressHUDPackageTests;
-			productName = RappleProgressHUDPackageTests;
-		};
-/* End PBXAggregateTarget section */
-
 /* Begin PBXBuildFile section */
 		OBJ_31 /* RappleAIAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* RappleAIAction.swift */; };
 		OBJ_32 /* RappleAIPrivate.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* RappleAIPrivate.swift */; };
@@ -27,35 +13,13 @@
 		OBJ_34 /* RappleActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* RappleActivityIndicatorView.swift */; };
 		OBJ_35 /* RappleProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* RappleProgressHUD.swift */; };
 		OBJ_42 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
-		OBJ_53 /* RappleProgressHUDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_16 /* RappleProgressHUDTests.swift */; };
-		OBJ_54 /* XCTestManifests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* XCTestManifests.swift */; };
-		OBJ_56 /* RappleProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "RappleProgressHUD::RappleProgressHUD::Product" /* RappleProgressHUD.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		D5A82C5E2349E7F00036C7CB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = OBJ_1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = "RappleProgressHUD::RappleProgressHUD";
-			remoteInfo = RappleProgressHUD;
-		};
-		D5A82C5F2349E8010036C7CB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = OBJ_1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = "RappleProgressHUD::RappleProgressHUDTests";
-			remoteInfo = RappleProgressHUDTests;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		OBJ_10 /* RappleAIPrivate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RappleAIPrivate.swift; sourceTree = "<group>"; };
 		OBJ_11 /* RappleAIUIs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RappleAIUIs.swift; sourceTree = "<group>"; };
 		OBJ_12 /* RappleActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RappleActivityIndicatorView.swift; sourceTree = "<group>"; };
 		OBJ_13 /* RappleProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RappleProgressHUD.swift; sourceTree = "<group>"; };
-		OBJ_16 /* RappleProgressHUDTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RappleProgressHUDTests.swift; sourceTree = "<group>"; };
-		OBJ_17 /* XCTestManifests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestManifests.swift; sourceTree = "<group>"; };
 		OBJ_21 /* Pod */ = {isa = PBXFileReference; lastKnownFileType = text; path = Pod; sourceTree = SOURCE_ROOT; };
 		OBJ_22 /* Example */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Example; sourceTree = SOURCE_ROOT; };
 		OBJ_23 /* RappleProgressHUD.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = RappleProgressHUD.podspec; sourceTree = "<group>"; };
@@ -64,7 +28,6 @@
 		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		OBJ_9 /* RappleAIAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RappleAIAction.swift; sourceTree = "<group>"; };
 		"RappleProgressHUD::RappleProgressHUD::Product" /* RappleProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RappleProgressHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		"RappleProgressHUD::RappleProgressHUDTests::Product" /* RappleProgressHUDTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = RappleProgressHUDTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,50 +38,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_55 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 0;
-			files = (
-				OBJ_56 /* RappleProgressHUD.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		OBJ_14 /* Tests */ = {
-			isa = PBXGroup;
-			children = (
-				OBJ_15 /* RappleProgressHUDTests */,
-			);
-			name = Tests;
-			sourceTree = SOURCE_ROOT;
-		};
-		OBJ_15 /* RappleProgressHUDTests */ = {
-			isa = PBXGroup;
-			children = (
-				OBJ_16 /* RappleProgressHUDTests.swift */,
-				OBJ_17 /* XCTestManifests.swift */,
-			);
-			name = RappleProgressHUDTests;
-			path = Tests/RappleProgressHUDTests;
-			sourceTree = SOURCE_ROOT;
-		};
 		OBJ_18 /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				"RappleProgressHUD::RappleProgressHUD::Product" /* RappleProgressHUD.framework */,
-				"RappleProgressHUD::RappleProgressHUDTests::Product" /* RappleProgressHUDTests.xctest */,
 			);
 			name = Products;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
 				OBJ_7 /* Sources */,
-				OBJ_14 /* Tests */,
 				OBJ_18 /* Products */,
 				OBJ_21 /* Pod */,
 				OBJ_22 /* Example */,
@@ -126,7 +61,6 @@
 				OBJ_24 /* LICENSE */,
 				OBJ_25 /* README.md */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_7 /* Sources */ = {
@@ -169,23 +103,6 @@
 			productReference = "RappleProgressHUD::RappleProgressHUD::Product" /* RappleProgressHUD.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		"RappleProgressHUD::RappleProgressHUDTests" /* RappleProgressHUDTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_49 /* Build configuration list for PBXNativeTarget "RappleProgressHUDTests" */;
-			buildPhases = (
-				OBJ_52 /* Sources */,
-				OBJ_55 /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				OBJ_57 /* PBXTargetDependency */,
-			);
-			name = RappleProgressHUDTests;
-			productName = RappleProgressHUDTests;
-			productReference = "RappleProgressHUD::RappleProgressHUDTests::Product" /* RappleProgressHUDTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		"RappleProgressHUD::SwiftPMPackageDescription" /* RappleProgressHUDPackageDescription */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = OBJ_38 /* Build configuration list for PBXNativeTarget "RappleProgressHUDPackageDescription" */;
@@ -216,15 +133,13 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_18 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				"RappleProgressHUD::RappleProgressHUD" /* RappleProgressHUD */,
 				"RappleProgressHUD::SwiftPMPackageDescription" /* RappleProgressHUDPackageDescription */,
-				"RappleProgressHUD::RappleProgressHUDPackageTests::ProductTarget" /* RappleProgressHUDPackageTests */,
-				"RappleProgressHUD::RappleProgressHUDTests" /* RappleProgressHUDTests */,
 			);
 		};
 /* End PBXProject section */
@@ -250,29 +165,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_52 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 0;
-			files = (
-				OBJ_53 /* RappleProgressHUDTests.swift in Sources */,
-				OBJ_54 /* XCTestManifests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		OBJ_47 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = "RappleProgressHUD::RappleProgressHUDTests" /* RappleProgressHUDTests */;
-			targetProxy = D5A82C5F2349E8010036C7CB /* PBXContainerItemProxy */;
-		};
-		OBJ_57 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = "RappleProgressHUD::RappleProgressHUD" /* RappleProgressHUD */;
-			targetProxy = D5A82C5E2349E7F00036C7CB /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		OBJ_28 /* Debug */ = {
@@ -400,68 +293,6 @@
 			};
 			name = Release;
 		};
-		OBJ_45 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-			};
-			name = Debug;
-		};
-		OBJ_46 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-			};
-			name = Release;
-		};
-		OBJ_50 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
-				);
-				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = RappleProgressHUD.xcodeproj/RappleProgressHUDTests_Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				OTHER_CFLAGS = "$(inherited)";
-				OTHER_LDFLAGS = "$(inherited)";
-				OTHER_SWIFT_FLAGS = "$(inherited)";
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
-				SWIFT_VERSION = 5.0;
-				TARGET_NAME = RappleProgressHUDTests;
-				TVOS_DEPLOYMENT_TARGET = 9.0;
-				WATCHOS_DEPLOYMENT_TARGET = 2.0;
-			};
-			name = Debug;
-		};
-		OBJ_51 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
-				);
-				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = RappleProgressHUD.xcodeproj/RappleProgressHUDTests_Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				OTHER_CFLAGS = "$(inherited)";
-				OTHER_LDFLAGS = "$(inherited)";
-				OTHER_SWIFT_FLAGS = "$(inherited)";
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
-				SWIFT_VERSION = 5.0;
-				TARGET_NAME = RappleProgressHUDTests;
-				TVOS_DEPLOYMENT_TARGET = 9.0;
-				WATCHOS_DEPLOYMENT_TARGET = 2.0;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -488,24 +319,6 @@
 			buildConfigurations = (
 				OBJ_39 /* Debug */,
 				OBJ_40 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		OBJ_44 /* Build configuration list for PBXAggregateTarget "RappleProgressHUDPackageTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				OBJ_45 /* Debug */,
-				OBJ_46 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		OBJ_49 /* Build configuration list for PBXNativeTarget "RappleProgressHUDTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				OBJ_50 /* Debug */,
-				OBJ_51 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
