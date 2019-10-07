@@ -1,7 +1,7 @@
 # RappleProgressHUD
 
 [![Version](https://img.shields.io/cocoapods/v/RappleProgressHUD.svg?style=flat)](http://cocoapods.org/pods/RappleProgressHUD)
-[![License](https://img.shields.io/cocoapods/l/RappleProgressHUD.svg?style=flat)]
+![License](https://img.shields.io/cocoapods/l/RappleProgressHUD.svg?style=flat)
 ![Platform](https://img.shields.io/badge/platforms-iOS%2010.0-F28D00.svg)
 
 User-friendly and easy to use activity / progress indicator view with Swift 5
