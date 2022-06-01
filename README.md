@@ -191,6 +191,10 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 Rajeev Prasad, rjeprasad@gmail.com
 
+## what's new in this fork 
+
+fix issue of force unwrap for UIWindow in RappleAIPrivate.swift and fix crash of RappleActivityIndicatorView.keyWindow.getter
+
 ## License
 The MIT License (MIT)
 

@@ -46,8 +46,6 @@ extension RappleActivityIndicatorView {
         
         let progress = RappleActivityIndicatorView.sharedInstance
         
-        NotificationCenter.default.addObserver(progress, selector: #selector(RappleActivityIndicatorView.orientationChanged), name: UIDevice.orientationDidChangeNotification, object: nil)
-        
         sharedInstance.showProgress = false
         
         progress.createProgressBG()
